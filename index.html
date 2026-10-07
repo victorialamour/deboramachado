@@ -1033,6 +1033,18 @@
   }
   /* Cartão principal: foto clara embaixo, então o escurecimento é maior para o texto branco */
   html .svc-card:first-child .svc-card__t{background:linear-gradient(to top,rgba(8,8,8,.82) 0,rgba(8,8,8,.55) 55%,rgba(8,8,8,0) 100%);padding-top:160px}
+  /* Hero: centralização das letras (o espaçamento entre letras deixa um vazio no fim da linha, compensado aqui) */
+  .hero__name2{padding-left:.14em;text-wrap:balance}
+  .hero__role{padding-left:.3em}
+  .hero__where span{display:inline}
+  @media (max-width:760px){
+    html .hero__where{max-width:none;font-size:1rem;line-height:1.45}
+    .hero__where span{display:block}
+    .hero__where .sep{display:none}
+    .hero__brand{width:100%;padding:0 20px}
+  }
+  /* sem legendas, as fotos de bastidores respiram sozinhas */
+  .bts__video figcaption{display:none}
   /* Noivas DM: rolagem horizontal fixada (sem animação: fita comum com barra de rolagem) */
   .noivas{background:var(--off);padding:0}
   .noivas__pin{padding:96px 0 90px}
@@ -1105,7 +1117,7 @@
   <div class="hero__brand">
     <h1 class="hero__name2">Débora Machado</h1>
     <p class="hero__role">Beauty Artist</p>
-    <p class="hero__where">Maquiagem e penteado de noiva · São Paulo e todo o Brasil</p>
+    <p class="hero__where"><span>Maquiagem e penteado de noiva</span><span class="sep"> · </span><span>São Paulo e todo o Brasil</span></p>
     <a class="btn hero__cta" href="https://wa.me/5511969174209?text=Oi%2C%20D%C3%A9bora!%20Vim%20pelo%20seu%20site.%20Meu%20casamento%20%C3%A9%20dia%20___%2C%20em%20___.%20Queria%20saber%20se%20voc%C3%AA%20tem%20essa%20data." target="_blank" rel="noopener" data-wa>Consultar minha data</a>
   </div>
 </section>
@@ -1156,7 +1168,6 @@
       <figure class="noivas__f"><img src="layout-nina/fotos/noiva-01.webp" srcset="layout-nina/fotos/noiva-01-640.webp 640w, layout-nina/fotos/noiva-01-1100.webp 1100w, layout-nina/fotos/noiva-01.webp 1600w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" width="1600" height="2127" alt="Véu e buquê" loading="lazy"></figure>
       <figure class="noivas__f"><img src="layout-nina/fotos/hero-noiva.webp" srcset="layout-nina/fotos/hero-noiva-640.webp 640w, layout-nina/fotos/hero-noiva-1100.webp 1100w, layout-nina/fotos/hero-noiva.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" width="1440" height="1800" alt="Flor no cabelo" loading="lazy"></figure>
       <figure class="noivas__f"><img src="layout-nina/fotos/noiva-03.webp" srcset="layout-nina/fotos/noiva-03-640.webp 640w, layout-nina/fotos/noiva-03-1100.webp 1100w, layout-nina/fotos/noiva-03.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" width="1440" height="1800" alt="Noiva loira com vestido de renda e brilho nos olhos" loading="lazy"></figure>
-      <figure class="noivas__f"><img src="layout-nina/fotos/noiva-10.webp" srcset="layout-nina/fotos/noiva-10-640.webp 640w, layout-nina/fotos/noiva-10-1100.webp 1100w, layout-nina/fotos/noiva-10.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" width="1440" height="1920" alt="Noiva de robe branco e bobes, segurando o espelhinho de um blush" loading="lazy"></figure>
       <figure class="noivas__f"><img src="layout-nina/fotos/noiva-09.webp" srcset="layout-nina/fotos/noiva-09-640.webp 640w, layout-nina/fotos/noiva-09-1100.webp 1100w, layout-nina/fotos/noiva-09.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" width="1440" height="1800" alt="Noiva de olhos azuis, cabelo ondulado e buquê de rosas brancas" loading="lazy"></figure>
       <figure class="noivas__f"><img src="layout-nina/fotos/noiva-07.webp" srcset="layout-nina/fotos/noiva-07-640.webp 640w, layout-nina/fotos/noiva-07.webp 1152w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" width="1152" height="1536" alt="Noiva de cabelo ondulado solto, maquiagem luminosa e brinco de pérola" loading="lazy"></figure>
     </div>
@@ -1223,12 +1234,12 @@
       <figure class="bts__video reveal">
         <video id="btsv" muted loop playsinline preload="auto" aria-label="Bastidores: penteado sendo feito, em vídeo"><source src="layout-nina/video/making-of-cabelo.mp4#t=0.1" type="video/mp4"></video>
         <button type="button" class="bts__play" id="btsp" aria-label="Pausar o vídeo" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-play" d="M8 5.5v13l11-6.5z"/><path class="ic-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
-        <figcaption>Um penteado sendo feito</figcaption>
+        
       </figure>
       <div class="bts__pics">
-        <figure class="bts__pic bts__pic--a reveal d1"><div class="ph"><img src="layout-nina/fotos/noiva-11.webp" srcset="layout-nina/fotos/noiva-11-640.webp 640w, layout-nina/fotos/noiva-11-1100.webp 1100w, layout-nina/fotos/noiva-11.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" alt="Close do rosto de uma noiva com véu, tiara e maquiagem luminosa" loading="lazy" width="1440" height="1800"></div><figcaption>O resultado, de pertinho</figcaption></figure>
-        <figure class="bts__pic bts__pic--b reveal d2"><div class="ph"><img src="layout-nina/fotos/bastidor-gloss.webp" srcset="layout-nina/fotos/bastidor-gloss-640.webp 640w, layout-nina/fotos/bastidor-gloss-1100.webp 1100w, layout-nina/fotos/bastidor-gloss.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" alt="Maquiadora aplicando gloss nos lábios de uma noiva" loading="lazy" width="1440" height="1800"></div><figcaption>Finalizando os lábios</figcaption></figure>
-        <figure class="bts__pic bts__pic--c reveal d2"><div class="ph"><img src="layout-nina/fotos/bastidor-janela.webp" srcset="layout-nina/fotos/bastidor-janela-640.webp 640w, layout-nina/fotos/bastidor-janela-1100.webp 1100w, layout-nina/fotos/bastidor-janela.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" alt="Noiva sentada diante da janela, com três mulheres de roupão preto ao lado, em frente à bancada de maquiagem" loading="lazy" width="1440" height="1800"></div><figcaption>Quem está com você também se arruma</figcaption></figure>
+        <figure class="bts__pic bts__pic--a reveal d1"><div class="ph"><img src="layout-nina/fotos/noiva-11.webp" srcset="layout-nina/fotos/noiva-11-640.webp 640w, layout-nina/fotos/noiva-11-1100.webp 1100w, layout-nina/fotos/noiva-11.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" alt="Close do rosto de uma noiva com véu, tiara e maquiagem luminosa" loading="lazy" width="1440" height="1800"></div></figure>
+        <figure class="bts__pic bts__pic--b reveal d2"><div class="ph"><img src="layout-nina/fotos/bastidor-gloss.webp" srcset="layout-nina/fotos/bastidor-gloss-640.webp 640w, layout-nina/fotos/bastidor-gloss-1100.webp 1100w, layout-nina/fotos/bastidor-gloss.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" alt="Maquiadora aplicando gloss nos lábios de uma noiva" loading="lazy" width="1440" height="1800"></div></figure>
+        <figure class="bts__pic bts__pic--c reveal d2"><div class="ph"><img src="layout-nina/fotos/bastidor-janela.webp" srcset="layout-nina/fotos/bastidor-janela-640.webp 640w, layout-nina/fotos/bastidor-janela-1100.webp 1100w, layout-nina/fotos/bastidor-janela.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" alt="Noiva sentada diante da janela, com três mulheres de roupão preto ao lado, em frente à bancada de maquiagem" loading="lazy" width="1440" height="1800"></div></figure>
       </div>
     </div>
     <div class="bts__cta reveal"><a class="btn" href="https://wa.me/5511969174209?text=Oi%2C%20D%C3%A9bora!%20Vim%20pelo%20seu%20site.%20Meu%20casamento%20%C3%A9%20dia%20___%2C%20em%20___.%20Queria%20saber%20se%20voc%C3%AA%20tem%20essa%20data." target="_blank" rel="noopener" data-wa>Quero conversar sobre o meu casamento</a></div>
