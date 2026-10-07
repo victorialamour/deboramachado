@@ -619,6 +619,14 @@ h = h.replace('</style>', `
   }
   /* sem legendas, as fotos de bastidores respiram sozinhas */
   .bts__video figcaption{display:none}
+  /* Títulos centralizados como em Do civil ao destination */
+  html .etp__head,html .bts__head{text-align:center;justify-items:center;margin-left:auto;margin-right:auto}
+  html .etp__head .muted,html .bts__head .muted{text-align:center;margin-left:auto;margin-right:auto}
+  @media (max-width:760px){
+    html .opening__text{text-align:center}
+    html .opening__text .title{text-wrap:balance}
+    html .opening__actions{justify-content:center;align-items:center;flex-direction:column;gap:18px}
+  }
   /* Noivas DM: rolagem horizontal fixada (sem animação: fita comum com barra de rolagem) */
   .noivas{background:var(--off);padding:0}
   .noivas__pin{padding:96px 0 90px}
@@ -708,7 +716,7 @@ cut('<!-- ================= TOPO', '<!-- ================= RODAPÉ', `<!-- =====
       <div class="ph">${img('veil-detalhe', 'Rosto de uma noiva em close, com véu de renda e gloss nos lábios', '50% 40%')}</div>
     </div>
     <div class="opening__text">
-    <h2 class="title reveal d1">Antes de pegar o pincel, eu estudo <em>o seu rosto.</em></h2>
+    <h2 class="title reveal d1">Tudo começa pelo <em>seu rosto.</em></h2>
     <p class="muted reveal d2">Você responde um questionário, me manda algumas fotos e eu faço a leitura do seu rosto, do seu tom e subtom de pele e do vestido que escolheu.</p>
     <p class="muted reveal d2">Só depois a gente decide a maquiagem e o penteado. Por isso nenhuma noiva minha sai igual à outra.</p>
     <div class="opening__actions reveal d2">
@@ -718,7 +726,7 @@ cut('<!-- ================= TOPO', '<!-- ================= RODAPÉ', `<!-- =====
     </div>
     <div class="opening__right">
       <div class="ph opening__r1 reveal d1">${img('ombro', 'Noiva de lado, olhando por cima do ombro, com pele luminosa', '50% 25%')}</div>
-      <div class="ph opening__r2 reveal d2">${img('brinco', 'Perfil de noiva com coque baixo e brinco de cristais', '50% 35%')}</div>
+      <div class="ph opening__r2 reveal d2">${img('noiva-07', 'Noiva de cabelo ondulado solto, maquiagem luminosa e brinco de pérola', '50% 30%')}</div>
     </div>
   </div>
 </section>
@@ -734,14 +742,13 @@ cut('<!-- ================= TOPO', '<!-- ================= RODAPÉ', `<!-- =====
       </div>
     </div>
     <div class="noivas__tr" tabindex="0" role="region" aria-label="Fotos de noivas, role para o lado para ver todas">
-      <figure class="noivas__f"><img src="${F}noiva-05.webp" width="1600" height="2133" alt="Cabelo preto solto, costas abertas" ></figure>
       <figure class="noivas__f"><img src="${F}noiva-04.webp" width="1440" height="1920" alt="Ondas e buquê" ></figure>
       <figure class="noivas__f"><img src="${F}noiva-06.webp" width="1600" height="2130" alt="Manga longa e peônias" loading="lazy"></figure>
       <figure class="noivas__f"><img src="${F}noiva-01.webp" width="1600" height="2127" alt="Véu e buquê" loading="lazy"></figure>
       <figure class="noivas__f"><img src="${F}hero-noiva.webp" width="1440" height="1800" alt="Flor no cabelo" loading="lazy"></figure>
       <figure class="noivas__f"><img src="${F}noiva-03.webp" width="1440" height="1800" alt="Noiva loira com vestido de renda e brilho nos olhos" loading="lazy"></figure>
       <figure class="noivas__f"><img src="${F}noiva-09.webp" width="1440" height="1800" alt="Noiva de olhos azuis, cabelo ondulado e buquê de rosas brancas" loading="lazy"></figure>
-      <figure class="noivas__f"><img src="${F}noiva-07.webp" width="1152" height="1536" alt="Noiva de cabelo ondulado solto, maquiagem luminosa e brinco de pérola" loading="lazy"></figure>
+      <figure class="noivas__f"><img src="${F}noiva-05.webp" width="1600" height="2133" alt="Cabelo preto solto, costas abertas" loading="lazy"></figure>
     </div>
   </div>
 </section>
