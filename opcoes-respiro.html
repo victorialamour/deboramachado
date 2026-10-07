@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>Débora Machado, 14 faixas de respiro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{--w:#fff;--off:#F6F6F5;--line:#DDDDDB;--gray:#6F6F6F;--soft:#5E5E5E;--text:#1E1E1E;--k:#111;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--ease:cubic-bezier(.23,1,.32,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--w);color:var(--text);font:300 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%;height:auto;object-fit:cover}
+  button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;touch-action:manipulation}
+  :focus-visible{outline:2px solid var(--k);outline-offset:3px}
+  ::selection{background:var(--k);color:var(--w)}
+  .top{background:var(--off);padding:56px 20px 44px}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+  .top h1{font:300 clamp(2rem,4.4vw,3.1rem)/1.1 var(--serif);color:var(--k);margin-bottom:12px}
+  .top p{max-width:52em;color:var(--gray)}
+  .idx{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .idx a{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border:1px solid var(--line);background:#fff;color:var(--k);text-decoration:none;font-size:.88rem}
+  .bar{position:sticky;top:0;z-index:50;background:var(--k);color:#fff;padding:12px 20px;display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline;font-size:.88rem}
+  .bar b{font-weight:400;font-size:1rem}.bar span{opacity:.75}
+  .bar em{font-style:normal;border:1px solid #888;padding:0 8px;font-size:.72rem}
+  /* contexto: seção anterior e seguinte */
+  .ctx{padding:70px 20px;text-align:center}
+  .ctx i{display:block;font-style:normal;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#b0b0b0;margin-bottom:18px}
+  .ctx h3{font:300 clamp(1.8rem,3.4vw,2.6rem)/1.1 var(--serif);color:#c9c9c9}
+  .ctx.alt{background:var(--off)}
+  .sk{height:7px;background:#ececec;margin:10px auto 0;max-width:340px}
+  .sk+.sk{max-width:260px}
+  /* a faixa atual (referência) */
+  .ref{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0 18px;overflow:hidden}
+  .ref p{text-align:center;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gray);margin:0 0 10px}
+  .tk{display:flex;width:max-content;animation:mq 60s linear infinite}
+  .tk ul{display:flex;list-style:none}
+  .tk li{font:400 1.15rem/1 var(--serif);letter-spacing:.2em;text-transform:uppercase;color:var(--k);white-space:nowrap;padding:0 34px;position:relative}
+  .tk li::after{content:"";position:absolute;right:-2px;top:50%;width:4px;height:4px;margin-top:-2px;border-radius:50%;background:var(--line)}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  .tk:hover,.paused .tk{animation-play-state:paused}
+  .ctl{text-align:center;margin-top:10px}.ctl button{min-height:36px;padding:0 14px;border:1px solid var(--line);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase}
+  /* 1 frase */
+  .b1{padding:46px 20px;border-top:1px solid var(--k);border-bottom:1px solid var(--line);text-align:center}
+  .b1 p{font:300 clamp(1.8rem,4.6vw,3.2rem)/1.1 var(--serif);color:var(--k);letter-spacing:-.01em;text-wrap:balance}
+  /* 2 três fatos */
+  .b2{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .b2 div{padding:34px 20px;text-align:center;border-right:1px solid var(--line)}.b2 div:last-child{border-right:0}
+  .b2 b{display:block;font:300 clamp(1.4rem,2.6vw,2rem)/1.1 var(--serif);color:var(--k)}
+  .b2 span{font-size:.82rem;color:var(--gray)}
+  @media(max-width:700px){.b2{grid-template-columns:1fr}.b2 div{border-right:0;border-bottom:1px solid var(--line)}}
+  /* 3 olhar */
+  .b3{position:relative;height:clamp(150px,22vw,260px);overflow:hidden}.b3 img{width:100%;height:100%;object-position:50% 36%}
+  /* 4 brilho */
+  .b4{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);height:clamp(150px,22vw,260px);overflow:hidden}.b4 img{width:100%;height:100%;min-height:0}
+  /* 5 figurinhas */
+  .b5{position:relative;display:flex;justify-content:space-around;align-items:center;padding:34px 8%}
+  .b5::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line)}
+  .b5 span{position:relative;background:var(--w);padding:0 22px;display:block}
+  .b5 img{height:74px;width:auto;mix-blend-mode:multiply}
+  /* 6 monograma entre fios */
+  .b6{display:flex;align-items:center;gap:26px;padding:50px 5%}
+  .b6::before,.b6::after{content:"";flex:1;height:1px;background:var(--k)}
+  .b6 svg{width:46px;height:62px;color:var(--k);flex:none}
+  /* 7 assinatura */
+  .b7{text-align:center;padding:52px 20px}
+  .b7 p{font:400 clamp(2.6rem,6vw,4rem)/1 'Pinyon Script',cursive;color:var(--k)}
+  .b7 small{display:block;margin-top:12px;font-size:.8rem;color:var(--gray)}
+  /* 8 fita de fotos */
+  .b8{display:grid;grid-template-columns:repeat(6,1fr);gap:0}.b8 img{width:100%;aspect-ratio:3/2;height:auto}
+  @media(max-width:700px){.b8{grid-template-columns:repeat(3,1fr)}}
+  /* 9 faixa preta */
+  .b9{background:var(--k);color:#fff;padding:34px 20px;text-align:center}
+  .b9 p{font:300 clamp(1.3rem,2.8vw,2rem)/1.2 var(--serif)}
+  /* 10 respiro puro */
+  .b10{height:150px;display:flex;justify-content:center;align-items:center}.b10 i{display:block;width:1px;height:90px;background:var(--k)}
+  /* 11 selo */
+  .b11{display:flex;align-items:center;gap:22px;padding:38px 5%}
+  .b11::before,.b11::after{content:"";flex:1;height:1px;background:var(--line)}
+  .b11 p{font:400 .8rem/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--k);text-align:center}
+  /* 12 paleta */
+  .b12{display:grid;grid-template-columns:repeat(5,1fr)}
+  .b12 div{height:84px;display:flex;align-items:flex-end;padding:8px 12px;font-size:.74rem}
+  /* 13 convite */
+  .b13{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;padding:40px 5%;border-top:1px solid var(--k);border-bottom:1px solid var(--line)}
+  .b13 p{font:300 clamp(1.6rem,3.4vw,2.4rem)/1.1 var(--serif);color:var(--k)}
+  .b13 a{color:var(--k);font-size:.76rem;letter-spacing:.18em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--k);padding-bottom:4px}
+  .b13 a:hover{opacity:.6}
+  /* 14 duas linhas de palavras */
+  .b14{padding:26px 0;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .b14 .tk li{font-size:clamp(1.6rem,3.4vw,2.6rem);letter-spacing:0;text-transform:none;font-style:italic;font-weight:300}
+  .b14 .tk li::after{display:none}
+  .b14 .tk{animation-duration:80s}
+  @media(prefers-reduced-motion:reduce){.tk{animation:none}.ref,.b14{overflow-x:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mono" viewBox="0 0 60 80"><ellipse cx="30" cy="40" rx="28" ry="38" fill="none" stroke="currentColor" stroke-width="1"/><ellipse cx="30" cy="40" rx="25" ry="35" fill="none" stroke="currentColor" stroke-width=".6"/><text x="22" y="42" font-family="Cormorant Garamond, Georgia, serif" font-size="25" fill="currentColor" text-anchor="middle">D</text><text x="37" y="55" font-family="Cormorant Garamond, Georgia, serif" font-size="25" fill="currentColor" text-anchor="middle">M</text></symbol>
+</svg>
+<header class="top"><div class="wrap">
+  <h1>14 faixas de respiro</h1>
+  <p>A faixa de locais continua onde está. Aqui estão outras maneiras de dar fôlego entre as seções, no mesmo espírito: finas, leves e sem competir com o conteúdo. Cada uma aparece entre uma seção anterior e uma seguinte, em cinza, para você sentir o efeito. Pode usar uma só, ou trocar a atual por uma delas.</p>
+  <nav class="idx" id="idx" aria-label="Faixas"></nav>
+</div></header>
+<main id="main"></main>
+
+<script>
+const ctx = (t, alt) => `<div class="ctx${alt ? ' alt' : ''}"><i>${t}</i><h3>Título da seção</h3><div class="sk"></div><div class="sk"></div></div>`;
+const ticker = items => `<div class="tk"><ul>${items.map(x => `<li>${x}</li>`).join('')}</ul><ul aria-hidden="true">${items.map(x => `<li>${x}</li>`).join('')}</ul></div>`;
+const LOC = ['Palácio Tangará', 'Palácio dos Cedros', 'Fazenda Fagundes', 'Guia Constance Zahn', 'Destination wedding'];
+const PAL = [['#e3a38f', 'pele'], ['#d48f7c', 'luz'], ['#b3786f', 'olhar'], ['#b05d65', 'boca'], ['#7c4e37', 'sombra']];
+const O = [
+  ['Atual: faixa de locais', 'a que já está na página, para comparar', `<div class="ref" id="ref"><p>Casamentos assinados em</p>${ticker(LOC)}</div><div class="ctl"><button type="button" id="pa">Pausar</button></div>`, 'em movimento'],
+  ['Frase entre fios', 'uma única frase grande, com um fio preto em cima e um cinza embaixo', `<div class="b1"><p>Uma noiva por dia, com atenção inteira.</p></div>`, 'estática'],
+  ['Três fatos', 'três afirmações curtas, separadas por filetes. Sem números inventados', `<div class="b2"><div><b>Visagismo e colorimetria</b><span>a base do método</span></div><div><b>Uma noiva por dia</b><span>agenda limitada</span></div><div><b>São Paulo e destination wedding</b><span>onde você estiver</span></div></div>`, 'estática'],
+  ['Faixa de olhar', 'um recorte de foto em tela cheia, só o olhar, sem texto', `<div class="b3"><img src="fotos/veil-detalhe.webp" width="1440" height="1920" alt="Olhar de uma noiva em close, com cílios e sombra suave" loading="lazy"></div>`, 'estática'],
+  ['Dois recortes lado a lado', 'duas fotos de detalhe (brinco e véu) em faixa dividida ao meio', `<div class="b4"><img src="fotos/brinco.webp" alt="Brinco de cristais de uma noiva de perfil" width="1440" height="1920" style="object-position:30% 60%" loading="lazy"><img src="fotos/veil-portrait.webp" alt="Renda do véu de uma noiva" width="1440" height="1920" style="object-position:20% 20%" loading="lazy"></div>`, 'estática'],
+  ['Figurinhas de maquiagem', 'blush, gloss e pincel espaçados sobre um fio fino', `<div class="b5"><span><img src="fotos/amostra-blush-po.webp" alt="" aria-hidden="true"></span><span><img src="fotos/amostra-gloss-pessego.webp" alt="" aria-hidden="true"></span><span><img src="fotos/pincel-base.webp" alt="" aria-hidden="true"></span><span><img src="fotos/amostra-gloss-rosa.webp" alt="" aria-hidden="true"></span></div>`, 'estática'],
+  ['Monograma entre fios', 'o emblema DM no centro, com um fio de cada lado', `<div class="b6"><svg viewBox="0 0 60 80" aria-label="Monograma DM" role="img"><use href="#mono"/></svg></div>`, 'estática'],
+  ['Assinatura', 'a assinatura em letra manuscrita, como fecho de carta', `<div class="b7"><p>Débora</p><small>com carinho</small></div>`, 'estática'],
+  ['Fita de fotos', 'seis fotos pequenas coladas, de uma ponta à outra', `<div class="b8">${['noiva-03', 'noiva-05', 'noiva-04', 'noiva-06', 'noiva-01', 'hero-noiva'].map(f => `<img src="fotos/${f}.webp" alt="Noiva" width="600" height="400" loading="lazy">`).join('')}</div>`, 'estática'],
+  ['Faixa preta fina', 'um respiro com contraste: uma frase em branco sobre preto', `<div class="b9"><p>Nenhuma noiva minha sai igual à outra.</p></div>`, 'estática'],
+  ['Respiro puro', 'só espaço e um fio vertical. Quase nada, de propósito', `<div class="b10"><i></i></div>`, 'estática'],
+  ['Selo de indicação', 'a indicação no Guia Constance Zahn, entre dois fios', `<div class="b11"><p>Indicada no Guia Constance Zahn</p></div>`, 'estática'],
+  ['Paleta de tons', 'cinco tons medidos na pele de uma noiva, em blocos de ponta a ponta', `<div class="b12">${PAL.map(([c, n]) => `<div style="background:${c};color:${n === 'sombra' ? '#fff' : '#3a2a21'}">${n}</div>`).join('')}</div>`, 'estática'],
+  ['Convite curto', 'uma pergunta e um link, sem botão grande', `<div class="b13"><p>Sua data ainda está livre?</p><a href="https://wa.me/?text=Oi%2C%20D%C3%A9bora!" target="_blank" rel="noopener">Consultar minha data</a></div>`, 'estática'],
+  ['Palavras em itálico', 'uma fita lenta de palavras da Débora. Só uma fita por página, senão cansa', `<div class="b14">${ticker(['Análise', 'Planejamento', 'Moodboard', 'Teste', 'O grande dia'])}</div>`, 'em movimento']
+];
+document.getElementById('idx').innerHTML = O.map((o, i) => `<a href="#b${i}">${i + 1} ${o[0]}</a>`).join('');
+document.getElementById('main').innerHTML = O.map((o, i) => `<div class="bar" id="b${i}"><b>${i + 1} ${o[0]}</b><em>${o[3]}</em><span>${o[1]}</span></div>${ctx('seção anterior', i % 2)}${o[2]}${ctx('seção seguinte', (i + 1) % 2)}`).join('');
+const pa = document.getElementById('pa'); if (pa) pa.onclick = () => { const p = document.getElementById('ref').classList.toggle('paused'); pa.textContent = p ? 'Reproduzir' : 'Pausar'; };
+</script>
+</body>
+</html>

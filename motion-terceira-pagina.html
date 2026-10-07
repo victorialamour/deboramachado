@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>Débora Machado, “Como funciona” em movimento</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{--w:#fff;--paper:#F6F6F5;--line:#DDDDDB;--muted:#6F6F6F;--text:#2B2B2B;--k:#111;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--w);color:var(--text);font:300 1rem/1.7 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%;height:auto;object-fit:cover}
+  button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;touch-action:manipulation}
+  :focus-visible{outline:2px solid var(--k);outline-offset:3px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+  .intro{background:var(--paper);padding:60px 0 46px}
+  .intro h1{font:300 clamp(2rem,4.4vw,3.2rem)/1.1 var(--serif);color:var(--k);margin-bottom:12px}
+  .intro p{max-width:52em;color:var(--muted)}
+  .intro ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .intro a{display:inline-flex;min-height:44px;align-items:center;padding:0 14px;border:1px solid var(--line);background:#fff;text-decoration:none;color:var(--k);font-size:.9rem}
+  .bar{position:relative;z-index:20;background:var(--k);color:#fff;padding:12px 20px;display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline;font-size:.88rem}
+  .bar b{font-weight:400;font-size:1rem}.bar span{opacity:.75}
+  section{position:relative;padding:110px 0;overflow:hidden}
+  h2{font:300 clamp(2.2rem,5vw,3.6rem)/1.06 var(--serif);color:var(--k);text-wrap:balance}
+  .sub{max-width:34em;color:var(--muted);margin-top:16px}
+  .s{font-family:var(--serif);color:var(--k)}
+  .n{font-family:var(--serif);font-weight:300;color:var(--muted)}
+  .lab{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+
+  /* A · Linha com a virada */
+  .a .line{position:relative;display:grid;grid-template-columns:repeat(5,1fr);margin-top:90px}
+  .a .rule{position:absolute;left:0;right:0;top:0;height:1px;background:var(--k);transform-origin:left}
+  .a .st{position:relative;padding:28px 14px 0 0}
+  .a .dot{position:absolute;top:-6px;left:0;width:13px;height:13px;border-radius:50%;background:var(--k)}
+  .a .st.p .dot{background:#fff;border:1px solid var(--k)}
+  .a .st b{display:block;font:300 2.6rem/1 var(--serif);color:var(--k)}
+  .a .st .s{display:block;font-size:1.5rem;line-height:1.1;margin:6px 0 8px}
+  .a .st p{font-size:.92rem;max-width:15em}
+  .a .cut{position:absolute;left:60%;top:-70px;bottom:-30px;border-left:1px dashed var(--k);transform-origin:top}
+  .a .labs{position:absolute;top:-56px;left:0;right:0;display:flex}
+  .a .labs span{flex:3}.a .labs span+span{flex:2;padding-left:14px}
+  @media(max-width:860px){.a .line{grid-template-columns:1fr;margin-top:40px;padding-left:22px}.a .rule{left:6px;right:auto;width:1px;height:auto;bottom:0;transform-origin:top}.a .st{padding:0 0 30px}.a .dot{left:-22px;top:6px}.a .cut,.a .labs{display:none}}
+
+  /* B · Você faz, eu faço */
+  .b{background:var(--paper)}
+  .b table{width:100%;border-collapse:collapse;margin-top:56px}
+  .b th{font:400 1.6rem/1 var(--serif);color:var(--k);text-align:left;padding:0 0 16px;width:38%}
+  .b th:first-child{width:24%}
+  .b td{padding:22px 16px 22px 0;vertical-align:top;position:relative;font-size:1rem}
+  .b td:first-child{font:300 1.6rem/1.1 var(--serif);color:var(--k)}
+  .b td:first-child small{display:block;font:300 .8rem/1.4 var(--sans);color:var(--muted);margin-top:4px}
+  .b tr .ln{position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line);transform-origin:left}
+  .b tbody td:nth-child(2){color:var(--muted)}
+  .b tbody td:nth-child(3){color:var(--k)}
+  @media(max-width:700px){.b th{font-size:1.2rem}.b td{font-size:.88rem}.b td:first-child{font-size:1.2rem}}
+
+  /* C · Número gigante (fixado) */
+  .c{padding:0;height:100vh;min-height:620px}
+  .c .in{height:100%;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}
+  .c .num{position:relative;height:1em;overflow:hidden;font:300 clamp(9rem,22vw,17rem)/1 var(--serif);color:var(--k)}
+  .c .num span{position:absolute;left:0;top:0}
+  .c .txt{position:relative;min-height:160px;margin-top:10px}
+  .c .txt div{position:absolute;inset:0}
+  .c .txt .s{font-size:2rem;display:block;margin-bottom:8px}
+  .c .ph{position:relative;height:72vh;max-height:640px;overflow:hidden}
+  .c .ph img{position:absolute;inset:0;width:100%;height:100%}
+  .c .prog{display:flex;gap:6px;margin-top:26px;max-width:320px}.c .prog i{flex:1;height:2px;background:var(--line)}.c .prog i.on{background:var(--k)}
+  @media(max-width:860px){.c .in{grid-template-columns:1fr;gap:20px;align-content:center}.c .ph{height:40vh}.c .num{font-size:7rem}}
+
+  /* D · Cartões que se empilham (fixado) */
+  .d{background:var(--paper);padding:0}
+  .d .stack{position:relative;height:100vh;min-height:620px;display:grid;place-items:center}
+  .d .head{position:absolute;top:60px;left:20px;right:20px;max-width:1160px;margin:0 auto}
+  .d .cd{position:absolute;width:min(760px,90vw);height:min(400px,56vh);background:#fff;border:1px solid var(--k);display:grid;grid-template-columns:1fr 1.1fr;overflow:hidden;will-change:transform}
+  .d .cd img{width:100%;height:100%}
+  .d .cd div{padding:30px;display:flex;flex-direction:column;justify-content:center}
+  .d .cd b{font:300 3.4rem/1 var(--serif);color:var(--k)}
+  .d .cd .s{font-size:1.7rem;margin:6px 0 10px}
+  @media(max-width:700px){.d .cd{grid-template-columns:1fr;grid-template-rows:40% 60%}.d .cd div{padding:18px}}
+
+  /* E · Destaques com barra de tempo */
+  .e .stories{display:grid;gap:30px;margin-top:50px}
+  .e .rings{display:flex;gap:22px;flex-wrap:wrap}
+  .e .rings button{display:grid;justify-items:center;gap:8px;font-size:.85rem;color:var(--muted)}
+  .e .rings i{position:relative;display:block;width:76px;height:76px;border-radius:50%;padding:4px}
+  .e .rings svg{position:absolute;inset:0;transform:rotate(-90deg)}
+  .e .rings img{width:100%;height:100%;border-radius:50%}
+  .e .rings button[aria-selected="true"]{color:var(--k)}
+  .e .panel{display:grid;grid-template-columns:.85fr 1.15fr;border:1px solid var(--k);min-height:380px}
+  .e .panel .ph{position:relative;overflow:hidden}.e .panel .ph img{position:absolute;inset:0;width:100%;height:100%}
+  .e .panel .tx{padding:34px;display:flex;flex-direction:column;gap:14px}
+  .e .bars{display:flex;gap:6px}.e .bars i{flex:1;height:2px;background:var(--line);overflow:hidden}.e .bars i span{display:block;height:100%;width:0;background:var(--k)}
+  .e .panel .s{font-size:2rem}
+  .e .ctrl{margin-top:auto;display:flex;gap:10px}
+  .e .ctrl button{min-height:44px;padding:0 16px;border:1px solid var(--k);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase}
+  @media(max-width:760px){.e .panel{grid-template-columns:1fr}.e .panel .ph{height:260px}}
+
+  /* F · Fluxo com volta (SVG desenhado) */
+  .f svg{width:100%;height:auto;margin-top:50px;overflow:visible}
+  .f .box{fill:#fff;stroke:var(--k);stroke-width:1}
+  .f .box.last{fill:var(--k)}
+  .f text{font-family:var(--serif);font-size:20px;fill:var(--k)}
+  .f text.inv{fill:#fff}
+  .f text.small{font-family:var(--sans);font-size:13px;fill:var(--muted)}
+  .f .ar{stroke:var(--k);stroke-width:1.2;fill:none}
+
+  /* G · Rolagem conduz o controle */
+  .g{padding:0;background:var(--paper)}
+  .g .in{height:100vh;min-height:600px;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:60px}
+  .g .ph{position:relative;height:70vh;max-height:620px;overflow:hidden}.g .ph img{position:absolute;inset:0;width:100%;height:100%}
+  .g .track{position:relative;height:2px;background:var(--line);margin:30px 0 12px}
+  .g .fill{position:absolute;left:0;top:0;height:100%;width:100%;background:var(--k);transform-origin:left;transform:scaleX(0)}
+  .g .knob{position:absolute;top:-8px;left:0;width:18px;height:18px;border-radius:50%;background:var(--k);margin-left:-9px}
+  .g .ticks{display:flex;justify-content:space-between;font-size:.8rem;color:var(--muted)}
+  .g .ticks span.on{color:var(--k)}
+  .g .t .s{font-size:2.2rem;display:block}
+  @media(max-width:860px){.g .in{grid-template-columns:1fr;gap:20px;align-content:center}.g .ph{height:38vh}}
+
+  /* H · Perguntas da noiva (palavra a palavra) */
+  .h .qa{display:grid;gap:10px 60px;padding:34px 0;border-top:1px solid var(--line)}
+  .h .qa:last-child{border-bottom:1px solid var(--line)}
+  .h .q{font:300 clamp(1.6rem,3.4vw,2.4rem)/1.15 var(--serif);color:var(--k)}
+  .h .q .w{display:inline-block}
+  .h .a{color:var(--text);max-width:30em;align-self:end}
+  .h .a b{font-weight:400;color:var(--k)}
+  @media(min-width:860px){.h .qa{grid-template-columns:1.2fr .8fr}}
+
+  @media(prefers-reduced-motion:reduce){.e .rings svg circle.p{display:none}}
+</style>
+</head>
+<body>
+<header class="intro"><div class="wrap">
+  <h1>“Como funciona” em movimento</h1>
+  <p>Oito das ideias, agora animadas em tamanho real, com GSAP. Role devagar: cada seção mostra um tipo de movimento. Tudo para quem pede “reduzir movimento” no aparelho, e nada fica em loop sem controle. No site final, só uma ou duas seções podem ficar fixadas na tela, como recomenda a skill de UX, então escolha uma das fixadas (C, D ou G) no máximo.</p>
+  <ol><li><a href="#a">A Linha que se desenha</a></li><li><a href="#b">B Você faz, eu faço</a></li><li><a href="#c">C Número que muda</a></li><li><a href="#d">D Cartões que se empilham</a></li><li><a href="#e">E Destaques com tempo</a></li><li><a href="#f">F Fluxo desenhado</a></li><li><a href="#g">G A rolagem conduz</a></li><li><a href="#h">H Perguntas palavra a palavra</a></li></ol>
+</div></header>
+
+<div class="bar"><b>A Linha que se desenha</b><span>a linha cresce da esquerda, os pontos entram um a um e a marca do presencial desce por último</span></div>
+<section class="a" id="a"><div class="wrap">
+  <h2>Do planejamento ao altar</h2><p class="sub">Cinco etapas. As três primeiras acontecem online, no seu tempo.</p>
+  <div class="line">
+    <i class="rule"></i><i class="cut"></i>
+    <div class="labs lab"><span>online, no seu tempo</span><span>presencial, comigo</span></div>
+  </div>
+</div></section>
+
+<div class="bar"><b>B Você faz, eu faço</b><span>cada linha entra com o filete se desenhando; a coluna “você” chega da esquerda e a “eu”, da direita</span></div>
+<section class="b" id="b"><div class="wrap">
+  <h2>O que fica com você e o que fica comigo</h2>
+  <table><thead><tr><th></th><th>Você</th><th>Eu</th></tr></thead><tbody></tbody></table>
+</div></section>
+
+<div class="bar"><b>C Número que muda</b><span>a seção fica parada enquanto você rola: o número sobe, a foto troca e a barra mostra a etapa</span></div>
+<section class="c" id="c"><div class="wrap in">
+  <div><div class="num" aria-hidden="true"></div><div class="txt"></div><div class="prog"></div></div>
+  <div class="ph"></div>
+</div></section>
+
+<div class="bar"><b>D Cartões que se empilham</b><span>cada etapa sobe e cobre a anterior, que recua um pouco. Referência: Stacking Cards, do 21st</span></div>
+<section class="d" id="d"><div class="stack">
+  <div class="head"><h2>Do planejamento ao altar</h2></div>
+</div></section>
+
+<div class="bar"><b>E Destaques com tempo</b><span>como os stories: a barra corre sozinha, para no mouse ou no foco e tem botão de pausa</span></div>
+<section class="e" id="e"><div class="wrap">
+  <h2>Do planejamento ao altar</h2>
+  <div class="stories">
+    <div class="rings" role="tablist" aria-label="Etapas"></div>
+    <div class="panel"><div class="ph"></div><div class="tx"><div class="bars"></div><span class="n" data-n></span><span class="s" data-t></span><p data-d></p><div class="ctrl"><button type="button" data-pause aria-pressed="false">Pausar</button><button type="button" data-next>Próxima</button></div></div></div>
+  </div>
+</div></section>
+
+<div class="bar"><b>F Fluxo desenhado</b><span>o traço percorre as etapas; no fim aparece a volta do teste para os ajustes</span></div>
+<section class="f" id="f"><div class="wrap">
+  <h2>Nada fica fechado antes de você aprovar</h2><p class="sub">Se no teste algo pedir ajuste, a gente volta e acerta antes do grande dia.</p>
+  <svg viewBox="0 0 1000 300" role="img" aria-label="Análise, planejamento, moodboard, teste presencial e o grande dia, com uma volta do teste para ajustes">
+    <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#111"/></marker></defs>
+    <g id="flow"></g>
+  </svg>
+</div></section>
+
+<div class="bar"><b>G A rolagem conduz</b><span>a seção fica parada e o controle anda sozinho com a rolagem, passando pelas cinco etapas</span></div>
+<section class="g" id="g"><div class="wrap in">
+  <div class="ph"></div>
+  <div class="t"><span class="n" data-n>01 de 05</span><span class="s" data-t></span><p data-d></p><div class="track"><i class="fill"></i><i class="knob"></i></div><div class="ticks"></div></div>
+</div></section>
+
+<div class="bar"><b>H Perguntas palavra a palavra</b><span>cada pergunta se escreve palavra por palavra quando entra na tela, e a resposta aparece em seguida</span></div>
+<section class="h" id="h"><div class="wrap">
+  <h2>O que as noivas me perguntam</h2>
+  <div class="list"></div>
+</div></section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+const S = [
+  { n: '01', t: 'Análise', w: 'online', img: 'fotos/ombro.webp', d: 'Você responde um questionário e me manda algumas fotos. Eu leio o seu rosto, o tom e o subtom da pele, o seu estilo e o vestido.', you: 'Responde o questionário e manda algumas fotos.', me: 'Faço a leitura do seu rosto, da pele e do vestido.', q: 'Por onde a gente começa?' },
+  { n: '02', t: 'Planejamento', w: 'online', img: 'fotos/bastidor-espelho.webp', d: 'A gente define os caminhos pelo WhatsApp. Cada dúvida vem com o porquê da resposta.', you: 'Manda as dúvidas: a flor, o brinco, o véu.', me: 'Digo o que combina e explico o porquê.', q: 'E se eu tiver dúvida no meio do caminho?' },
+  { n: '03', t: 'Moodboard', w: 'online', img: 'fotos/ysl.webp', d: 'Um painel com as técnicas de maquiagem e penteado, as cores e a indicação de brinco, véu e grinalda.', you: 'Aprova e, se quiser, mostra para a assessora.', me: 'Monto o painel com tudo o que decidimos.', q: 'Como eu vou saber como vai ficar?' },
+  { n: '04', t: 'Teste presencial', w: 'presencial', img: 'fotos/batom-pincel.webp', d: 'A gente valida tudo no seu rosto. Ajusto o que precisar.', you: 'Experimenta e me diz o que sentiu.', me: 'Valido no seu rosto e ajusto o que precisar.', q: 'E se no teste eu quiser mudar algo?' },
+  { n: '05', t: 'O grande dia', w: 'presencial', img: 'fotos/noiva-06.webp', d: 'Você só precisa sentar e aproveitar.', you: 'Senta e aproveita.', me: 'Faço o que você já aprovou.', q: 'E no dia, como é?' }
+];
+const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
+
+// ---------- montagem do conteúdo ----------
+$('.a .line').insertAdjacentHTML('beforeend', S.map(s => `<div class="st ${s.w === 'presencial' ? 'p' : ''}"><i class="dot"></i><b>${s.n}</b><span class="s">${s.t}</span><p>${s.d.split('.')[0]}.</p></div>`).join(''));
+$('.b tbody').innerHTML = S.map(s => `<tr><td>${s.t}<small>${s.w}</small></td><td class="you">${s.you}</td><td class="me">${s.me}<i class="ln"></i></td></tr>`).join('');
+$('.c .num').innerHTML = S.map(s => `<span>${s.n}</span>`).join('');
+$('.c .txt').innerHTML = S.map(s => `<div><span class="s">${s.t}</span><p>${s.d}</p></div>`).join('');
+$('.c .ph').innerHTML = S.map(s => `<img src="${s.img}" alt="">`).join('');
+$('.c .prog').innerHTML = S.map(() => '<i></i>').join('');
+$('.d .stack').insertAdjacentHTML('beforeend', S.map(s => `<article class="cd"><img src="${s.img}" alt=""><div><b>${s.n}</b><span class="s">${s.t}</span><p>${s.d}</p></div></article>`).join(''));
+$('.e .rings').innerHTML = S.map((s, i) => `<button type="button" role="tab" aria-selected="${!i}" data-i="${i}"><i><svg viewBox="0 0 76 76"><circle cx="38" cy="38" r="36" fill="none" stroke="#DDDDDB" stroke-width="1.5"/><circle class="p" cx="38" cy="38" r="36" fill="none" stroke="#111" stroke-width="1.5" stroke-dasharray="226.2" stroke-dashoffset="226.2"/></svg><img src="${s.img}" alt=""></i>${['Análise', 'Planejamento', 'Moodboard', 'Teste', 'O dia'][i]}</button>`).join('');
+$('.e .bars').innerHTML = S.map(() => '<i><span></span></i>').join('');
+$('.g .ph').innerHTML = S.map(s => `<img src="${s.img}" alt="">`).join('');
+$('.g .ticks').innerHTML = S.map(s => `<span>${s.n}</span>`).join('');
+$('.h .list').innerHTML = S.map(s => `<div class="qa"><p class="q">${s.q.split(' ').map(w => `<span class="w">${w}</span>`).join(' ')}</p><p class="a"><b>${s.t}.</b> ${s.d}</p></div>`).join('');
+// fluxo SVG
+(function () {
+  const g = $('#flow'); let html = '';
+  S.forEach((s, i) => {
+    const x = 10 + i * 198;
+    html += `<rect class="box ${i === 4 ? 'last' : ''}" x="${x}" y="110" width="166" height="78"/><text class="${i === 4 ? 'inv' : ''}" x="${x + 83}" y="156" text-anchor="middle">${s.t}</text>`;
+    if (i < 4) html += `<path class="ar draw" d="M${x + 166} 149 H${x + 196}" marker-end="url(#ar)"/>`;
+  });
+  html += `<path class="ar draw loop" d="M701 188 C701 260, 520 270, 505 196" stroke-dasharray="6 5" marker-end="url(#ar)"/><text class="small loopt" x="612" y="278" text-anchor="middle">ajustes, se precisar</text>`;
+  g.innerHTML = html;
+})();
+const setTxt = (root, i) => { const s = S[i]; const n = $('[data-n]', root), t = $('[data-t]', root), d = $('[data-d]', root); n && (n.textContent = s.n + ' de 05'); t && (t.textContent = s.t); d && (d.textContent = s.d); };
+
+// ---------- E: destaques (funciona mesmo sem GSAP) ----------
+(function () {
+  const sec = $('.e'), rings = $$('.e .rings button'), bars = $$('.e .bars span'), imgs = [];
+  $('.e .ph').innerHTML = S.map((s, i) => `<img src="${s.img}" alt="" style="opacity:${i ? 0 : 1};transition:opacity .8s">`).join('');
+  imgs.push(...$$('.e .ph img'));
+  const DUR = 6000; let i = 0, t0 = performance.now(), paused = false, hold = false, raf;
+  const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const show = k => { i = (k + S.length) % S.length; t0 = performance.now(); rings.forEach((r, j) => r.setAttribute('aria-selected', j === i)); imgs.forEach((im, j) => im.style.opacity = j === i ? 1 : 0); bars.forEach((b, j) => b.style.width = j < i ? '100%' : '0'); $$('.e .rings circle.p').forEach((c, j) => c.style.strokeDashoffset = j < i ? 0 : 226.2); setTxt(sec, i); };
+  const tick = now => {
+    if (!paused && !hold && !calm) {
+      const p = Math.min(1, (now - t0) / DUR); bars[i].style.width = (p * 100) + '%'; $$('.e .rings circle.p')[i].style.strokeDashoffset = 226.2 * (1 - p);
+      if (p >= 1) show(i + 1);
+    } else t0 = now - (parseFloat(bars[i].style.width || 0) / 100) * DUR;
+    raf = requestAnimationFrame(tick);
+  };
+  rings.forEach((r, k) => r.addEventListener('click', () => show(k)));
+  $('[data-next]', sec).addEventListener('click', () => show(i + 1));
+  const pb = $('[data-pause]', sec);
+  pb.addEventListener('click', () => { paused = !paused; pb.setAttribute('aria-pressed', paused); pb.textContent = paused ? 'Continuar' : 'Pausar'; });
+  sec.addEventListener('mouseenter', () => hold = true); sec.addEventListener('mouseleave', () => hold = false);
+  sec.addEventListener('focusin', () => hold = true); sec.addEventListener('focusout', () => hold = false);
+  if (calm) { pb.hidden = true; }
+  show(0);
+  new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && !raf) raf = requestAnimationFrame(tick); else if (!e.isIntersecting && raf) { cancelAnimationFrame(raf); raf = null; } })).observe(sec);
+})();
+
+// ---------- animações com GSAP ----------
+if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
+  const mm = gsap.matchMedia();
+  mm.add('(prefers-reduced-motion: no-preference)', () => {
+    // A · linha
+    const ta = gsap.timeline({ scrollTrigger: { trigger: '.a .line', start: 'top 75%' } });
+    ta.from('.a .rule', Object.assign(innerWidth > 860 ? { scaleX: 0 } : { scaleY: 0 }, { duration: 1.4, ease: 'power2.inOut' }))
+      .from('.a .st', { opacity: 0, y: 24, duration: .7, ease: 'power2.out', stagger: .18 }, '-=1')
+      .from('.a .dot', { scale: 0, duration: .5, ease: 'back.out(2)', stagger: .18 }, '<')
+      .from('.a .cut', { scaleY: 0, duration: .8, ease: 'power2.out' }, '-=.2')
+      .from('.a .labs span', { opacity: 0, y: -8, duration: .6, stagger: .15 }, '-=.4');
+    // B · tabela
+    $$('.b tbody tr').forEach(tr => {
+      const tb = gsap.timeline({ scrollTrigger: { trigger: tr, start: 'top 85%' } });
+      tb.from($('.ln', tr), { scaleX: 0, duration: .9, ease: 'power2.inOut' })
+        .from($('td:first-child', tr), { opacity: 0, y: 12, duration: .6 }, '<.1')
+        .from($('.you', tr), { opacity: 0, x: -30, duration: .7, ease: 'power3.out' }, '<.1')
+        .from($('.me', tr), { opacity: 0, x: 30, duration: .7, ease: 'power3.out' }, '<.1');
+    });
+    // C · número fixado
+    const nums = $$('.c .num span'), txts = $$('.c .txt div'), phs = $$('.c .ph img'), pr = $$('.c .prog i');
+    gsap.set(nums.slice(1), { yPercent: 100 }); gsap.set(txts.slice(1), { opacity: 0, y: 20 }); gsap.set(phs.slice(1), { opacity: 0, scale: 1.08 }); pr[0].classList.add('on');
+    const tc = gsap.timeline({ scrollTrigger: { trigger: '.c', start: 'top top', end: '+=' + (S.length - 1) * 70 + '%', scrub: 1, pin: true,
+      onUpdate: self => { const k = Math.round(self.progress * (S.length - 1)); pr.forEach((p, j) => p.classList.toggle('on', j <= k)); } } });
+    for (let k = 1; k < S.length; k++) {
+      tc.to(nums[k - 1], { yPercent: -100, duration: 1, ease: 'none' })
+        .to(nums[k], { yPercent: 0, duration: 1, ease: 'none' }, '<')
+        .to(txts[k - 1], { opacity: 0, y: -20, duration: .5 }, '<')
+        .to(txts[k], { opacity: 1, y: 0, duration: .5 }, '<.5')
+        .to(phs[k], { opacity: 1, scale: 1, duration: 1 }, '<-.5');
+    }
+    // D · cartões empilhados
+    const cds = $$('.d .cd');
+    gsap.set(cds.slice(1), { yPercent: 130 });
+    const td = gsap.timeline({ scrollTrigger: { trigger: '.d', start: 'top top', end: '+=' + (S.length - 1) * 80 + '%', scrub: 1, pin: true } });
+    for (let k = 1; k < cds.length; k++) {
+      td.to(cds[k], { yPercent: (k - 2) * 3, duration: 1, ease: 'none' })
+        .to(cds.slice(0, k), { scale: i => 1 - (k - i) * .04, yPercent: i => (i - k) * 4 - 2, duration: 1, ease: 'none' }, '<');
+    }
+    // F · fluxo desenhado
+    $$('.f .draw').forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = p.classList.contains('loop') ? '6 5' : L; if (!p.classList.contains('loop')) p.style.strokeDashoffset = L; });
+    const tf = gsap.timeline({ scrollTrigger: { trigger: '.f svg', start: 'top 75%' } });
+    $$('.f .box').forEach((b, k) => {
+      tf.from(b, { opacity: 0, y: 14, duration: .45, ease: 'power2.out' }, k ? '>-.1' : 0).from($$('.f #flow text:not(.small)')[k], { opacity: 0, duration: .3 }, '<.15');
+      const a = $$('.f .draw:not(.loop)')[k]; if (a) tf.to(a, { strokeDashoffset: 0, duration: .35, ease: 'none' });
+    });
+    tf.from('.f .loop', { opacity: 0, duration: .8 }).from('.f .loopt', { opacity: 0, y: 8, duration: .5 }, '<.3');
+    // G · rolagem conduz o controle
+    const gi = $$('.g .ph img'), ticks = $$('.g .ticks span');
+    gsap.set(gi.slice(1), { opacity: 0 }); setTxt($('.g'), 0); ticks[0].classList.add('on');
+    let last = 0;
+    ScrollTrigger.create({ trigger: '.g', start: 'top top', end: '+=260%', scrub: .6, pin: true,
+      onUpdate: self => {
+        const p = self.progress; gsap.set('.g .fill', { scaleX: p }); gsap.set('.g .knob', { left: (p * 100) + '%' });
+        const k = Math.min(S.length - 1, Math.floor(p * S.length * .999));
+        if (k !== last) { gsap.to(gi[last], { opacity: 0, duration: .5 }); gsap.to(gi[k], { opacity: 1, duration: .5 }); last = k; setTxt($('.g'), k); gsap.fromTo('.g .t .s, .g .t p', { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .4, stagger: .06 }); ticks.forEach((t, j) => t.classList.toggle('on', j <= k)); }
+      } });
+    // H · perguntas palavra a palavra (só títulos curtos, como pede a skill)
+    $$('.h .qa').forEach(qa => {
+      gsap.timeline({ scrollTrigger: { trigger: qa, start: 'top 80%' } })
+        .from($$('.w', qa), { opacity: 0, y: 18, duration: .6, ease: 'expo.out', stagger: .06 })
+        .from($('.a', qa), { opacity: 0, y: 12, duration: .6 }, '-=.2');
+    });
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+  });
+  mm.add('(prefers-reduced-motion: reduce)', () => {
+    // sem movimento: mostra o estado final
+    $$('.c .num span').forEach((s, i) => { if (i) s.style.display = 'none'; });
+    $$('.c .txt div').forEach((d, i) => d.style.opacity = i ? 0 : 1);
+    $$('.g .ph img').forEach((im, i) => im.style.opacity = i ? 0 : 1); setTxt($('.g'), 0);
+  });
+} else {
+  // sem GSAP (offline): tudo visível
+  setTxt($('.g'), 0);
+}
+</script>
+</body>
+</html>

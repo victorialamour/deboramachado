@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>6 caminhos para os depoimentos | Débora Machado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--white:#fff;--off:#f5f5f3;--line:#dcdcd8;--gray:#7d7d7a;--soft:#4f4f4d;--black:#0b0b0b;--serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;--ease:cubic-bezier(.23,1,.32,1);--gutter:clamp(22px,5vw,72px)}
+  *{box-sizing:border-box}
+  html{scrollbar-color:#bdbdb9 transparent}
+  ::selection{background:var(--black);color:var(--white)}
+  body{margin:0;background:var(--white);font-family:var(--sans);font-weight:300;color:var(--black);-webkit-font-smoothing:antialiased}
+  p,blockquote,figure,h2,h3{margin:0}
+  a,button{color:inherit}
+  :focus-visible{outline:2px solid var(--black);outline-offset:4px}
+
+  /* anotação de cada proposta: fora da página, no cinza */
+  .note{display:flex;gap:18px;align-items:baseline;padding:34px var(--gutter) 22px;background:#e9e9e6;border-top:1px solid var(--line)}
+  .note b{font:300 1.7rem/1 var(--serif);min-width:2ch}
+  .note span{font-size:13.5px;line-height:1.5;color:var(--soft);max-width:62em}
+  .intro{padding:56px var(--gutter) 30px;background:#e9e9e6}
+  .intro h1{font:300 clamp(2rem,4vw,3rem)/1.05 var(--serif);margin:0 0 12px}
+  .intro p{color:var(--soft);line-height:1.6;max-width:56em}
+
+  .stage{position:relative;overflow:hidden;padding:clamp(80px,11vw,150px) var(--gutter)}
+  .name{font:400 11.5px/1.5 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+  .name::before{content:"";display:block;width:36px;height:1px;background:var(--black);margin-bottom:14px}
+  .serif{font-family:var(--serif);font-weight:300}
+  h2.sec{font:300 clamp(2.2rem,4.6vw,3.6rem)/1.02 var(--serif);letter-spacing:-.02em;text-wrap:balance}
+  h2.sec em{font-style:italic}
+
+  /* uma única entrada orquestrada: sobe e aparece, uma vez */
+  .rv{opacity:0;transform:translateY(16px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+  .rv.in{opacity:1;transform:none}
+  .d1{transition-delay:.12s}.d2{transition-delay:.24s}
+  @media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}}
+
+  /* 1 · A palavra */
+  .o1 .row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,5vw,80px);align-items:end;padding:clamp(34px,5vw,64px) 0;border-top:1px solid var(--black)}
+  .o1 .row:last-child{border-bottom:1px solid var(--black)}
+  .o1 .row:nth-child(odd){grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr)}
+  .o1 .w{font:300 clamp(3.6rem,10vw,6rem)/.9 var(--serif);letter-spacing:-.03em}
+  .o1 .w em{font-style:italic}
+  .o1 .q{font:300 clamp(1.1rem,1.6vw,1.35rem)/1.55 var(--serif);color:var(--soft);max-width:28em;margin-bottom:20px;text-wrap:pretty}
+  .o1 .row:nth-child(odd) .w{order:2;text-align:right}
+  .o1 .row:nth-child(odd) .rt{order:1}
+  .o1 .head{margin-bottom:clamp(40px,6vw,80px)}
+
+  @media (max-width:700px){
+    .o1 .row,.o1 .row:nth-child(odd){grid-template-columns:1fr;gap:18px}
+    .o1 .row:nth-child(odd) .w{order:0;text-align:left}
+    .o1 .row:nth-child(odd) .rt{order:0}
+  }
+  /* 2 · Epígrafe com faixa de foto */
+  .o2{padding-left:0;padding-right:0}
+  .o2 .q1,.o2 .q2{padding:0 var(--gutter)}
+  .o2 .qt{font:300 clamp(2rem,5vw,4.4rem)/1.08 var(--serif);letter-spacing:-.02em;max-width:17em;text-wrap:balance;margin-bottom:28px}
+  .o2 .q2{display:grid;justify-items:end;text-align:right}
+  .o2 .q2 .name::before{margin-left:auto}
+  .o2 .band{margin:clamp(60px,9vw,120px) 0;height:clamp(200px,34vw,460px);overflow:hidden}
+  .o2 .band img{width:100%;height:100%;object-fit:cover;object-position:50% 40%;display:block}
+
+  /* 3 · A foto que se dissolve na página */
+  .o3{min-height:clamp(560px,60vw,780px);display:flex;align-items:center}
+  .o3 .ph{position:absolute;top:0;right:0;bottom:0;width:58%;
+    -webkit-mask-image:linear-gradient(to right,transparent 0,#000 46%);mask-image:linear-gradient(to right,transparent 0,#000 46%)}
+  .o3 .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+  .o3 .tx{position:relative;max-width:min(560px,56%)}
+  .o3 .qt{font:300 clamp(1.7rem,3.2vw,2.7rem)/1.14 var(--serif);letter-spacing:-.015em;margin:0 0 20px;text-wrap:balance}
+  .o3 .tx>div+div{margin-top:56px}
+  @media (max-width:760px){.o3{display:flex;flex-direction:column;align-items:stretch;min-height:0}.o3 .tx{max-width:none;order:1}.o3 .ph{order:2;position:relative;width:calc(100% + var(--gutter)*2);margin:44px calc(var(--gutter)*-1) calc(clamp(80px,11vw,150px)*-1);height:340px;top:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 38%);mask-image:linear-gradient(to bottom,transparent 0,#000 38%)}}
+
+  /* 4 · Créditos */
+  .o4 .head{margin-bottom:clamp(40px,6vw,80px)}
+  .o4 .row{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:clamp(20px,5vw,80px);padding:clamp(30px,4vw,52px) 0;border-top:1px solid var(--line)}
+  .o4 .row:last-child{border-bottom:1px solid var(--line)}
+  .o4 .who{font:300 italic clamp(1.9rem,3.4vw,2.8rem)/1.05 var(--serif);letter-spacing:-.01em}
+  .o4 .who small{display:block;margin-top:10px;font:400 11px/1.4 var(--sans);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--gray)}
+  .o4 .qt{font:300 clamp(1.4rem,2.4vw,2rem)/1.3 var(--serif);max-width:26em;text-wrap:pretty}
+  @media (max-width:700px){.o4 .row{grid-template-columns:1fr}}
+
+  /* 5 · Escalonado com detalhes */
+  .o5 .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,7vw,110px);max-width:1080px;margin:0 auto;align-items:start}
+  .o5 .col:nth-child(2){margin-top:clamp(60px,10vw,150px)}
+  .o5 .ph{aspect-ratio:3/4;overflow:hidden;margin-bottom:30px}
+  .o5 .ph img{width:100%;height:100%;object-fit:cover;display:block}
+  .o5 .qt{font:300 clamp(1.4rem,2.3vw,1.9rem)/1.25 var(--serif);margin-bottom:22px;text-wrap:balance}
+  .o5 .head{max-width:1080px;margin:0 auto clamp(40px,6vw,80px)}
+  @media (max-width:700px){.o5 .cols{grid-template-columns:1fr}.o5 .col:nth-child(2){margin-top:20px}}
+
+  /* 6 · Corpo único */
+  .o6{background:var(--off)}
+  .o6 .body{max-width:25em;margin:0 auto;font:300 clamp(1.7rem,3.4vw,2.8rem)/1.28 var(--serif);letter-spacing:-.012em;text-wrap:pretty}
+  .o6 cite{font:400 11.5px/1 var(--sans);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--gray);white-space:nowrap;margin:0 .5em 0 .35em}
+  .o6 .head{max-width:25em;margin:0 auto clamp(36px,5vw,64px);font-size:clamp(1.3rem,2vw,1.6rem);color:var(--gray);letter-spacing:0}
+  .o6 .body{font-size:clamp(1.9rem,3.9vw,3.2rem)}
+  .o6 .body q{quotes:none}
+  .o6 .body p+p{margin-top:1.1em}
+  .o6 .mk{font-style:italic}
+
+  .end{height:60px;background:#e9e9e6}
+</style>
+</head>
+<body>
+
+<div class="intro">
+  <h1>6 caminhos para os depoimentos</h1>
+  <p>Sem caixas pretas, sem cartões e sem número no meio da página. Cada caminho é uma ideia diferente de como tratar a palavra de uma noiva, só com tipografia, filetes finos e, em duas delas, fotos de detalhe (lábios, mãos e penteado de costas), que não identificam nenhuma cliente. Os textos são os dois depoimentos reais que a página tem hoje.</p>
+</div>
+
+<!-- 1 -->
+<div class="note"><b>1</b><span>A palavra. Cada depoimento vira uma palavra gigante, a que a noiva escolheu, e a frase inteira fica pequena embaixo. Alterna esquerda e direita, como as páginas de uma revista.</span></div>
+<section class="stage o1">
+  <h2 class="sec head rv">Quem já passou <em>por aqui</em></h2>
+  <div class="row rv">
+    <h3 class="w">Certeiro<em>.</em></h3>
+    <div class="rt"><blockquote class="q">“O seu moodboard é surpreendente e muito certeiro, deu o toque final que faltava na minha produção. Com certeza você foi minha melhor escolha.”</blockquote><p class="name">Mayra Fagundes · noiva</p></div>
+  </div>
+  <div class="row rv">
+    <h3 class="w">Um sonho<em>.</em></h3>
+    <div class="rt"><blockquote class="q">“As meninas são excelentes, de verdade! Eu amei o meu penteado e a maquiagem. Durou até o dia seguinte! Um sonho mesmo.”</blockquote><p class="name">Priscilla · noiva da Equipe DM</p></div>
+  </div>
+</section>
+
+<!-- 2 -->
+<div class="note"><b>2</b><span>Epígrafe com faixa de foto. A frase ocupa a largura inteira, em tamanho de capa. Entre as duas cai uma faixa panorâmica de um detalhe do trabalho, que respira e separa uma voz da outra.</span></div>
+<section class="stage o2">
+  <div class="q1 rv"><blockquote class="qt">“O seu moodboard é surpreendente e muito certeiro. Foi minha melhor escolha.”</blockquote><p class="name">Mayra Fagundes · noiva</p></div>
+  <div class="band rv"><img src="layout-nina/fotos/coque.webp" alt="Penteado de coque baixo visto de costas" loading="lazy"></div>
+  <div class="q2 rv"><blockquote class="qt">“Eu amei o meu penteado e a maquiagem. Durou até o dia seguinte!”</blockquote><p class="name">Priscilla · noiva da Equipe DM</p></div>
+</section>
+
+<!-- 3 -->
+<div class="note"><b>3</b><span>A foto que se dissolve. Uma foto de detalhe entra pela direita e some no branco da página, sem moldura. O texto fica sobre o branco, então não existe caixa nenhuma.</span></div>
+<section class="stage o3">
+  <div class="ph rv"><img src="layout-nina/fotos/gloss.webp" alt="Detalhe de lábios com gloss e pincel" loading="lazy"></div>
+  <div class="tx">
+    <div class="rv"><blockquote class="qt">“O seu moodboard é surpreendente e muito certeiro, deu o toque final que faltava na minha produção.”</blockquote><p class="name">Mayra Fagundes · noiva</p></div>
+    <div class="rv d1"><blockquote class="qt">“As meninas são excelentes, de verdade! Durou até o dia seguinte. Um sonho mesmo.”</blockquote><p class="name">Priscilla · noiva da Equipe DM</p></div>
+  </div>
+</section>
+
+<!-- 4 -->
+<div class="note"><b>4</b><span>Créditos. O nome da noiva, em itálico grande, funciona como título. A frase vai na coluna ao lado, como nos créditos de um filme. É a mais sóbria, e cresce sem esforço com mais depoimentos.</span></div>
+<section class="stage o4">
+  <h2 class="sec head rv">Quem já passou <em>por aqui</em></h2>
+  <div class="row rv"><h3 class="who">Mayra Fagundes<small>noiva</small></h3><blockquote class="qt">“O seu moodboard é surpreendente e muito certeiro, deu o toque final que faltava na minha produção. Com certeza você foi minha melhor escolha.”</blockquote></div>
+  <div class="row rv"><h3 class="who">Priscilla<small>noiva da Equipe DM</small></h3><blockquote class="qt">“As meninas são excelentes, de verdade! Eu amei o meu penteado e a maquiagem. Durou até o dia seguinte! Um sonho mesmo.”</blockquote></div>
+</section>
+
+<!-- 5 -->
+<div class="note"><b>5</b><span>Escalonado. Duas colunas, a segunda caída para baixo, cada uma com uma foto de detalhe vertical em cima da frase. Dá ritmo e mostra o trabalho junto da voz.</span></div>
+<section class="stage o5">
+  <h2 class="sec head rv">Quem já passou <em>por aqui</em></h2>
+  <div class="cols">
+    <figure class="col rv"><div class="ph"><img src="layout-nina/fotos/manifesto-03.webp" alt="Mãos de maquiadora com pincel e pulseira dourada" loading="lazy"></div><blockquote class="qt">“O seu moodboard é surpreendente e muito certeiro, deu o toque final que faltava na minha produção.”</blockquote><figcaption class="name">Mayra Fagundes · noiva</figcaption></figure>
+    <figure class="col rv d1"><div class="ph"><img src="layout-nina/fotos/coque.webp" alt="Penteado de coque baixo visto de costas" loading="lazy"></div><blockquote class="qt">“As meninas são excelentes, de verdade! Eu amei o meu penteado e a maquiagem. Durou até o dia seguinte!”</blockquote><figcaption class="name">Priscilla · noiva da Equipe DM</figcaption></figure>
+  </div>
+</section>
+
+<!-- 6 -->
+<div class="note"><b>6</b><span>Corpo único. As duas vozes viram um texto corrido, em serifa grande, com o nome de cada noiva em letra miúda no meio da frase. Parece um parágrafo de revista, não um bloco de depoimento.</span></div>
+<section class="stage o6">
+  <h2 class="sec head rv">Quem já passou <em>por aqui</em></h2>
+  <div class="body rv">
+    <p>“O seu moodboard é surpreendente e muito certeiro, deu o toque final que faltava na minha produção. Com certeza você foi minha melhor escolha.” <cite>Mayra Fagundes, noiva</cite></p>
+    <p>“As meninas são excelentes, de verdade! Eu amei o meu penteado e a maquiagem. Durou até o dia seguinte! <span class="mk">Um sonho mesmo.</span>” <cite>Priscilla, noiva da Equipe DM</cite></p>
+  </div>
+</section>
+<div class="end"></div>
+
+<script>
+  const els=[...document.querySelectorAll('.rv')];
+  if(!('IntersectionObserver' in window)){els.forEach(e=>e.classList.add('in'))}
+  else{const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.2});els.forEach(e=>io.observe(e))}
+</script>
+</body>
+</html>

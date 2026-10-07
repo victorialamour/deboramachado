@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>Débora Machado, 20 ideias para “Como funciona”</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{--w:#fff;--paper:#F6F6F5;--line:#DDDDDB;--muted:#6F6F6F;--text:#2B2B2B;--k:#111;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--ease:cubic-bezier(.22,.61,.36,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--w);color:var(--text);font:300 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%;height:auto;object-fit:cover}
+  button{font:inherit;color:inherit;cursor:pointer;background:none;border:0;touch-action:manipulation}
+  :focus-visible{outline:2px solid var(--k);outline-offset:2px}
+  .top{background:var(--paper);padding:56px 20px 44px}
+  .wrap{max-width:1240px;margin:0 auto}
+  .top h1{font:300 clamp(2rem,4.4vw,3.2rem)/1.1 var(--serif);color:var(--k);margin-bottom:12px}
+  .top p{max-width:50em;color:var(--muted)}
+  .board{display:grid;gap:48px 28px;padding:56px 20px 90px;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))}
+  .card{display:grid;gap:14px;min-width:0;max-width:600px;width:100%;align-content:start}
+  .mock{position:relative;aspect-ratio:4/3;overflow:hidden;background:#fff;border:1px solid var(--k);font-size:.8rem}
+  .head{display:flex;gap:12px;align-items:baseline}
+  .head b{font:300 2rem/1 var(--serif);color:var(--k)}
+  .head h2{font:400 1.4rem/1.1 var(--serif);color:var(--k)}
+  .desc p{font-size:.93rem;margin-bottom:10px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+  .meta b{font-weight:400;color:var(--k)}
+  .tag{border:1px solid var(--k);padding:0 8px;font-size:.74rem;color:var(--k)}
+  .s{font-family:var(--serif);color:var(--k)}
+  .n{font:300 1rem/1 var(--serif);color:var(--muted)}
+  .muted{color:var(--muted)}
+  .on-l{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .ph{width:100%;height:100%}
+  /* mocks específicos */
+  .m1{display:flex;flex-direction:column;justify-content:center;padding:20px}
+  .m1 .line{position:relative;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--k);margin-top:26px}
+  .m1 .line>div{padding-top:14px;position:relative}
+  .m1 .line>div::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--k)}
+  .m1 .line>div.p::before{background:#fff;border:1px solid var(--k)}
+  .m1 .cut{position:absolute;top:-30px;bottom:-60px;left:60%;border-left:1px dashed var(--k)}
+  .m1 .lab{display:flex;margin-bottom:-12px}.m1 .lab span{flex:3}.m1 .lab span+span{flex:2;padding-left:6px}
+  .m2{display:grid;grid-template-columns:3fr 2fr}
+  .m2>div{padding:16px;display:flex;flex-direction:column;gap:6px}
+  .m2>div+div{background:var(--k);color:#fff}.m2>div+div .s{color:#fff}.m2>div+div .on-l{color:#bbb}
+  .m2 li{list-style:none;border-top:1px solid var(--line);padding:6px 0}.m2>div+div li{border-color:#444}
+  .m3 table{width:100%;border-collapse:collapse;font-size:.74rem}
+  .m3 th{font-weight:400;text-align:left;padding:8px 10px;border-bottom:1px solid var(--k);font-family:var(--serif);font-size:.95rem;color:var(--k)}
+  .m3 td{padding:6px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  .m3 td:first-child{font-family:var(--serif);font-size:.95rem;color:var(--k);white-space:nowrap}
+  .m4{padding:16px;display:flex;flex-direction:column;gap:2px;justify-content:center}
+  .m4 details{border-top:1px solid var(--line)}.m4 details:last-child{border-bottom:1px solid var(--line)}
+  .m4 summary{list-style:none;cursor:pointer;padding:7px 0;font:400 1rem/1.2 var(--serif);color:var(--k);display:flex;justify-content:space-between}
+  .m4 summary::after{content:"+"}.m4 details[open] summary::after{content:"–"}
+  .m4 summary::-webkit-details-marker{display:none}
+  .m4 details p{padding:0 0 8px;font-size:.76rem}
+  .m5{display:grid;grid-template-columns:1fr 1fr}
+  .m5 .tx{padding:14px;display:flex;flex-direction:column;gap:8px}
+  .m5 .tabs{display:flex;gap:4px}.m5 .tabs button{flex:1;min-height:34px;border-bottom:1px solid var(--line);font:300 1rem/1 var(--serif);color:var(--muted)}
+  .m5 .tabs button[aria-selected="true"]{color:var(--k);border-bottom:2px solid var(--k)}
+  .m5 .next{align-self:flex-start;border:1px solid var(--k);padding:6px 12px;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-top:auto}
+  .m6{overflow-y:auto;scroll-snap-type:y mandatory}
+  .m6 .stage{position:sticky;top:0;height:100%;display:grid;grid-template-columns:1fr 1fr;margin-bottom:-100%;pointer-events:none}
+  .m6 .big{font:300 7rem/1 var(--serif);color:var(--k);display:grid;place-items:center}
+  .m6 .stage img{height:100%;width:100%}
+  .m6 .sp{height:100%;scroll-snap-align:start;position:relative}
+  .m6 .sp span{position:absolute;left:14px;bottom:12px;background:#fff;padding:4px 8px;font-size:.74rem}
+  .m6 .hint{position:absolute}
+  .m7{padding:10px 16px;display:flex;flex-direction:column;justify-content:center}
+  .m7 .r{display:grid;grid-template-columns:56px 1fr auto;gap:10px;align-items:baseline;border-top:1px solid var(--line);padding:5px 0}.m7 .r:last-child{border-bottom:1px solid var(--line)}
+  .m7 .r b{font:300 2.2rem/1 var(--serif);color:var(--k)}
+  .m7 .r .s{font-size:1.05rem}
+  .m8{overflow-y:auto;background:var(--paper);padding:14px}
+  .m8 .c{position:sticky;top:10px;background:#fff;border:1px solid var(--k);padding:14px;height:150px;margin-bottom:24px;display:grid;grid-template-columns:auto 1fr;gap:12px}
+  .m8 .c:nth-child(2){top:18px}.m8 .c:nth-child(3){top:26px}.m8 .c:nth-child(4){top:34px}.m8 .c:nth-child(5){top:42px}
+  .m8 .c b{font:300 2.4rem/1 var(--serif);color:var(--k)}
+  .m9{display:flex;flex-direction:column}
+  .m9 .track{flex:1;display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;padding:14px}
+  .m9 .sl{flex:none;width:62%;scroll-snap-align:start;border:1px solid var(--line);display:grid;grid-template-rows:1fr auto}
+  .m9 .sl img{height:100%;min-height:0}.m9 .sl div{padding:8px 10px}
+  .m9 .bar{height:2px;background:var(--line);margin:0 14px 12px}.m9 .bar i{display:block;height:100%;width:20%;background:var(--k);transition:width .3s}
+  .m10{display:grid;place-items:center;background:#fff}
+  .m10 .card2{width:78%;border:1px solid var(--k);outline:1px solid var(--k);outline-offset:4px;padding:16px 20px;text-align:center}
+  .m10 .card2 h4{font:300 1.3rem/1 var(--serif);color:var(--k);margin-bottom:10px}
+  .m10 .row{display:flex;align-items:baseline;gap:6px;font-size:.78rem;padding:3px 0}
+  .m10 .row .dots{flex:1;border-bottom:1px dotted var(--k);transform:translateY(-3px)}
+  .m11{padding:18px;display:flex;align-items:center}
+  .m11 svg{width:100%;height:auto}
+  .m12{display:flex;flex-direction:column;padding:14px;gap:10px}
+  .m12 .hl{display:flex;gap:10px;justify-content:space-between}
+  .m12 .hl button{display:grid;justify-items:center;gap:4px;font-size:.68rem}
+  .m12 .hl i{display:block;width:52px;height:52px;border-radius:50%;padding:2px;border:1px solid var(--k)}
+  .m12 .hl i img{width:100%;height:100%;border-radius:50%}
+  .m12 .hl button[aria-pressed="true"] i{border:2px solid var(--k)}
+  .m12 .story{flex:1;display:grid;grid-template-columns:.8fr 1.2fr;border:1px solid var(--line);min-height:0}
+  .m12 .story img{height:100%;min-height:0}.m12 .story div{padding:10px}
+  .m12 .prog{display:flex;gap:3px}.m12 .prog i{flex:1;height:2px;background:var(--line)}.m12 .prog i.on{background:var(--k)}
+  .m13{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:14px;perspective:800px;align-content:center}
+  .m13 button{position:relative;aspect-ratio:3/5;transform-style:preserve-3d;transition:transform .7s var(--ease)}
+  .m13 button[aria-pressed="true"]{transform:rotateY(180deg)}
+  .m13 .f,.m13 .b{position:absolute;inset:0;backface-visibility:hidden;border:1px solid var(--k);display:flex;flex-direction:column;justify-content:space-between;padding:8px;text-align:left}
+  .m13 .f b{font:300 1.6rem/1 var(--serif);color:var(--k)}
+  .m13 .b{transform:rotateY(180deg);background:var(--k);color:#fff;font-size:.66rem;line-height:1.35}
+  .m14{padding:14px;display:flex;align-items:center}.m14 svg{width:100%;height:auto}
+  .m15{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;gap:6px;padding:8px}
+  .m15 .t{border:1px solid var(--line);padding:8px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+  .m15 .t.big{grid-column:3/5;grid-row:1/3;padding:0}.m15 .t.big img{height:100%}.m15 .t.big span{position:absolute;left:8px;bottom:8px;background:#fff;padding:4px 8px}
+  .m15 .t.wide{grid-column:1/3}
+  .m15 .t b{font:300 1.4rem/1 var(--serif);color:var(--k)}
+  .m16{padding:14px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-content:center}
+  .m16 div{border-top:1px solid var(--k);padding-top:8px;display:grid;gap:6px;align-content:start}
+  .m16 .ic{min-height:74px;font-size:.8rem!important;line-height:1.2!important;border:1px solid var(--line);display:grid;place-items:center;font:300 .9rem/1 var(--serif);color:var(--k);text-align:center;padding:2px}
+  .m17{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:8px}
+  .m17 figure{display:grid;grid-template-rows:1fr auto;min-height:0}
+  .m17 img{height:100%;min-height:0}.m17 figcaption{padding:6px 2px;font-size:.68rem;line-height:1.3}
+  .m17 figcaption b{display:block;font:400 .95rem/1.1 var(--serif);color:var(--k)}
+  .m18{overflow-y:auto;padding:12px 16px}
+  .m18 .z{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:center;margin-bottom:12px}
+  .m18 .z img{aspect-ratio:4/3}.m18 .z:nth-child(even) img{order:2}
+  .m18 .z b{font:300 1.6rem/1 var(--serif);color:var(--k);display:block}
+  .m19{display:grid;grid-template-columns:1fr 1fr}
+  .m19 .tx{padding:16px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+  .m19 input[type=range]{width:100%;accent-color:var(--k)}
+  .m19 .ticks{display:flex;justify-content:space-between;font-size:.66rem;color:var(--muted)}
+  .m20{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:0}
+  .m20 .qa{border-top:1px solid var(--line);padding:7px 0;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .m20 .qa:last-child{border-bottom:1px solid var(--line)}
+  .m20 .q{font:400 .98rem/1.2 var(--serif);color:var(--k)}
+  .m20 .a{font-size:.74rem}
+  @media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1>20 ideias para “Como funciona”</h1>
+  <p>A terceira seção apresenta o método em cinco etapas: análise, planejamento, moodboard, teste presencial e o grande dia. As três primeiras são online e as duas últimas, presenciais. Cada cartão é uma forma diferente de contar isso, com uma prévia que funciona. Os textos curtos das prévias seguem o briefing e a voz dela.</p>
+</div></header>
+<main class="board wrap" id="board"></main>
+
+<script>
+const S = [
+  { n: '01', t: 'Análise', w: 'online', img: 'fotos/ombro.webp', d: 'Você responde um questionário e me manda algumas fotos. Eu leio o seu rosto, o tom e o subtom da pele, o seu estilo e o vestido.', you: 'Responde o questionário e manda fotos', me: 'Faço a leitura do rosto e da pele', get: 'Leitura de expressão e de tom e subtom', q: 'Por onde a gente começa?' },
+  { n: '02', t: 'Planejamento', w: 'online', img: 'fotos/bastidor-espelho.webp', d: 'A gente define os caminhos pelo WhatsApp. Cada dúvida vem com o porquê da resposta.', you: 'Manda as dúvidas, a flor, o brinco', me: 'Explico o que combina e o porquê', get: 'Conversa com cada escolha explicada', q: 'E se eu tiver dúvida no meio do caminho?' },
+  { n: '03', t: 'Moodboard', w: 'online', img: 'fotos/ysl.webp', d: 'Um painel com as técnicas de maquiagem e penteado, as cores e a indicação de brinco, véu e grinalda.', you: 'Aprova e mostra para a assessora', me: 'Monto o painel com tudo decidido', get: 'Painel com make, penteado e acessórios', q: 'Como eu vou saber como vai ficar?' },
+  { n: '04', t: 'Teste presencial', w: 'presencial', img: 'fotos/batom-pincel.webp', d: 'A gente valida tudo no seu rosto. Ajusto o que precisar.', you: 'Experimenta e diz o que sente', me: 'Valido e ajusto no seu rosto', get: 'O visual testado e ajustado', q: 'E se no teste eu quiser mudar algo?' },
+  { n: '05', t: 'O grande dia', w: 'presencial', img: 'fotos/noiva-06.webp', d: 'Você só precisa sentar e aproveitar.', you: 'Senta e aproveita', me: 'Executo o que você já aprovou', get: 'A produção no dia', q: 'E no dia, como é?' }
+];
+const A = [
+  ['Linha do tempo com a virada', 'Uma linha só com cinco pontos e uma marca tracejada entre a etapa 3 e a 4: à esquerda o que é online, à direita o que é presencial. Em um olhar, a noiva entende que quase tudo acontece de casa.', 'Process Timeline do 21st', 'baixo'],
+  ['No seu tempo e comigo', 'Duas colunas: as três etapas online num fundo branco, as duas presenciais num bloco preto. Responde a dúvida “quantas vezes eu preciso ir até ela?” sem escrever a pergunta.', 'HTML + CSS', 'baixo'],
+  ['Você faz, eu faço', 'Uma tabela de duas colunas por etapa. Deixa claro o pouco que a noiva precisa fazer e o trabalho que fica com a Débora. É a versão mais convincente para quem tem medo de dar trabalho.', 'HTML', 'baixo'],
+  ['Accordion numerado', 'As cinco etapas em linhas finas que abrem uma por vez. A seção fica curta e a noiva lê só o que quer. Accordion do shadcn, com teclado e leitor de tela.', 'shadcn Accordion', 'baixo'],
+  ['Abas com foto', 'Cinco números no topo, uma foto e o texto da etapa. O botão “próxima” leva para a seguinte e a aba marcada mostra o progresso.', 'Stepper (originui), do 21st', 'baixo'],
+  ['Número gigante ao rolar', 'Um número enorme fica parado enquanto a foto e o texto mudam com a rolagem. Role dentro da prévia. Tem impacto, mas deixa a seção mais alta.', 'Scroll fixo, ImgText Reveal do 21st', 'médio'],
+  ['Índice tipográfico', 'Cada etapa vira uma linha com número fino, nome em serifa e o lugar (online ou presencial) à direita, como o índice de uma revista. Sem foto, muito elegante e leve.', 'HTML', 'mínimo'],
+  ['Cartões que se empilham', 'Ao rolar, cada etapa sobe e cobre a anterior, deixando a borda de cima à mostra. Role dentro da prévia. Dá sensação de progresso.', 'Stacking Cards do 21st', 'médio'],
+  ['Carrossel com barra de progresso', 'As etapas lado a lado, com a foto em cima e a barra mostrando em qual delas a pessoa está. Bom no celular, com o dedo.', 'Scroll Gallery do 21st', 'baixo'],
+  ['Programa de cerimônia', 'As etapas no formato do programa da cerimônia, com linha pontilhada até “online” ou “presencial”. Conversa com o universo do casamento sem virar enfeite.', 'HTML + CSS', 'mínimo'],
+  ['Linha de metrô', 'Um percurso com estações. A troca de linha marca a passagem do online para o presencial. É mais leve e gráfico, para quem quer fugir do óbvio.', 'SVG', 'baixo'],
+  ['Destaques do Instagram', 'Círculos como os destaques do perfil dela; ao tocar, abre o “story” da etapa com a barra de progresso em cima. Fala a língua de quem chega pelo Instagram.', 'HTML + JS', 'baixo'],
+  ['Cartões que viram', 'Cinco cartões com número e nome. Ao tocar, virem e mostram o texto. Funciona bem quando a noiva quer explorar sem ler tudo de uma vez.', 'Flip Card do 21st', 'baixo'],
+  ['Fluxo com volta', 'Um diagrama de fluxo em que o teste pode voltar para ajustes antes do grande dia. Mostra uma verdade do método: nada fica fechado antes de ela aprovar.', 'SVG, skill design', 'baixo'],
+  ['Bento', 'Blocos de tamanhos diferentes, com o grande dia ocupando o bloco maior com foto. Dá peso ao resultado sem esconder o processo.', 'CSS Grid', 'baixo'],
+  ['O que você recebe', 'Para cada etapa, o que a noiva tem nas mãos: a leitura, a conversa, o painel, o teste, a produção. Transforma o método em entregas concretas.', 'HTML', 'mínimo'],
+  ['Fotos-capítulo', 'Cinco fotos estreitas lado a lado, cada uma com o nome da etapa embaixo. É a mais visual, depende de ter uma foto boa para cada etapa.', 'HTML', 'baixo'],
+  ['Zigue-zague', 'Foto e texto se alternando de lado a cada etapa. Clássico e seguro, ótimo de ler no celular. Role dentro da prévia.', 'HTML + CSS', 'baixo'],
+  ['Arraste para avançar', 'Um controle deslizante leva da etapa 1 à 5; a foto e o texto acompanham. Interação curta e diferente, funciona com teclado.', 'HTML + JS', 'baixo'],
+  ['Perguntas da noiva', 'Cada etapa responde uma pergunta que a noiva já tem na cabeça: “por onde a gente começa?”, “como eu vou saber como vai ficar?”. Texto humano, sem cara de manual.', 'HTML', 'mínimo']
+];
+const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+const M = [
+  // 1
+  () => `<div class="mock m1"><div class="lab on-l"><span>online, no seu tempo</span><span>presencial, comigo</span></div><div class="line"><span class="cut"></span>${S.map(s => `<div class="${s.w === 'presencial' ? 'p' : ''}"><span class="n">${s.n}</span><div class="s" style="font-size:.95rem;line-height:1.1">${s.t}</div></div>`).join('')}</div></div>`,
+  // 2
+  () => `<div class="mock m2"><div><span class="on-l">Online, no seu tempo</span><ul>${S.slice(0, 3).map(s => `<li><span class="n">${s.n}</span> <span class="s">${s.t}</span></li>`).join('')}</ul></div><div><span class="on-l">Presencial, comigo</span><ul>${S.slice(3).map(s => `<li><span class="n" style="color:#aaa">${s.n}</span> <span class="s">${s.t}</span></li>`).join('')}</ul></div></div>`,
+  // 3
+  () => `<div class="mock m3"><table><thead><tr><th></th><th>Você</th><th>Eu</th></tr></thead><tbody>${S.map(s => `<tr><td>${s.t}</td><td>${s.you}</td><td>${s.me}</td></tr>`).join('')}</tbody></table></div>`,
+  // 4
+  () => `<div class="mock m4">${S.map((s, i) => `<details${i ? '' : ' open'} name="m4"><summary><span><span class="n">${s.n}</span> ${s.t}</span></summary><p>${s.d}</p></details>`).join('')}</div>`,
+  // 5
+  () => `<div class="mock m5"><img class="ph" data-ph src="${S[0].img}" alt=""><div class="tx"><div class="tabs" role="tablist">${S.map((s, i) => `<button role="tab" aria-selected="${!i}" data-i="${i}">${s.n}</button>`).join('')}</div><div class="s" data-t style="font-size:1.3rem">${S[0].t}</div><p data-d>${S[0].d}</p><button class="next" type="button">Próxima</button></div></div>`,
+  // 6
+  () => `<div class="mock m6" tabindex="0" aria-label="Role dentro da prévia"><div class="stage"><div class="big" data-big>01</div><img data-img src="${S[0].img}" alt=""></div>${S.map(s => `<div class="sp" data-n="${s.n}" data-img="${s.img}"><span>${s.t}: ${s.d.split('.')[0]}.</span></div>`).join('')}</div>`,
+  // 7
+  () => `<div class="mock m7">${S.map(s => `<div class="r"><b>${s.n}</b><span class="s">${s.t}</span><span class="on-l">${s.w}</span></div>`).join('')}</div>`,
+  // 8
+  () => `<div class="mock m8" tabindex="0" aria-label="Role dentro da prévia">${S.map(s => `<div class="c"><b>${s.n}</b><div><div class="s" style="font-size:1.15rem">${s.t}</div><p>${s.d}</p></div></div>`).join('')}<div style="height:60px"></div></div>`,
+  // 9
+  () => `<div class="mock m9"><div class="track" tabindex="0">${S.map(s => `<div class="sl"><img src="${s.img}" alt=""><div><span class="n">${s.n}</span> <span class="s">${s.t}</span></div></div>`).join('')}</div><div class="bar"><i></i></div></div>`,
+  // 10
+  () => `<div class="mock m10"><div class="card2"><h4>Do planejamento ao altar</h4>${S.map(s => `<div class="row"><span class="s">${s.t}</span><span class="dots"></span><span>${s.w}</span></div>`).join('')}</div></div>`,
+  // 11
+  () => `<div class="mock m11"><svg viewBox="0 0 400 200" aria-label="Percurso das etapas"><path d="M20 70 H230 Q250 70 250 90 V110 Q250 130 270 130 H380" fill="none" stroke="#111" stroke-width="2"/><path d="M20 70 H230" fill="none" stroke="#111" stroke-width="6" opacity=".12"/>${[[20,70],[120,70],[220,70],[300,130],[380,130]].map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="7" fill="${i < 3 ? '#111' : '#fff'}" stroke="#111" stroke-width="2"/><text x="${x}" y="${y + (i < 3 ? -18 : 30)}" text-anchor="middle" font-family="Cormorant Garamond" font-size="15" fill="#111">${S[i].t}</text>`).join('')}<text x="20" y="190" font-family="Jost" font-size="10" fill="#6f6f6f">linha online</text><text x="300" y="190" font-family="Jost" font-size="10" fill="#6f6f6f">linha presencial</text></svg></div>`,
+  // 12
+  () => `<div class="mock m12"><div class="hl">${S.map((s, i) => `<button type="button" aria-pressed="${!i}" data-i="${i}"><i><img src="${s.img}" alt=""></i>${['Análise','Planejamento','Moodboard','Teste','O dia'][i]}</button>`).join('')}</div><div class="story"><img data-img src="${S[0].img}" alt=""><div><div class="prog">${S.map((s, i) => `<i class="${i ? '' : 'on'}"></i>`).join('')}</div><div class="s" data-t style="font-size:1.2rem;margin-top:8px">${S[0].t}</div><p data-d style="font-size:.74rem">${S[0].d}</p></div></div></div>`,
+  // 13
+  () => `<div class="mock m13">${S.map(s => `<button type="button" aria-pressed="false" aria-label="${s.t}"><span class="f"><b>${s.n}</b><span class="s" style="font-size:.9rem;line-height:1.1">${s.t}</span></span><span class="b">${s.d}</span></button>`).join('')}</div>`,
+  // 14
+  () => `<div class="mock m14"><svg viewBox="0 0 420 210" aria-label="Fluxo das etapas com volta do teste para ajustes"><defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#111"/></marker></defs>${S.map((s, i) => `<rect x="${8 + i * 82}" y="80" width="70" height="44" fill="${i === 4 ? '#111' : '#fff'}" stroke="#111"/><text x="${43 + i * 82}" y="107" text-anchor="middle" font-family="Cormorant Garamond" font-size="${s.t.length > 10 ? 11 : 13}" fill="${i === 4 ? '#fff' : '#111'}">${s.t}</text>${i < 4 ? `<line x1="${78 + i * 82}" y1="102" x2="${89 + i * 82}" y2="102" stroke="#111" marker-end="url(#ar)"/>` : ''}`).join('')}<path d="M289 124 Q289 170 207 170 Q166 170 166 128" fill="none" stroke="#111" stroke-dasharray="4 3" marker-end="url(#ar)"/><text x="228" y="190" text-anchor="middle" font-family="Jost" font-size="10" fill="#6f6f6f">ajustes, se precisar</text></svg></div>`,
+  // 15
+  () => `<div class="mock m15">${S.slice(0, 4).map((s, i) => `<div class="t ${i === 0 ? 'wide' : ''}"><b>${s.n}</b><span class="s">${s.t}</span></div>`).join('')}<div class="t big" style="grid-row:1/3"><img src="${S[4].img}" alt=""><span class="s">05 O grande dia</span></div></div>`,
+  // 16
+  () => `<div class="mock m16">${S.map(s => `<div><span class="n">${s.n}</span><span class="s">${s.t}</span><span class="ic">${s.get}</span></div>`).join('')}</div>`,
+  // 17
+  () => `<div class="mock m17">${S.map(s => `<figure><img src="${s.img}" alt=""><figcaption><b>${s.t}</b>${s.w}</figcaption></figure>`).join('')}</div>`,
+  // 18
+  () => `<div class="mock m18" tabindex="0" aria-label="Role dentro da prévia">${S.map(s => `<div class="z"><img src="${s.img}" alt=""><div><b>${s.n}</b><span class="s" style="font-size:1.1rem">${s.t}</span><p style="font-size:.72rem">${s.d}</p></div></div>`).join('')}</div>`,
+  // 19
+  () => `<div class="mock m19"><img class="ph" data-img src="${S[0].img}" alt=""><div class="tx"><span class="n" data-n>01 de 05</span><div class="s" data-t style="font-size:1.35rem">${S[0].t}</div><p data-d>${S[0].d}</p><label class="on-l" for="rg19">arraste</label><input id="rg19" type="range" min="0" max="4" step="1" value="0"><div class="ticks">${S.map(s => `<span>${s.n}</span>`).join('')}</div></div></div>`,
+  // 20
+  () => `<div class="mock m20">${S.map(s => `<div class="qa"><span class="q">${s.q}</span><span class="a"><b class="s">${s.t}.</b> ${s.d.split('.')[0]}.</span></div>`).join('')}</div>`
+];
+document.getElementById('board').innerHTML = A.map(([t, d, tool, ef], i) => `<article class="card">${M[i]()}<div class="head"><b>${i + 1}</b><h2>${t}</h2></div><div class="desc"><p>${d}</p><div class="meta"><span class="tag">${tool}</span><span><b>Esforço</b> ${ef}</span></div></div></article>`).join('');
+
+// comportamentos
+const set = (root, i) => { const s = S[i]; root.querySelectorAll('[data-img],[data-ph]').forEach(im => im.src = s.img); const t = root.querySelector('[data-t]'); t && (t.textContent = s.t); const d = root.querySelector('[data-d]'); d && (d.textContent = s.d); const n = root.querySelector('[data-n]'); n && (n.textContent = s.n + ' de 05'); };
+// 5 abas
+document.querySelectorAll('.m5').forEach(m => { let cur = 0; const tabs = [...m.querySelectorAll('[role=tab]')]; const go = i => { cur = (i + 5) % 5; tabs.forEach((t, k) => t.setAttribute('aria-selected', k === cur)); set(m, cur); }; tabs.forEach((t, k) => t.onclick = () => go(k)); m.querySelector('.next').onclick = () => go(cur + 1); });
+// 6 número fixo
+document.querySelectorAll('.m6').forEach(m => { const big = m.querySelector('[data-big]'), img = m.querySelector('[data-img]'); m.addEventListener('scroll', () => { const i = Math.min(4, Math.round(m.scrollTop / m.clientHeight)); big.textContent = S[i].n; img.src = S[i].img; }, { passive: true }); });
+// 9 progresso
+document.querySelectorAll('.m9 .track').forEach(t => t.addEventListener('scroll', () => { const p = t.scrollLeft / (t.scrollWidth - t.clientWidth || 1); t.parentNode.querySelector('.bar i').style.width = (20 + p * 80) + '%'; }, { passive: true }));
+// 12 destaques
+document.querySelectorAll('.m12').forEach(m => { const bs = [...m.querySelectorAll('.hl button')], pr = [...m.querySelectorAll('.prog i')]; bs.forEach((b, i) => b.onclick = () => { bs.forEach((x, k) => x.setAttribute('aria-pressed', k === i)); pr.forEach((p, k) => p.classList.toggle('on', k <= i)); set(m, i); }); });
+// 13 virar
+document.querySelectorAll('.m13 button').forEach(b => b.onclick = () => b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true'));
+// 19 slider
+document.querySelectorAll('.m19').forEach(m => { const r = m.querySelector('input'); r.addEventListener('input', () => set(m, +r.value)); });
+</script>
+</body>
+</html>

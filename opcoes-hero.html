@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>15 opções de texto e monograma no hero | Débora Machado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;--ease:cubic-bezier(.23,1,.32,1)}
+  *{box-sizing:border-box}
+  body{margin:0;background:#dcdcd8;font-family:var(--sans);font-weight:300;color:#0b0b0b;-webkit-font-smoothing:antialiased}
+  .intro{max-width:760px;margin:0 auto;padding:48px 20px 8px}
+  .intro h1{font-family:var(--serif);font-weight:300;font-size:2.4rem;margin:0 0 10px}
+  .intro p{color:#555;margin:0;line-height:1.6}
+  .opt{max-width:1180px;margin:40px auto 0;padding:0 20px}
+  .lab{display:flex;gap:14px;align-items:baseline;margin:0 0 10px}
+  .lab b{font-family:var(--serif);font-size:2rem;font-weight:300}
+  .lab span{color:#555;font-size:14px;line-height:1.5}
+  /* quadro do hero */
+  .h{position:relative;aspect-ratio:16/10;min-height:360px;overflow:hidden;color:#fff;background:#222;display:flex;align-items:center;justify-content:center;text-align:center}
+  .h>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 24%}
+  .h::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.42),rgba(0,0,0,.05) 60%);z-index:1}
+  .h>*:not(img.bg){position:relative;z-index:2}
+  svg.mono{width:60px;height:80px;color:#fff;display:block}
+  svg.sig{width:150px;height:82px;fill:none;stroke:#fff;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+  .it{font-family:var(--serif);font-style:italic;font-weight:300}
+  .cap{font:400 11px/1.4 var(--sans);letter-spacing:.28em;text-transform:uppercase}
+  .abs{position:absolute!important}
+  /* 1 */ .o1 .it{font-size:1.7rem;margin-top:14px}
+  /* 2 */ .o2 svg.mono{width:110px;height:146px}
+  /* 3 */ .o3{align-items:flex-end;justify-content:flex-start;text-align:left}.o3 .it{font-size:clamp(2rem,5vw,3.6rem);line-height:1.05;padding:0 0 44px 48px}
+  /* 4 */ .o4 .nm{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,6vw,4.8rem);letter-spacing:.14em;text-transform:uppercase;line-height:1}.o4 .cap{margin-top:16px}
+  /* 5 */ .o5{align-items:flex-end;justify-content:flex-start;text-align:left}.o5 .tp{top:30px;left:50%;transform:translateX(-50%)}.o5 .it{font-size:clamp(2.2rem,5.6vw,4.4rem);line-height:1.02;padding:0 0 44px 48px}
+  /* 6 */ .o6 .cap{margin-top:8px}
+  /* 7 */ .o7 .cap{margin-top:20px}.o7 .cap+.cap{margin-top:8px;opacity:.8;letter-spacing:.2em}
+  /* 8 */ .o8{align-items:flex-end;justify-content:center}.o8 .it{font-size:clamp(2.2rem,6vw,4.6rem);line-height:1.02;padding-bottom:48px}
+  /* 9 */ .o9 .tl{top:30px;left:36px}.o9 .vr{right:36px;top:50%;writing-mode:vertical-rl;transform:translateY(-50%) rotate(180deg);font-size:1.5rem}
+  /* 10 */ .o10 .gh{position:absolute!important;width:min(70%,420px);height:auto;aspect-ratio:3/4;opacity:.2;z-index:2}.o10 .it{font-size:1.6rem;z-index:3}
+  /* 11 */ .o11{align-items:flex-end}.o11 .bar{width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding:18px 28px;background:rgba(0,0,0,.28)}.o11 svg.mono{width:36px;height:48px}.o11 .it{font-size:1.4rem}.o11 .cap{text-align:right;font-size:10.5px}
+  /* 12 */ .o12 .fr{position:absolute!important;inset:22px;border:1px solid rgba(255,255,255,.75)}.o12 .mt{top:22px;left:50%;transform:translate(-50%,-50%);padding:0 14px;background:transparent}.o12 .mt svg{width:46px;height:62px}.o12 .bt{bottom:22px;left:50%;transform:translate(-50%,50%);padding:0 18px;font-size:1.3rem;white-space:nowrap}
+  /* 13 */ .o13{align-items:flex-end;justify-content:flex-start;text-align:left}.o13 .bx{padding:0 0 44px 48px}.o13 svg.mono{width:44px;height:58px;margin-bottom:18px}.o13 .it{font-size:clamp(2.6rem,7vw,5.8rem);line-height:.98;letter-spacing:-.02em}
+  /* 14 */ .o14 .nm{font-family:var(--serif);font-weight:300;font-size:clamp(2.2rem,5.4vw,4.2rem);line-height:1.02}.o14 .cap{margin-top:18px}.o14 svg.mono{margin:0 auto 16px;width:44px;height:58px}
+  /* 15 */ .o15 .seal{width:200px;height:200px;position:relative}.o15 .seal svg.rot{position:absolute;inset:0;width:100%;height:100%;animation:spin 40s linear infinite}.o15 .seal svg.mono{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:56px;height:75px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  @media (max-width:700px){.o3 .it,.o5 .it,.o13 .bx{padding-left:22px}.o11 .bar{grid-template-columns:auto 1fr;}.o11 .cap{display:none}.o12 .bt{font-size:1rem}.h{aspect-ratio:4/5}}
+  @media (prefers-reduced-motion:reduce){.o15 .seal svg.rot{animation:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mono" viewBox="0 0 60 80"><g fill="none" stroke="currentColor"><ellipse cx="30" cy="40" rx="28" ry="38" stroke-width="1"/><ellipse cx="30" cy="40" rx="25" ry="35" stroke-width=".5"/></g><text x="20" y="42" font-family="Cormorant Garamond,serif" font-size="25" fill="currentColor">D</text><text x="33" y="55" font-family="Cormorant Garamond,serif" font-size="25" fill="currentColor">M</text></symbol>
+  <symbol id="sig" viewBox="30 70 320 175"><path d="M48 190C45 150 100 110 150 92C195 80 225 105 220 140C214 185 170 222 128 222C100 222 75 215 70 200C66 185 85 170 110 163"/><path d="M64 228C90 218 130 185 160 168C178 160 190 175 200 185C210 192 222 172 232 168C240 175 238 196 248 200C258 196 262 172 272 170C280 176 278 196 292 196"/><circle cx="328" cy="213" r="2.5" fill="currentColor"/></symbol>
+</svg>
+
+<div class="intro">
+  <h1>15 opções de texto e monograma no hero</h1>
+  <p>Sem o menu no topo, o hero fica só com a marca e a frase. Todas usam a mesma foto para comparar justo. Vale lembrar que no site o fundo é o vídeo da noiva, com o rosto no alto.</p>
+</div>
+
+<!-- 1 -->
+<section class="opt"><div class="lab"><b>01</b><span>O atual. Monograma oval no centro e a frase pequena embaixo.</span></div>
+  <div class="h o1"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div><svg class="mono" aria-hidden="true" style="margin:0 auto"><use href="#mono"/></svg><p class="it">Beauty, uniquely yours.</p></div></div></section>
+
+<!-- 2 -->
+<section class="opt"><div class="lab"><b>02</b><span>Só o monograma, grande, sem frase. A foto fala sozinha.</span></div>
+  <div class="h o2"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><svg class="mono" aria-hidden="true"><use href="#mono"/></svg></div></section>
+
+<!-- 3 -->
+<section class="opt"><div class="lab"><b>03</b><span>Só a frase, grande, no canto inferior esquerdo. Sem monograma.</span></div>
+  <div class="h o3"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><p class="it">Beauty,<br>uniquely yours.</p></div></section>
+
+<!-- 4 -->
+<section class="opt"><div class="lab"><b>04</b><span>O nome. "Débora Machado" em caixa-alta espaçada, com "Beauty Artist" embaixo. Sem monograma nem frase.</span></div>
+  <div class="h o4"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div><div class="nm">Débora Machado</div><p class="cap">Beauty Artist</p></div></div></section>
+
+<!-- 5 -->
+<section class="opt"><div class="lab"><b>05</b><span>Monograma pequeno no topo, no lugar do menu, e a frase grande embaixo à esquerda.</span></div>
+  <div class="h o5"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><svg class="mono abs tp" aria-hidden="true" style="width:38px;height:50px"><use href="#mono"/></svg><p class="it">Beauty,<br>uniquely yours.</p></div></section>
+
+<!-- 6 -->
+<section class="opt"><div class="lab"><b>06</b><span>A assinatura dela no centro, em branco, com "Beauty Artist" embaixo. É a mais pessoal.</span></div>
+  <div class="h o6"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div><svg class="sig" aria-hidden="true"><use href="#sig"/></svg><p class="cap">Beauty Artist</p></div></div></section>
+
+<!-- 7 -->
+<section class="opt"><div class="lab"><b>07</b><span>Monograma com a descrição do serviço: "Maquiagem e penteado de noiva" e "São Paulo e destination wedding". Diz o que ela faz sem rodeio.</span></div>
+  <div class="h o7"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div><svg class="mono" aria-hidden="true" style="margin:0 auto"><use href="#mono"/></svg><p class="cap">Maquiagem e penteado de noiva</p><p class="cap">São Paulo e destination wedding</p></div></div></section>
+
+<!-- 8 -->
+<section class="opt"><div class="lab"><b>08</b><span>Frase nova em português, grande, centralizada embaixo: "Beleza que parece com você." Sem monograma.</span></div>
+  <div class="h o8"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><p class="it">Beleza que parece com você.</p></div></section>
+
+<!-- 9 -->
+<section class="opt"><div class="lab"><b>09</b><span>Editorial. Monograma no canto superior esquerdo e a frase vertical na lateral direita, como lombada de revista.</span></div>
+  <div class="h o9"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><svg class="mono abs tl" aria-hidden="true" style="width:40px;height:54px"><use href="#mono"/></svg><p class="it abs vr">Beauty, uniquely yours.</p></div></section>
+
+<!-- 10 -->
+<section class="opt"><div class="lab"><b>10</b><span>Monograma gigante e translúcido atrás, como marca d'água, e a frase pequena por cima.</span></div>
+  <div class="h o10"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><svg class="mono gh" viewBox="0 0 60 80" aria-hidden="true"><use href="#mono"/></svg><p class="it">Beauty, uniquely yours.</p></div></section>
+
+<!-- 11 -->
+<section class="opt"><div class="lab"><b>11</b><span>Faixa no pé do hero: monograma à esquerda, frase no centro e o lugar de atendimento à direita.</span></div>
+  <div class="h o11"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div class="bar"><svg class="mono" aria-hidden="true"><use href="#mono"/></svg><p class="it">Beauty, uniquely yours.</p><p class="cap">São Paulo · Brasil</p></div></div></section>
+
+<!-- 12 -->
+<section class="opt"><div class="lab"><b>12</b><span>Moldura. Um filete branco fino contorna o hero, com o monograma interrompendo a linha no topo e a frase no pé.</span></div>
+  <div class="h o12"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div class="fr"></div><div class="mt abs"><svg class="mono" aria-hidden="true"><use href="#mono"/></svg></div><p class="it abs bt">Beauty, uniquely yours.</p></div></section>
+
+<!-- 13 -->
+<section class="opt"><div class="lab"><b>13</b><span>Frase enorme em duas linhas, alinhada à esquerda, com o monograma pequeno acima dela.</span></div>
+  <div class="h o13"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div class="bx"><svg class="mono" aria-hidden="true"><use href="#mono"/></svg><p class="it">Beauty,<br>uniquely yours.</p></div></div></section>
+
+<!-- 14 -->
+<section class="opt"><div class="lab"><b>14</b><span>Promessa direta: "Uma noiva por dia." com o monograma e o nome embaixo. Depende da Débora confirmar essa regra com a Equipe DM.</span></div>
+  <div class="h o14"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div><svg class="mono" aria-hidden="true"><use href="#mono"/></svg><p class="nm it">Uma noiva por dia.</p><p class="cap">Débora Machado · Beauty Artist</p></div></div></section>
+
+<!-- 15 -->
+<section class="opt"><div class="lab"><b>15</b><span>Selo giratório. O texto "Débora Machado · Beauty Artist" gira devagar em volta do monograma, como um carimbo de papelaria.</span></div>
+  <div class="h o15"><img class="bg" src="layout-nina/fotos/hero-noiva.webp" alt=""><div class="seal"><svg class="rot" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="c" d="M100,100 m-82,0 a82,82 0 1,1 164,0 a82,82 0 1,1 -164,0"/></defs><text font-family="Jost,sans-serif" font-size="12" font-weight="400" letter-spacing="6.4" fill="#fff"><textPath href="#c">DÉBORA MACHADO · BEAUTY ARTIST · SÃO PAULO · </textPath></text></svg><svg class="mono" aria-hidden="true"><use href="#mono"/></svg></div></div></section>
+
+<div style="height:70px"></div>
+</body>
+</html>

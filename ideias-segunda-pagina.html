@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#FFFFFF">
+<title>Débora Machado, 15 ideias para a segunda página</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{--w:#fff;--paper:#F6F6F5;--line:#DDDDDB;--muted:#6F6F6F;--text:#2B2B2B;--k:#111;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--ease:cubic-bezier(.22,.61,.36,1)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--w);color:var(--text);font:300 1rem/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+  img,video{display:block;max-width:100%;height:auto;object-fit:cover}
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--k);outline-offset:3px}
+  button{font:inherit;color:inherit;cursor:pointer;touch-action:manipulation}
+  .top{background:var(--paper);padding:56px 20px 44px}
+  .wrap{max-width:1240px;margin:0 auto}
+  .top h1{font:300 clamp(2rem,4.4vw,3.2rem)/1.1 var(--serif);color:var(--k);margin-bottom:12px;text-wrap:balance}
+  .top p{max-width:48em;color:var(--muted)}
+  .legend{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:20px;font-size:.88rem}
+  .legend i{font-style:normal;border:1px solid var(--k);padding:1px 9px;margin-right:6px;font-size:.78rem}
+  .board{display:grid;gap:44px 28px;padding:56px 20px 90px;grid-template-columns:repeat(auto-fill,minmax(min(100%,360px),1fr))}
+  .card{display:grid;grid-template-rows:auto auto 1fr;gap:14px;min-width:0;max-width:600px;width:100%}
+  .mock{position:relative;aspect-ratio:4/3;overflow:hidden;background:#fff;border:1px solid var(--k)}
+  .head{display:flex;gap:12px;align-items:baseline}
+  .head b{font:300 2rem/1 var(--serif);color:var(--k)}
+  .head h2{font:400 1.45rem/1.1 var(--serif);color:var(--k)}
+  .desc p{font-size:.94rem;color:var(--text);margin-bottom:10px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:10px}
+  .meta span b{font-weight:400;color:var(--k)}
+  .tools{display:inline-flex;gap:6px;flex-wrap:wrap}
+  .tools i{font-style:normal;border:1px solid var(--k);padding:0 8px;font-size:.74rem;color:var(--k)}
+  /* utilidades de mock */
+  .abs{position:absolute}
+  .full{position:absolute;inset:0;width:100%;height:100%}
+  .pad{padding:18px}
+  .btn{display:inline-flex;align-items:center;min-height:40px;padding:0 18px;background:var(--k);color:#fff;border:1px solid var(--k);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;text-decoration:none}
+  .btn.o{background:#fff;color:var(--k)}
+  .btn:hover{opacity:.85}
+  .serif{font-family:var(--serif)}
+  .small{font-size:.8rem;color:var(--muted)}
+  .stk{position:absolute;mix-blend-mode:multiply;pointer-events:none;height:auto}
+
+  /* 1 quiz */
+  .m1{display:grid;grid-template-columns:1fr 1fr}
+  .m1 .q{padding:16px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+  .m1 .q h3{font:400 1.1rem/1.2 var(--serif);color:var(--k)}
+  .m1 .q button{min-height:38px;border:1px solid var(--k);background:#fff;text-align:left;padding:0 12px;font-size:.84rem}
+  .m1 .q button:hover,.m1 .q button[aria-pressed="true"]{background:var(--k);color:#fff}
+  .m1 .r{background:var(--paper);padding:16px;display:flex;flex-direction:column;justify-content:center;gap:10px;border-left:1px solid var(--k)}
+  .m1 .sw{display:flex;gap:6px}.m1 .sw i{width:34px;height:34px;border-radius:50%;display:block;transition:background .5s}
+  /* 2 recorte + título */
+  .m2 .word{position:absolute;left:-2%;top:6%;font:300 clamp(5rem,13vw,9rem)/.85 var(--serif);color:var(--k);letter-spacing:-.03em}
+  .m2 img{position:absolute;right:6%;top:10%;width:46%;aspect-ratio:3/4}
+  .m2 .over{position:absolute;left:8%;bottom:8%;width:46%;font:300 1.05rem/1.3 var(--serif);color:var(--k);background:#fff;padding:10px 12px}
+  /* 3 cinemagraph */
+  .m3 img{animation:kb 14s ease-in-out infinite alternate}
+  @keyframes kb{from{transform:scale(1.04) translate(0,0)}to{transform:scale(1.16) translate(-2%,-2%)}}
+  .m3::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.55),transparent 55%)}
+  .m3 .t{position:absolute;left:18px;bottom:16px;right:18px;color:#fff;z-index:2;font:300 1.25rem/1.2 var(--serif)}
+  .m3 .t small{display:block;font:300 .72rem/1.4 var(--sans);opacity:.85;margin-top:4px}
+  /* 4 paleta */
+  .m4{display:grid;grid-template-columns:.9fr 1.1fr}
+  .m4 img{width:100%;height:100%}
+  .m4 .p{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+  .m4 .row{display:flex;gap:8px;flex-wrap:wrap}
+  .m4 .row button{all:unset;cursor:pointer;display:grid;gap:4px;justify-items:center;font-size:.72rem;color:var(--muted)}
+  .m4 .row button i{display:block;width:44px;height:44px;border-radius:50%;box-shadow:0 0 0 1px #fff,0 0 0 2px transparent;transition:box-shadow .3s}
+  .m4 .row button:hover i,.m4 .row button:focus-visible i,.m4 .row button.on i{box-shadow:0 0 0 2px #fff,0 0 0 3px var(--k)}
+  .m4 .hex{font:400 1.3rem/1 var(--serif);color:var(--k)}
+  /* 5 mesa arrastável */
+  .m5{background:var(--paper);touch-action:none}
+  .m5 .dr{position:absolute;cursor:grab;user-select:none;-webkit-user-drag:none;box-shadow:0 0 0 6px var(--paper);touch-action:none}
+  .m5 .dr:active{cursor:grabbing;z-index:9}
+  .m5 .hint{position:absolute;right:12px;bottom:10px;font-size:.74rem;color:var(--muted);z-index:10;background:var(--paper)}
+  /* 6 vídeo */
+  .m6{display:grid;grid-template-columns:.7fr 1.3fr;background:var(--paper)}
+  .m6 video{width:100%;height:100%}
+  .m6 .t{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+  .m6 .t h3{font:400 1.25rem/1.15 var(--serif);color:var(--k)}
+  /* 7 whatsapp */
+  .m7{background:#EFEAE2;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;gap:8px}
+  .m7 .hd{position:absolute;left:0;right:0;top:0;background:var(--k);color:#fff;padding:9px 14px;font-size:.82rem}
+  .m7 .b{max-width:78%;padding:8px 11px;font-size:.82rem;line-height:1.4;background:#fff;opacity:0;transform:translateY(6px);transition:opacity .5s,transform .5s}
+  .m7 .b.me{align-self:flex-end;background:#DCF8C6}
+  .m7 .b.show{opacity:1;transform:none}
+  .m7 .ill{position:absolute;right:10px;top:36px;font-size:.66rem;color:var(--muted)}
+  /* 8 o que você recebe */
+  .m8{background:var(--paper)}
+  .m8 .doc{position:absolute;background:#fff;border:1px solid var(--k);width:44%;aspect-ratio:3/4;padding:10px;font-size:.62rem;line-height:1.3;transition:transform .5s var(--ease)}
+  .m8 .d1{left:6%;top:12%;transform:rotate(-5deg)}.m8 .d2{left:28%;top:7%;transform:rotate(1deg);z-index:2}.m8 .d3{right:5%;top:14%;transform:rotate(6deg)}
+  .m8:hover .d1{transform:rotate(-9deg) translateX(-8px)}.m8:hover .d3{transform:rotate(10deg) translateX(8px)}
+  .m8 .doc b{display:block;font:400 .95rem/1.1 var(--serif);color:var(--k);margin-bottom:6px}
+  .m8 .dots{display:flex;gap:3px;margin-top:6px}.m8 .dots i{width:14px;height:14px;border-radius:50%;display:block}
+  .m8 .mini{display:grid;grid-template-columns:1fr 1fr;gap:3px}.m8 .mini img{width:100%;aspect-ratio:1}
+  .m8 .cap{position:absolute;left:14px;bottom:10px;font-size:.78rem;color:var(--muted)}
+  /* 9 accordion */
+  .m9{display:flex;flex-direction:column;justify-content:center;padding:0 16px}
+  .m9 details{border-top:1px solid var(--k)}.m9 details:last-child{border-bottom:1px solid var(--k)}
+  .m9 summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;padding:9px 0;font:400 1.1rem/1.2 var(--serif);color:var(--k)}
+  .m9 summary::-webkit-details-marker{display:none}
+  .m9 summary::after{content:"+";font:300 1.2rem/1 var(--sans)}.m9 details[open] summary::after{content:"–"}
+  .m9 .in{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:0 0 10px;font-size:.8rem}
+  .m9 .in img{width:70px;height:84px}
+  /* 10 capítulos */
+  .m10{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+  .m10 .ch{flex:none;width:72%;scroll-snap-align:start;position:relative;border-right:1px solid var(--k)}
+  .m10 .ch img{width:100%;height:100%}
+  .m10 .ch span{position:absolute;left:12px;bottom:12px;background:#fff;padding:6px 10px;font:400 1rem/1.1 var(--serif);color:var(--k)}
+  /* 11 looks (tabs) */
+  .m11{display:grid;grid-template-columns:1fr 1fr}
+  .m11 .tabs{padding:14px;display:flex;flex-direction:column;gap:6px;justify-content:center}
+  .m11 .tabs button{min-height:36px;border:1px solid var(--line);background:#fff;text-align:left;padding:0 12px;font-size:.84rem}
+  .m11 .tabs button[aria-selected="true"]{border-color:var(--k);background:var(--k);color:#fff}
+  .m11 .vw{position:relative}.m11 .vw img{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .6s}.m11 .vw img.on{opacity:1}
+  /* 12 prova primeiro */
+  .m12{display:grid;place-items:center;text-align:center;padding:24px;background:#fff}
+  .m12 q{display:block;font:300 1.35rem/1.3 var(--serif);color:var(--k);quotes:"“" "”";max-width:18em}
+  .m12 .who{margin-top:12px;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  /* 13 letras com foto */
+  .m13{display:grid;place-items:center;background:#fff}
+  .m13 .big{font:400 clamp(4rem,12vw,8rem)/.9 var(--serif);letter-spacing:-.03em;background:url(fotos/veil-detalhe.webp) 50% 40%/cover;-webkit-background-clip:text;background-clip:text;color:transparent;text-align:center}
+  .m13 p{position:absolute;bottom:12px;left:0;right:0;text-align:center;font-size:.8rem;color:var(--muted)}
+  /* 14 data do casamento */
+  .m14{display:grid;grid-template-columns:1fr 1fr}
+  .m14 img{width:100%;height:100%}
+  .m14 .f{padding:16px;display:flex;flex-direction:column;justify-content:center;gap:10px}
+  .m14 h3{font:400 1.25rem/1.15 var(--serif);color:var(--k)}
+  .m14 input{min-height:42px;border:1px solid var(--k);padding:0 10px;font:inherit;font-size:.9rem;background:#fff}
+  .m14 .res{font-size:.78rem;color:var(--muted);min-height:2.4em}
+  /* 15 folhear */
+  .m15{display:grid;grid-template-columns:1fr 1fr;background:var(--paper)}
+  .m15 .l{position:relative}.m15 .l img{position:absolute;inset:0;width:100%;height:100%;opacity:0;transition:opacity .7s}.m15 .l img.on{opacity:1}
+  .m15 .r{padding:16px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid var(--k);background:#fff}
+  .m15 .r h3{font:400 1.2rem/1.15 var(--serif);color:var(--k);margin-bottom:6px}.m15 .r p{font-size:.8rem}
+  .m15 nav{display:flex;gap:8px;align-items:center;font-size:.78rem}.m15 nav button{width:36px;height:36px;border:1px solid var(--k);background:#fff}
+  @media(prefers-reduced-motion:reduce){.m3 img{animation:none}*{transition-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <h1>15 ideias para a segunda página</h1>
+  <p>Esqueça a grade de fotos. Aqui a segunda página é pensada a partir do que dá para construir com as ferramentas: formulário que lê o subtom, vídeo de making-of, conversa de WhatsApp, tabs e accordion do shadcn, componentes do 21st, recorte de fundo e vídeo gerado a partir das fotos. Cada cartão tem uma prévia que funciona, com as fotos e o vídeo reais dela.</p>
+  <div class="legend"><span><i>pronto</i>já dá para usar com o que temos</span><span><i>gera</i>precisa gerar ou recortar imagem (usa créditos)</span><span><i>ela</i>depende de material ou aprovação da Débora</span></div>
+</div></header>
+
+<main class="board wrap" id="board">
+
+<!-- 1 -->
+<article class="card"><div class="mock m1">
+  <div class="q"><h3>Teste rápido de subtom</h3><span class="small">Seu pulso, à luz do dia: as veias parecem</span>
+    <button type="button" data-r="0" aria-pressed="false">mais verdes</button><button type="button" data-r="1" aria-pressed="false">mais azuis ou roxas</button><button type="button" data-r="2" aria-pressed="false">as duas</button></div>
+  <div class="r"><span class="small" id="r1t">Escolha uma resposta.</span><div class="sw" aria-hidden="true"><i style="background:#eee"></i><i style="background:#eee"></i><i style="background:#eee"></i></div><button type="button" class="btn o">Pedir a análise completa</button></div>
+</div><div class="head"><b>1</b><h2>Teste rápido de subtom</h2></div><div class="desc"><p>A pessoa responde uma pergunta e vê, na hora, a família de cores que costuma favorecer. Vira a porta de entrada: “isso é o resumo, a análise completa é minha”. Mostra o método em vez de explicar.</p><div class="meta"><span class="tools"><i>HTML + JS</i><i>skill design</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto, texto das respostas a validar com ela</span></div></div></article>
+
+<!-- 2 -->
+<article class="card"><div class="mock m2"><div class="word">Rosto</div><img src="fotos/olhar-up.webp" alt="Noiva olhando para cima, com coque baixo e brinco de cristais" width="1440" height="1920" loading="lazy"><div class="over">Antes de pegar o pincel, eu estudo o seu rosto.</div></div><div class="head"><b>2</b><h2>Palavra gigante atrás da noiva</h2></div><div class="desc"><p>Uma palavra enorme (“Rosto”) atrás da cabeça da noiva, com o recorte passando na frente das letras. Efeito de capa de revista. Aqui a prévia é só a composição; o efeito de profundidade exige a foto recortada.</p><div class="meta"><span class="tools"><i>Higgsfield remove_background</i><i>CSS</i></span><span><b>Esforço</b> médio</span><span><b>Estado</b> gera (recorte do fundo)</span></div></div></article>
+
+<!-- 3 -->
+<article class="card"><div class="mock m3"><img class="full" src="fotos/veil-portrait.webp" alt="Noiva com véu de renda, rosto em close" width="1440" height="1920" loading="lazy" style="object-position:50% 40%"><div class="t">Antes de pegar o pincel, eu estudo o seu rosto.<small>Na versão final a foto respira de verdade: o véu se move.</small></div></div><div class="head"><b>3</b><h2>Foto que respira</h2></div><div class="desc"><p>Um quadro em tela cheia com movimento mínimo: o véu balança, a luz muda. Aqui a prévia só dá zoom lento na foto; a versão real é um vídeo curto gerado a partir da própria foto dela, em loop e sem som.</p><div class="meta"><span class="tools"><i>Higgsfield generate_video</i><i>upscale</i></span><span><b>Esforço</b> médio</span><span><b>Estado</b> gera (vídeo), ela aprova</span></div></div></article>
+
+<!-- 4 -->
+<article class="card"><div class="mock m4"><img src="fotos/veil-detalhe.webp" alt="Rosto em close com véu de renda" width="1440" height="1920" loading="lazy" style="object-position:50% 45%">
+  <div class="p"><span class="small">Tons medidos nesta pele</span><div class="row" id="pal">
+    <button type="button" data-h="#e3a38f" data-n="pele"><i style="background:#e3a38f"></i>pele</button><button type="button" data-h="#d48f7c" data-n="luz"><i style="background:#d48f7c"></i>luz</button><button type="button" data-h="#b3786f" data-n="olhar"><i style="background:#b3786f"></i>olhar</button><button type="button" data-h="#b05d65" data-n="boca"><i style="background:#b05d65"></i>boca</button><button type="button" data-h="#7c4e37" data-n="sombra"><i style="background:#7c4e37"></i>sombra</button></div>
+    <div class="hex" id="hex">Toque numa cor</div><span class="small" id="hexn"></span></div></div><div class="head"><b>4</b><h2>Paleta tirada da foto</h2></div><div class="desc"><p>Cada foto do portfólio mostra a paleta real da pele da noiva e de onde saiu cada cor. É a prova visual do método de colorimetria, sem texto técnico. Os cinco tons aqui foram medidos nessa foto.</p><div class="meta"><span class="tools"><i>Python</i><i>sharp</i><i>JS</i></span><span><b>Esforço</b> médio, vezes o número de fotos</span><span><b>Estado</b> pronto</span></div></div></article>
+
+<!-- 5 -->
+<article class="card"><div class="mock m5" id="m5">
+  <img class="dr" src="fotos/flor-olhos.webp" alt="Noiva de olhos fechados com flor branca" width="1440" height="1800" style="left:5%;top:8%;width:36%;aspect-ratio:3/4" loading="lazy">
+  <img class="dr" src="fotos/ysl.webp" alt="Batons e blush rosados" width="1170" height="1560" style="left:46%;top:6%;width:26%;aspect-ratio:1" loading="lazy">
+  <img class="dr" src="fotos/brinco.webp" alt="Perfil com brinco de cristais" width="1440" height="1920" style="left:60%;top:42%;width:30%;aspect-ratio:3/4" loading="lazy">
+  <img class="dr" src="fotos/coque.webp" alt="Coque baixo com pente de cristais" width="1440" height="1920" style="left:22%;top:50%;width:28%;aspect-ratio:3/4" loading="lazy">
+  <img class="stk" src="fotos/amostra-gloss-rosa.webp" alt="" aria-hidden="true" style="width:15%;left:40%;top:38%;transform:rotate(-8deg)"><img class="stk" src="fotos/amostra-blush-po.webp" alt="" aria-hidden="true" style="width:12%;right:3%;top:3%">
+  <span class="hint">arraste as fotos</span></div><div class="head"><b>5</b><h2>Mesa de moodboard que se mexe</h2></div><div class="desc"><p>A pessoa arruma as fotos e as amostras como num moodboard de verdade. É o produto dela virando brincadeira, e a pessoa passa mais tempo na página. Funciona com mouse e dedo.</p><div class="meta"><span class="tools"><i>JS</i><i>figurinhas</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto</span></div></div></article>
+
+<!-- 6 -->
+<article class="card"><div class="mock m6"><video src="video/making-of-cabelo.mp4" muted loop playsinline preload="metadata" autoplay aria-label="Débora trabalhando o penteado de uma noiva"></video><div class="t"><h3>Veja como eu trabalho</h3><span class="small">Vídeo curto do penteado, sem som, em loop. É o vídeo real que você enviou.</span><button type="button" class="btn o" style="align-self:flex-start">Ver como funciona</button></div></div><div class="head"><b>6</b><h2>Making-of como abertura</h2></div><div class="desc"><p>Em vez de explicar o processo, mostra a mão dela no cabelo. O vídeo está no projeto e já toca. Para o celular, convém comprimir e dar um quadro de capa.</p><div class="meta"><span class="tools"><i>video</i><i>skill core-web-vitals</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto, ela autoriza a noiva do vídeo</span></div></div></article>
+
+<!-- 7 -->
+<article class="card"><div class="mock m7" id="m7"><div class="hd">Planejamento pelo WhatsApp</div><span class="ill">exemplo ilustrativo</span>
+  <div class="b me">Ganhei uma flor da minha costureira. Posso usar?</div>
+  <div class="b">Me manda uma foto dela. Eu vejo se combina com o resto da produção e, se não combinar, te explico o porquê.</div>
+  <div class="b me">Mandei! Tô na dúvida porque ela é bem romântica.</div>
+  <div class="b">Ela puxa a produção para o romântico. Você queria algo mais moderno, então eu sugiro um grampo.</div></div><div class="head"><b>7</b><h2>A conversa que mostra o planejamento</h2></div><div class="desc"><p>Uma conversa que se escreve sozinha, baseada na história da flor da costureira que ela conta. Mostra a etapa 2 do método de um jeito que ninguém mais mostra. Usar conversa real exige autorização da noiva; esta é ilustrativa.</p><div class="meta"><span class="tools"><i>HTML + JS</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto, ela revisa o tom das respostas</span></div></div></article>
+
+<!-- 8 -->
+<article class="card"><div class="mock m8">
+  <div class="doc d1"><b>Leitura do rosto</b>Expressão, traços, tom e subtom.<div class="dots"><i style="background:#e3a38f"></i><i style="background:#d48f7c"></i><i style="background:#b05d65"></i><i style="background:#7c4e37"></i></div></div>
+  <div class="doc d2"><b>Moodboard</b><div class="mini"><img src="fotos/brinco.webp" alt="" loading="lazy"><img src="fotos/coque.webp" alt="" loading="lazy"><img src="fotos/ysl.webp" alt="" loading="lazy"><img src="fotos/amostra-gloss-rosa.webp" alt="" loading="lazy" style="object-fit:contain"></div></div>
+  <div class="doc d3"><b>Conversa</b>Cada escolha, com o porquê.</div>
+  <span class="cap">passe o mouse: as folhas se abrem</span></div><div class="head"><b>8</b><h2>O que você recebe antes do dia</h2></div><div class="desc"><p>Três folhas em leque: a leitura, o moodboard e a conversa. Responde à pergunta “o que eu ganho de diferente?” com algo que dá para ver. Quando ela mandar prints do material, substituímos os desenhos pelos reais, com dados borrados.</p><div class="meta"><span class="tools"><i>CSS</i><i>skill design-system</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto, ela envia o material</span></div></div></article>
+
+<!-- 9 -->
+<article class="card"><div class="mock m9"><details open><summary>O questionário</summary><div class="in"><img src="fotos/ombro.webp" alt="" loading="lazy"><span>Perguntas sobre estilo, personalidade e o casamento.</span></div></details><details><summary>A leitura do rosto</summary><div class="in"><img src="fotos/veil-detalhe.webp" alt="" loading="lazy"><span>Traços, expressão e o que você quer destacar.</span></div></details><details><summary>Tom e subtom</summary><div class="in"><img src="fotos/batom-pincel.webp" alt="" loading="lazy"><span>A cor que favorece a sua pele.</span></div></details><details><summary>O vestido</summary><div class="in"><img src="fotos/noiva-05.webp" alt="" loading="lazy"><span>O decote pede um penteado.</span></div></details></div><div class="head"><b>9</b><h2>Accordion com foto em cada etapa</h2></div><div class="desc"><p>O mesmo texto em quatro linhas finas que abrem. A pessoa lê no ritmo dela e a página fica curta. É o componente Accordion do shadcn (Radix), que já traz teclado e leitor de tela corretos.</p><div class="meta"><span class="tools"><i>shadcn Accordion</i><i>21st</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto</span></div></div></article>
+
+<!-- 10 -->
+<article class="card"><div class="mock m10" tabindex="0" aria-label="Capítulos, deslize para o lado"><div class="ch"><img src="fotos/ombro.webp" alt="" loading="lazy"><span>O rosto</span></div><div class="ch"><img src="fotos/batom-pincel.webp" alt="" loading="lazy"><span>A pele</span></div><div class="ch"><img src="fotos/noiva-05.webp" alt="" loading="lazy"><span>O vestido</span></div><div class="ch"><img src="fotos/coque.webp" alt="" loading="lazy"><span>Os detalhes</span></div></div><div class="head"><b>10</b><h2>Capítulos que deslizam</h2></div><div class="desc"><p>Quatro quadros largos lado a lado, cada um com uma etapa da leitura. No computador anda com a rolagem; no celular, com o dedo. Inspirado nos componentes Scroll Gallery e Parallax Strip Slider do 21st.</p><div class="meta"><span class="tools"><i>21st</i><i>CSS scroll-snap</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto</span></div></div></article>
+
+<!-- 11 -->
+<article class="card"><div class="mock m11"><div class="tabs" role="tablist" aria-label="Looks"><button role="tab" aria-selected="true" data-i="0" type="button">Coque baixo</button><button role="tab" aria-selected="false" data-i="1" type="button">Ondas soltas</button><button role="tab" aria-selected="false" data-i="2" type="button">Meio preso com flor</button><button role="tab" aria-selected="false" data-i="3" type="button">Véu de renda</button><span class="small">o rosto pede um; o vestido, outro</span></div>
+  <div class="vw" id="vw11"><img class="on" src="fotos/coque.webp" alt="Coque baixo" loading="lazy"><img src="fotos/noiva-04.webp" alt="Ondas soltas" loading="lazy"><img src="fotos/hero-noiva.webp" alt="Meio preso com flor" loading="lazy"><img src="fotos/veil-portrait.webp" alt="Véu de renda" loading="lazy"></div></div><div class="head"><b>11</b><h2>Looks para escolher</h2></div><div class="desc"><p>A noiva testa os caminhos possíveis: cada aba mostra um penteado real do portfólio. Faz ela se imaginar e já pensar no tipo de produção que quer. É o componente Tabs do shadcn.</p><div class="meta"><span class="tools"><i>shadcn Tabs</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto, falta legenda de cada look com a ela</span></div></div></article>
+
+<!-- 12 -->
+<article class="card"><div class="mock m12"><div><q>Dé, seu trabalho é sensacional! O seu moodboard é surpreendente e muito certeiro, deu o toque final que faltava na minha produção. Você foi minha melhor escolha.</q><div class="who">Mayra Fagundes</div></div></div><div class="head"><b>12</b><h2>A prova vem primeiro</h2></div><div class="desc"><p>Em vez de explicar o método, abre com o que uma noiva disse dele. Quem ainda desconfia lê isso antes de ler qualquer promessa. Fica uma frase só, grande, sem foto competindo.</p><div class="meta"><span class="tools"><i>HTML</i></span><span><b>Esforço</b> mínimo</span><span><b>Estado</b> pronto, ela confirma a autorização da Mayra</span></div></div></article>
+
+<!-- 13 -->
+<article class="card"><div class="mock m13"><div class="big" aria-hidden="true">Rosto</div><p>a palavra é preenchida pela própria foto</p></div><div class="head"><b>13</b><h2>Letras preenchidas pela foto</h2></div><div class="desc"><p>Uma palavra grande cujo preenchimento é o rosto de uma noiva. Funciona com texto de verdade (leitores de tela e Google leem), sem imagem de texto. Cada visita pode ver uma noiva diferente.</p><div class="meta"><span class="tools"><i>CSS background-clip</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto</span></div></div></article>
+
+<!-- 14 -->
+<article class="card"><div class="mock m14"><img src="fotos/noiva-03.webp" alt="Noiva loira com vestido de renda" loading="lazy"><div class="f"><h3>Qual é a data do seu casamento?</h3><label class="small" for="d14">Eu confiro e respondo pelo WhatsApp.</label><input id="d14" type="date"><a class="btn" id="g14" href="https://wa.me/?text=Oi%2C%20D%C3%A9bora!" target="_blank" rel="noopener">Consultar minha data</a><div class="res" id="r14" aria-live="polite"></div></div></div><div class="head"><b>14</b><h2>A data é o primeiro passo</h2></div><div class="desc"><p>A seção já termina em ação: a pessoa escolhe a data e o botão abre o WhatsApp com a mensagem pronta e a data preenchida. Aproveita o fato de ela atender uma noiva por dia, que cria urgência real.</p><div class="meta"><span class="tools"><i>HTML + JS</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto, falta o número dela</span></div></div></article>
+
+<!-- 15 -->
+<article class="card"><div class="mock m15"><div class="l" id="l15"><img class="on" src="fotos/ombro.webp" alt="" loading="lazy"><img src="fotos/veil-detalhe.webp" alt="" loading="lazy"><img src="fotos/coque.webp" alt="" loading="lazy"></div><div class="r"><div><h3 id="t15">O rosto</h3><p id="p15">Eu começo olhando para você, não para uma tendência.</p></div><nav aria-label="Folhear"><button type="button" id="pv" aria-label="Anterior">‹</button><span id="n15">1 de 3</span><button type="button" id="nx" aria-label="Próximo">›</button></nav></div></div><div class="head"><b>15</b><h2>Folhear como revista</h2></div><div class="desc"><p>Uma página dupla: foto à esquerda, texto à direita, com setas para virar. Combina com a estética editorial dela e mantém tudo numa altura só. Funciona com teclado e toque.</p><div class="meta"><span class="tools"><i>HTML + JS</i><i>21st</i></span><span><b>Esforço</b> baixo</span><span><b>Estado</b> pronto, textos das páginas a validar</span></div></div></article>
+
+</main>
+
+<script>
+  const calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // 1 quiz
+  const R1 = [
+    { t: 'Subtom quente: ouro, pêssego e terracota costumam favorecer.', c: ['#e8b48a', '#d98a6c', '#b4623f'] },
+    { t: 'Subtom frio: rosé, frutas vermelhas e malva costumam favorecer.', c: ['#d9a3b5', '#b5546d', '#7d3a5a'] },
+    { t: 'Subtom neutro: os dois lados funcionam. Aí vale a análise completa.', c: ['#d6a68f', '#b5757a', '#8b5a4a'] }];
+  document.querySelectorAll('.m1 .q button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.m1 .q button').forEach(x => x.setAttribute('aria-pressed', x === b));
+    const r = R1[+b.dataset.r]; document.getElementById('r1t').textContent = r.t;
+    document.querySelectorAll('.m1 .sw i').forEach((i, k) => i.style.background = r.c[k]);
+  }));
+  // 4 paleta
+  document.querySelectorAll('#pal button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('#pal button').forEach(x => x.classList.toggle('on', x === b));
+    document.getElementById('hex').textContent = b.dataset.h.toUpperCase(); document.getElementById('hexn').textContent = 'tom da ' + b.dataset.n;
+  }));
+  // 5 arrastar
+  (function () {
+    const box = document.getElementById('m5'); let cur = null, ox = 0, oy = 0, z = 5;
+    box.querySelectorAll('.dr').forEach(el => el.addEventListener('pointerdown', e => {
+      cur = el; const r = el.getBoundingClientRect(); ox = e.clientX - r.left; oy = e.clientY - r.top; el.style.zIndex = ++z; el.setPointerCapture(e.pointerId); e.preventDefault();
+    }));
+    box.addEventListener('pointermove', e => {
+      if (!cur) return; const b = box.getBoundingClientRect();
+      cur.style.left = ((e.clientX - b.left - ox) / b.width * 100) + '%'; cur.style.top = ((e.clientY - b.top - oy) / b.height * 100) + '%';
+    });
+    ['pointerup', 'pointercancel'].forEach(ev => box.addEventListener(ev, () => cur = null));
+  })();
+  // 6 vídeo: respeita reduzir movimento
+  document.querySelectorAll('.m6 video').forEach(v => { if (calmo) { v.removeAttribute('autoplay'); v.pause(); v.controls = true; } });
+  // 7 conversa
+  (function () {
+    const bs = [...document.querySelectorAll('#m7 .b')];
+    const play = () => { bs.forEach(b => b.classList.remove('show')); bs.forEach((b, i) => setTimeout(() => b.classList.add('show'), calmo ? 0 : 900 + i * 1600)); };
+    if ('IntersectionObserver' in window) new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { play(); o.disconnect(); } })).observe(document.getElementById('m7')); else play();
+  })();
+  // 11 tabs
+  document.querySelectorAll('.m11 .tabs button').forEach(b => b.addEventListener('click', () => {
+    const i = +b.dataset.i; document.querySelectorAll('.m11 .tabs button').forEach(x => x.setAttribute('aria-selected', x === b));
+    document.querySelectorAll('#vw11 img').forEach((im, k) => im.classList.toggle('on', k === i));
+  }));
+  // 14 data
+  (function () {
+    const d = document.getElementById('d14'), g = document.getElementById('g14'), r = document.getElementById('r14');
+    d.addEventListener('change', () => {
+      if (!d.value) return; const dt = new Date(d.value + 'T12:00:00');
+      const txt = new Intl.DateTimeFormat('pt-BR', { day: 'numeric', month: 'long', year: 'numeric' }).format(dt);
+      g.href = 'https://wa.me/?text=' + encodeURIComponent('Oi, Débora! Vim pelo seu site. Meu casamento é dia ' + txt + '. Queria saber se você tem essa data.');
+      r.textContent = 'A mensagem sai com: dia ' + txt + '.';
+    });
+  })();
+  // 15 folhear
+  (function () {
+    const S = [['O rosto', 'Eu começo olhando para você, não para uma tendência.'], ['O tom e o subtom', 'Cada pele pede um tom de base e de batom.'], ['O penteado', 'O decote e o vestido decidem o desenho.']];
+    const imgs = [...document.querySelectorAll('#l15 img')]; let i = 0;
+    const go = n => { i = (n + S.length) % S.length; imgs.forEach((im, k) => im.classList.toggle('on', k === i)); document.getElementById('t15').textContent = S[i][0]; document.getElementById('p15').textContent = S[i][1]; document.getElementById('n15').textContent = (i + 1) + ' de ' + S.length; };
+    document.getElementById('pv').onclick = () => go(i - 1); document.getElementById('nx').onclick = () => go(i + 1);
+  })();
+</script>
+</body>
+</html>

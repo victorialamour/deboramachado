@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hero com a foto do véu | Débora Machado</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{--serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif}
+  *{box-sizing:border-box}body{margin:0;background:#e9e9e6;font-family:var(--sans);font-weight:300;color:#0b0b0b}
+  .note{padding:28px clamp(22px,5vw,72px) 16px;font-size:14px;line-height:1.5;color:#4f4f4d}.note b{font:300 1.7rem var(--serif);margin-right:14px;color:#0b0b0b}
+  .intro{padding:48px clamp(22px,5vw,72px) 8px}.intro h1{font:300 clamp(2rem,4vw,3rem)/1.05 var(--serif);margin:0 0 10px}.intro p{margin:0;color:#4f4f4d;line-height:1.6;max-width:56em}
+  .hero{position:relative;height:min(100svh,820px);min-height:520px;overflow:hidden;color:#fff;background:#222}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .nm{font:300 clamp(1.9rem,5.2vw,4.4rem)/1.04 var(--serif);letter-spacing:.14em;text-transform:uppercase;margin:0}
+  .rl{margin:16px 0 0;font:400 11.5px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase}
+  /* A: tela cheia, nome no lado limpo (esquerda) */
+  .a img{object-position:78% 40%}
+  .a::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(15,25,20,.42),rgba(15,25,20,0) 62%)}
+  .a .tx{position:absolute;z-index:2;left:clamp(22px,6vw,96px);bottom:clamp(40px,12vh,110px);max-width:min(560px,48%)}
+  /* B: metade a metade, nome em preto sobre fundo claro */
+  .b{display:grid;grid-template-columns:1fr 1fr;background:#f5f5f3;color:#0b0b0b}
+  .b img{position:relative;order:2;object-position:60% 40%}
+  .b .tx{display:grid;align-content:center;justify-items:start;padding:0 clamp(22px,6vw,96px)}
+  .b .nm{font-size:clamp(1.9rem,4vw,3.4rem)}
+  .b .rl{color:#4f4f4d}
+  .b .ln{width:44px;height:1px;background:#0b0b0b;margin:28px 0 0}
+  @media (max-width:760px){
+    .a img{object-position:70% 35%}.a::after{background:linear-gradient(to top,rgba(15,25,20,.55),rgba(15,25,20,0) 60%)}.a .tx{max-width:none;right:22px;bottom:44px}
+    .b{grid-template-columns:1fr;grid-template-rows:auto 1fr}.b img{position:relative;height:56vh;order:0}.b .tx{padding:36px 22px 44px}
+  }
+</style></head><body>
+<div class="intro"><h1>Hero com a foto do véu</h1><p>A foto que você mandou (véu de renda cobrindo metade do rosto). Duas maneiras de usar, no desktop e no celular. O nome fica sempre no lado limpo da imagem, nunca sobre a renda.</p></div>
+<div class="note"><b>A</b>Tela cheia. A foto ocupa tudo, o rosto fica à direita e o nome entra no lado desfocado, com um véu escuro suave.</div>
+<section class="hero a"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"><div class="tx"><h1 class="nm">Débora Machado</h1><p class="rl">Beauty Artist</p></div></section>
+<div class="note"><b>B</b>Metade a metade. A foto numa metade e o nome em preto, sobre fundo claro, na outra. Mais limpo e mais "marca de beleza", e a foto não precisa ficar esticada.</div>
+<section class="hero b"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"><div class="tx"><h1 class="nm">Débora<br>Machado</h1><span class="ln"></span><p class="rl">Beauty Artist</p></div></section>
+<div style="height:60px"></div>
+</body></html>

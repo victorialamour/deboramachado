@@ -1,0 +1,961 @@
+// Gera debora-machado/layout-nina/index.html: layout da Nina (só leitura do original) com conteúdo e arquivos da Débora.
+const fs = require('fs');
+const SRC = 'C:/Users/victo/OneDrive/Área de Trabalho/nina-costa/index.html';
+const OUT = 'C:/Users/victo/OneDrive/Área de Trabalho/debora-machado/layout-nina/index.html';
+let h = fs.readFileSync(SRC, 'utf8');
+const F = 'fotos/';            // fotos da Débora, ao lado deste arquivo (cópia dentro de layout-nina/)
+const MSG = 'Oi, Débora! Vim pelo seu site. Meu casamento é dia ___, em ___. Queria saber se você tem essa data.';
+const WA = 'https://wa.me/5511969174209?text=' + encodeURIComponent(MSG);
+const cut = (a, b, repl) => { const i = h.indexOf(a), j = h.indexOf(b, i); if (i < 0 || j < 0) throw new Error('marcador: ' + a); h = h.slice(0, i) + repl + h.slice(j); };
+const img = (n, alt, pos = '50% 30%', extra = '') => `<img src="${F}${n}.webp" alt="${alt}" loading="lazy" style="object-position:${pos}"${extra}>`;
+
+// ---------------- HEAD ----------------
+h = h.replace(/<title>[^]*?<\/title>/, '<title>Débora Machado | Maquiagem e penteado de noiva em São Paulo</title>');
+h = h.replace(/<meta name="description"[^>]*>/, '<meta name="description" content="Beauty artist de noivas especializada em visagismo e colorimetria. Método com análise, moodboard e teste presencial. São Paulo e destination wedding.">\n<meta name="robots" content="noindex, nofollow">');
+h = h.replace(/<link rel="canonical"[^>]*>/, '<link rel="canonical" href="https://deboramachado.com.br/">');
+h = h.replace(/<link rel="icon"[^>]*>/, '');
+h = h.replace(/<!-- TROCAR pelo favicon oficial -->\s*/, '');
+h = h.replace(/<!-- Open Graph -->[^]*?<meta name="twitter:card"[^>]*>/, `<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Débora Machado">
+<meta property="og:title" content="Débora Machado | Maquiagem e penteado de noiva em São Paulo">
+<meta property="og:description" content="Antes de pegar o pincel, eu estudo o seu rosto.">
+<meta property="og:url" content="https://deboramachado.com.br/">`);
+h = h.replace(/<script type="application\/ld\+json">[^]*?<\/script>/, `<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Débora Machado | Beauty Artist",
+  "description": "Maquiagem e penteado de noiva em São Paulo, com atendimento em todo o Brasil e destination wedding.",
+  "url": "https://deboramachado.com.br/",
+  "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+  "areaServed": "Brasil",
+  "sameAs": ["https://www.instagram.com/deboramachadomake/", "https://www.instagram.com/equipedmmake/"]
+}
+</script>`);
+// CSS extra: topo com foto e frase; figurinhas da Débora
+h = h.replace('</style>', `
+  /* Débora: topo com foto, monograma e frase */
+  .split__half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+  .hero__phrase{position:relative;font-family:var(--serif);font-style:italic;font-weight:300;color:#fff;font-size:clamp(2rem,5.4vw,3.8rem);line-height:1.1;margin:0}
+  .hero .hero__mono{width:84px;height:112px}
+  .deco--blush1,.deco--blush2,.deco--pincel,.deco--espatula,.sticker img{mix-blend-mode:multiply}
+
+  /* ===== Acabamento (impeccable, emil-design-eng, high-end) ===== */
+  :root{--ease-out:cubic-bezier(.23,1,.32,1)}
+  html{scrollbar-color:#111 #F6F6F5;scrollbar-width:thin;caret-color:var(--black)}
+  ::selection{background:var(--black);color:var(--white)}
+  a{text-underline-offset:.25em}
+  h1,h2,h3,.title{text-wrap:balance}
+  p{text-wrap:pretty}
+  .step__num,.facts b,.chat__list,.quiz__sw{font-variant-numeric:lining-nums tabular-nums}
+  /* entrada: curta, escalonada e sem atraso longo */
+  .js .reveal{translate:0 14px;transition:opacity .6s var(--ease-out),translate .6s var(--ease-out)}
+  .js .reveal.d1{transition-delay:.06s}.js .reveal.d2{transition-delay:.12s}
+  /* resposta ao toque em tudo que é clicável */
+  .btn,.pill__cta,.svc-card__link,.quiz__opt,.ask__chip,.fq__btn,.docs__tabs button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  .btn,.pill__cta,.quiz__opt,.ask__chip{transition:transform .16s var(--ease-out),background-color .25s var(--ease-out),color .25s var(--ease-out),border-color .25s var(--ease-out)}
+  .btn:active,.pill__cta:active,.quiz__opt:active,.ask__chip:active{transform:scale(.97)}
+  /* pílula de navegação (blur só em elemento fixo) */
+  .pill{position:fixed;z-index:60;top:14px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px 6px 6px 8px;border-radius:999px;background:rgba(255,255,255,.84);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 8px 28px rgba(17,17,17,.14);max-width:calc(100vw - 24px)}
+  .pill__mono{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;color:var(--black)}
+  .pill__mono .mono{width:26px;height:34px}
+  .pill__nav{display:flex;gap:2px}
+  .pill__nav a,.pill__cta{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;font-size:13px;letter-spacing:.04em;text-decoration:none;color:var(--black);transition:background-color .25s var(--ease-out),color .25s var(--ease-out)}
+  .pill__cta{background:var(--black);color:var(--white);padding:0 18px}
+  @media (hover:hover) and (pointer:fine){.pill__nav a:hover{background:rgba(17,17,17,.07)}.pill__cta:hover{background:#333}}
+  .pill a:focus-visible{outline:2px solid var(--black);outline-offset:2px}
+  @media (max-width:700px){.pill{display:none}}
+  @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.pill{background:#fff}}
+  @media (prefers-reduced-transparency:reduce){.pill{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none}}
+  /* seções novas */
+  /* texto funcional nunca abaixo de 11px */
+  .svc-card__link,.testi figcaption,.brands__label,.footer__beauty,.facts small{font-size:11.5px}
+  .subtom,.bast{scroll-margin-top:70px}
+  .subtom{padding:100px 0 110px;background:var(--white)}
+  .subtom__head{max-width:640px;margin:0 auto 56px;text-align:center}
+  .subtom__head .title{margin-bottom:14px}
+  .subtom__grid{display:grid;gap:44px;align-items:stretch;max-width:1000px;margin:0 auto}
+  .subtom__photo{margin:0}
+  .subtom__photo img{width:100%;height:100%;max-height:560px;aspect-ratio:4/5;object-fit:cover;object-position:50% 30%}
+  @media (min-width:900px){.subtom__grid{grid-template-columns:.9fr 1.1fr;gap:80px}}
+  @media (max-width:899px){.subtom__photo img{aspect-ratio:4/3;max-height:380px}}
+  .bast .title{font-style:normal}
+  .bast__head .title{margin-bottom:16px}
+
+  .quiz{border-top:1px solid var(--black);padding-top:22px;display:flex;flex-direction:column}
+  .quiz__kicker{font-size:13px;color:var(--gray);margin:0 0 8px}
+  .quiz__q{font-family:var(--serif);font-style:normal;font-weight:400;font-size:1.6rem;line-height:1.2;color:var(--black);margin:0 0 18px}
+  .quiz__opts{display:grid;border-top:1px solid var(--line)}
+  .quiz__opt{display:flex;justify-content:space-between;align-items:center;min-height:56px;padding:0 16px;background:transparent;border:0;border-bottom:1px solid var(--line);font:300 15px/1.3 var(--sans);color:var(--black);text-align:left;cursor:pointer;transition:background-color .3s,color .3s;touch-action:manipulation}
+  .quiz__opt::after{content:"";width:9px;height:9px;border-radius:50%;border:1px solid currentColor;flex:none;margin-left:14px}
+  .quiz__opt:hover{background:var(--off)}
+  .quiz__opt[aria-pressed="true"]{background:var(--black);color:var(--white)}
+  .quiz__opt[aria-pressed="true"]::after{background:currentColor}
+  .quiz__opt:focus-visible{outline:2px solid var(--black);outline-offset:-2px}
+  .quiz__res{margin-top:26px;min-height:220px}
+  .quiz__empty{font-size:14px;color:var(--gray)}
+  .quiz__name{font-family:var(--serif);font-size:1.9rem;line-height:1.1;color:var(--black);margin:0 0 14px}
+  .quiz__sw{list-style:none;margin:0 0 16px;padding:0;display:flex;flex-wrap:wrap;gap:14px}
+  .quiz__sw li{display:grid;justify-items:center;gap:6px;font-size:12px;color:var(--gray)}
+  .quiz__sw i{display:block;width:44px;height:44px;border-radius:50%}
+  .quiz__txt{color:var(--text-soft);max-width:30em;margin:0 0 18px}
+  .quiz__note{font-size:13px;color:var(--gray);margin:14px 0 0}
+  @media (min-width:900px){
+    .estudo__grid{grid-template-columns:1fr 1fr;gap:90px}
+    .quiz{padding-top:28px}
+  }
+  @media (max-width:899px){.estudo__photo img{aspect-ratio:4/3;max-height:420px}}
+
+
+  /* ---------- Bastidores: material + conversa ---------- */
+  .bast{position:relative;overflow:hidden;background:var(--off);padding:100px 0 110px}
+  .bast__head{max-width:640px;margin-bottom:56px;position:relative;z-index:1}
+  .bast__title{font-family:var(--serif);font-style:normal;font-weight:300;font-size:clamp(2.1rem,4.6vw,3.2rem);line-height:1.08;color:var(--black);margin-bottom:18px}
+  .bast__head p{color:var(--text-soft);max-width:34em}
+  .bast__grid{display:grid;gap:56px;position:relative;z-index:1}
+  .bast__cap{font-size:13px;color:var(--gray);margin:14px 0 0}
+  .docs__stage{position:relative;aspect-ratio:1/1.02;max-width:520px}
+  .doc{position:absolute;top:0;width:68%;aspect-ratio:3/4;background:var(--white);border:1px solid var(--black);padding:22px;display:flex;flex-direction:column;gap:14px;transition:transform .6s var(--ease),opacity .6s var(--ease);will-change:transform}
+  .doc[data-pos="0"]{left:16%;transform:rotate(0);z-index:3}
+  .doc[data-pos="1"]{left:0;transform:translate(-2%,6%) rotate(-6deg);z-index:2}
+  .doc[data-pos="2"]{left:32%;transform:translate(2%,7%) rotate(6deg);z-index:1}
+  .doc__k{font-family:var(--serif);font-size:1.35rem;line-height:1.1;color:var(--black);margin:0}
+  .doc__ph{width:100%;flex:1;min-height:0;object-fit:cover;object-position:50% 30%}
+  .doc__lines{list-style:none;margin:0;padding:0;font-size:12.5px;line-height:1.45;color:var(--text-soft)}
+  .doc__lines li{border-top:1px solid var(--line);padding:6px 0}
+  .doc__tones{list-style:none;margin:6px 0;padding:0;display:flex;gap:8px;flex-wrap:wrap;font-size:11px;color:var(--gray)}
+  .doc__tones li{display:grid;justify-items:center;gap:4px}
+  .doc__tones i{display:block;width:30px;height:30px;border-radius:50%}
+  .doc__mood{display:grid;grid-template-columns:1fr 1fr;gap:5px;flex:1;min-height:0}
+  .doc__mood img{width:100%;height:100%;object-fit:cover}
+  .docs__tabs{display:flex;flex-wrap:wrap;gap:0;margin-top:26px;border-top:1px solid var(--black);max-width:520px}
+  .docs__tabs button{flex:1;min-height:48px;background:transparent;border:0;border-bottom:1px solid var(--line);font:300 14px/1.2 var(--sans);color:var(--gray);cursor:pointer;touch-action:manipulation}
+  .docs__tabs button[aria-selected="true"]{color:var(--black);border-bottom:2px solid var(--black)}
+  .docs__tabs button:focus-visible{outline:2px solid var(--black);outline-offset:-2px}
+  .chat{background:var(--white);border:1px solid var(--black);max-width:440px;width:100%;justify-self:center;display:flex;flex-direction:column}
+  .chat__top{display:flex;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.2;color:var(--black)}
+  .chat__top small{color:var(--gray);font-size:12px}
+  .chat__av{width:38px;height:38px;border-radius:50%;background:var(--black);color:var(--white);display:grid;place-items:center;font-family:'Pinyon Script',cursive;font-size:15px}
+  .chat__list{list-style:none;margin:0;padding:20px 18px 24px;display:flex;flex-direction:column;gap:10px;min-height:340px}
+  .msg{max-width:82%;padding:10px 14px;font-size:14px;line-height:1.45;opacity:1;transform:none;transition:opacity .5s var(--ease),transform .5s var(--ease)}
+  .msg--her{align-self:flex-end;background:var(--off);color:var(--black)}
+  .msg--dm{align-self:flex-start;border:1px solid var(--black);color:var(--black)}
+  .js .chat:not(.is-on) .msg{opacity:0;transform:translateY(8px)}
+  .chat .bast__cap{padding:0 18px 16px;margin:0}
+  .bast .deco--pincel{left:auto;right:-30px;top:40px;width:220px;transform:rotate(28deg)}
+  @media (max-width:899px){.bast .deco--pincel{width:120px;right:-20px;top:20px}}
+  @media (min-width:900px){.bast__grid{grid-template-columns:1.1fr .9fr;gap:90px;align-items:center}}
+  @media (prefers-reduced-motion:reduce){.doc,.msg{transition:none}.js .chat:not(.is-on) .msg{opacity:1;transform:none}}
+
+  /* ===================== PASSADA VISÍVEL ===================== */
+  /* escala de título e ritmo */
+  .title{font-size:clamp(2.6rem,6.4vw,4.4rem);line-height:1.03;letter-spacing:-.02em}
+  @media (min-width:1024px){
+    section{padding:150px 0}
+    .title{font-size:clamp(3rem,5.6vw,5rem)}
+    .team__txt .title{font-size:2.6rem}
+  }
+  /* topo: monograma e frase maiores, foto que respira devagar */
+  .hero .hero__mono{width:96px;height:128px;margin-bottom:28px}
+  .hero__phrase{font-size:clamp(1.3rem,2.2vw,1.75rem);line-height:1.2;letter-spacing:.01em}
+  .hero__brand{text-shadow:0 2px 40px rgba(0,0,0,.4)}
+  @keyframes dm-zoom{from{transform:scale(1)}to{transform:scale(1.09)}}
+  .split__half img{animation:dm-zoom 28s cubic-bezier(.23,1,.32,1) both}
+  @media (prefers-reduced-motion:reduce){.split__half img{animation:none}}
+  /* abertura: cabeçalho gigante à esquerda, fotos em alturas diferentes */
+  .opening{text-align:left;padding:110px 0 90px}
+  .opening .title{max-width:14em;margin:0 0 30px;font-size:clamp(2.5rem,7vw,3.4rem);line-height:1.05}
+  .opening p{max-width:30em;margin:0 0 18px;font-size:1.02rem}
+  .opening__actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px 30px;margin-top:30px}
+  @media (min-width:1024px){
+    .opening{padding:170px 0 150px}
+    .opening__grid{grid-template-columns:repeat(12,minmax(0,1fr));grid-template-areas:none;gap:70px 24px;align-items:start}
+    .opening .title{font-size:clamp(3rem,4.6vw,4.4rem);max-width:15em}
+    .opening__text{grid-area:auto;grid-column:1/13;grid-row:1}
+    .opening__left{grid-area:auto;grid-column:1/6;grid-row:2;margin-top:-20px}
+    .opening__right{grid-area:auto;grid-column:7/13;grid-row:2;margin-top:130px;flex-direction:row;gap:16px;align-items:flex-start}
+    .opening__right .ph{flex:1;aspect-ratio:3/4.4}
+    .opening__r2{width:auto;margin-left:0;margin-top:110px}
+  }
+  /* atendimentos: mosaico de tamanhos diferentes, sem rótulo em caixa alta */
+  .svc-card h3{font-size:1.25rem;letter-spacing:0;text-transform:none;white-space:normal;line-height:1.1}
+  .svc-card p{display:block;font-size:13.5px;max-width:26em}
+  .svc-card:nth-child(1){grid-column:span 2;aspect-ratio:4/3}
+  @media (hover:hover) and (pointer:fine){.svc-card:hover img{transform:scale(1.05)}}
+  @media (min-width:1024px){
+    .svc-cards--6{grid-template-columns:repeat(6,1fr);grid-auto-rows:290px;gap:10px}
+    .svc-cards--6 .svc-card{aspect-ratio:auto}
+    .svc-card:nth-child(1){grid-column:span 3;grid-row:span 2}
+    .svc-card:nth-child(2),.svc-card:nth-child(3){grid-column:span 3}
+    .svc-card h3{font-size:clamp(1.6rem,2.3vw,2.3rem)}
+    .svc-card:nth-child(n+2):nth-child(-n+3) h3,.svc-card:nth-child(n+5) h3{font-size:1.6rem}
+    .svc-card__t{padding:130px 26px 26px}
+  }
+  /* método: números enormes e finos, texto à esquerda, filete no topo */
+  .how .steps--5 .step::before,.how .steps.steps--5::before{content:none!important;display:none!important}
+  .how .steps--5{padding-left:0}
+  .how .steps--5 .step{text-align:left;border-top:1px solid var(--black);padding:22px 0 0!important}
+  .how .steps--5 .step__num{font-size:clamp(4.4rem,13vw,6.4rem);font-style:normal;font-weight:300;color:#cfcfcf;line-height:.88;margin-bottom:26px}
+  .how .steps--5 .step h3{font-size:1.7rem}
+  .how .steps--5 .step p{margin:0;max-width:17em;font-size:14.5px}
+  .how__head{text-align:left}
+  .how__cta{text-align:left}
+  /* depoimento: uma frase enorme */
+  .testimonials{padding:130px 0}
+  .testi__head{text-align:center;margin-bottom:40px}
+  .testi__list{display:block;max-width:1000px}
+  .testi{background:none;padding:0;text-align:center}
+  .testi blockquote{font-size:clamp(1.9rem,4.6vw,3.5rem);line-height:1.16;letter-spacing:-.012em;max-width:21em;margin:0 auto 30px}
+  .testi figcaption{font-size:12px}
+  .testi__more{text-align:center;margin:44px 0 0}
+  /* sobre: nome grande em serifa */
+  .about__hello{font-family:var(--serif);font-style:italic;font-weight:300;white-space:normal;font-size:clamp(3rem,7.4vw,5.6rem);line-height:.98;letter-spacing:-.02em;color:var(--black);margin-bottom:34px}
+  .about__hello .pencil-g{font-family:inherit;font-size:1em;line-height:inherit;display:inline}
+  .about__photo{max-width:520px}
+  @media (min-width:1024px){.about__grid{grid-template-columns:.95fr 1.05fr;gap:120px}}
+  /* fechamento em preto, frase enorme */
+  .soft.final{background:var(--black)}
+  .final .deco{display:none}
+  .final .soft__inner{padding-top:120px;padding-bottom:130px}
+  .final .mono{color:var(--white);width:60px;height:80px;margin-bottom:30px}
+  .final h2{color:var(--white);font-size:clamp(3.2rem,11vw,8.4rem);line-height:.95;letter-spacing:-.03em}
+  .final p{color:#cfcfcf;max-width:30em;margin:26px auto 36px}
+  .final .signature{color:var(--white)}
+  .final .btn{background:var(--white);color:var(--black);border-color:var(--white)}
+  .final .btn:hover{background:transparent;color:var(--white)}
+  .final .soft__text{max-width:none}
+  footer{background:var(--black);color:#a9a9a9;border-top:1px solid #262626}
+  footer .brand__name,footer .mono,footer small{color:var(--white)}
+  footer a{color:var(--white);border-color:#444}
+  @media (min-width:1024px){.final .soft__inner{padding-top:170px;padding-bottom:180px}}
+  /* noivas: título maior */
+  .noivas__title{font-size:clamp(2.8rem,6.4vw,5rem);letter-spacing:-.02em;line-height:1.02}
+
+
+  /* ===== Limpeza: pendências escondidas e um único contato fixo por tela ===== */
+  .todo{display:none}
+  .testi__more{display:none}
+  html.revisao .todo{display:inline}
+  html.revisao .testi__more{display:block}
+
+  /* ===== Bastidores sofisticado: palco escuro, uma folha por vez, abas numeradas ===== */
+  .bast{background:#0b0b0b;padding:120px 0 130px}
+  .bast .title{color:#fff;font-size:clamp(2.8rem,6.4vw,5.4rem);line-height:1;letter-spacing:-.025em;margin:0}
+  .bast .title em{color:#fff}
+  .bast__head{max-width:none;display:grid;gap:26px;margin-bottom:64px}
+  .bast__head p{color:#b4b4b4;max-width:26em;margin:0}
+  @media (min-width:900px){.bast__head{grid-template-columns:1.2fr .8fr;align-items:end;gap:80px;margin-bottom:84px}.bast{padding:170px 0 180px}}
+  .bast__cap{color:#8a8a8a}
+  .bast .docs__stage{aspect-ratio:4/5;max-width:none;background:#141414;overflow:hidden}
+  .bast .doc{inset:0;left:0;width:auto;aspect-ratio:auto;border:0;padding:0;background:#141414;opacity:0;pointer-events:none;transform:scale(1.035);transition:opacity .45s var(--ease),transform .45s var(--ease);display:block}
+  .bast .doc[data-pos="0"]{left:0;opacity:1;pointer-events:auto;transform:none;z-index:2}
+  .bast .doc[data-pos="1"],.bast .doc[data-pos="2"]{left:0;transform:scale(1.035);z-index:1}
+  .bast .doc__k{position:absolute;top:26px;left:28px;z-index:2;color:#fff;font-size:1.6rem;text-shadow:0 1px 24px rgba(0,0,0,.5)}
+  .bast .doc__ph{position:absolute;inset:0;width:100%;height:100%;object-position:50% 22%}
+  .bast .doc__lines{position:absolute;left:0;right:0;bottom:0;padding:90px 28px 26px;background:linear-gradient(to top,rgba(0,0,0,.82),transparent);color:#fff;font-size:14px}
+  .bast .doc__lines li{border-top:1px solid rgba(255,255,255,.25);padding:9px 0}
+  .bast .doc[data-i="1"]{background:linear-gradient(165deg,#1a1a1a,#2b211e)}
+  .bast .doc__tones{position:absolute;top:96px;left:28px;right:28px;margin:0;gap:16px;color:#cfcfcf;font-size:12px}
+  .bast .doc__tones i{width:clamp(44px,6vw,64px);height:clamp(44px,6vw,64px)}
+  .bast .doc__mood{position:absolute;inset:0;gap:3px}
+  .bast .doc[data-i="2"] .doc__lines{background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,0))}
+  .bast .docs__tabs{counter-reset:t;margin-top:0;max-width:none;border-top:1px solid rgba(255,255,255,.22)}
+  .bast .docs__tabs button{counter-increment:t;text-align:left;padding:16px 8px 0 0;min-height:70px;color:#808080;border:0;border-top:2px solid transparent;margin-top:-1px;transition:color .2s var(--ease),border-color .2s var(--ease)}
+  .bast .docs__tabs button::before{content:"0" counter(t);display:block;font-size:11px;letter-spacing:.16em;margin-bottom:7px}
+  .bast .docs__tabs button[aria-selected="true"]{color:#fff;border-bottom:0;border-top-color:#fff}
+  .bast .docs__tabs button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+  @media (hover:hover) and (pointer:fine){.bast .docs__tabs button:hover{color:#fff}}
+  .bast .chat{background:#141414;border:1px solid rgba(255,255,255,.14);max-width:460px}
+  .bast .chat__top{border-bottom:1px solid rgba(255,255,255,.14);color:#fff;padding:18px 22px}
+  .bast .chat__top small{color:#8a8a8a}
+  .bast .chat__av{background:#fff;color:#0b0b0b}
+  .bast .chat__list{padding:26px 22px 30px;gap:12px;min-height:380px}
+  .bast .msg{font-size:14.5px;padding:12px 16px}
+  .bast .msg--her{background:#fff;color:#0b0b0b}
+  .bast .msg--dm{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff}
+  .bast .chat .bast__cap{padding:0 22px 20px}
+  .bast .deco--pincel{opacity:.9}
+
+
+  .signature--svg{margin:6px 0 30px;line-height:0}
+  .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* Hero em vídeo: entra por cima da foto quando está pronto; sem movimento, fica a foto */
+  .split__half--noiva video.hero__video{opacity:0;transform:none;object-position:50% 14%;transition:opacity .9s var(--ease)}
+  .split__half.is-video video.hero__video{opacity:1}
+  .split__half.is-video img{animation:none}
+
+  /* Fechamento em convite: cartão com dois filetes, a noiva preenche e a mensagem vai pronta */
+  .final.final--convite{background:var(--off);padding:110px 16px}
+  .convite{max-width:580px;margin:0 auto;background:#fff;padding:14px;box-shadow:0 34px 60px -34px rgba(0,0,0,.28)}
+  .convite__in{border:1px solid var(--black);padding:52px 36px 40px;text-align:center}
+  .convite .mono{color:var(--black);width:46px;height:62px;margin:0 auto}
+  .convite h2{font-family:var(--serif);font-weight:300;color:var(--black);font-size:clamp(2.3rem,7vw,3.2rem);line-height:1;letter-spacing:-.02em;margin:18px 0 14px;text-wrap:balance}
+  .final .convite__t{color:var(--text-soft);max-width:26em;margin:0 auto;font-size:14.5px;line-height:1.6}
+  .convite__f{display:grid;text-align:left;margin:28px 0 26px}
+  .convite__f label{display:grid;grid-template-columns:78px 1fr;align-items:end;gap:10px;border-bottom:1px solid var(--line);padding:14px 0}
+  .convite__f label span{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);padding-bottom:5px}
+  .convite__f input{border:0;background:transparent;font:300 1.1rem var(--serif);color:var(--black);width:100%;padding:2px 0;border-radius:0}
+  .convite__f input::placeholder{color:#b5b5b5}
+  .convite__f input:focus-visible{outline:2px solid var(--black);outline-offset:4px}
+  .convite__f .btn{margin-top:26px;justify-self:center;background:var(--black);color:#fff;border-color:var(--black);cursor:pointer}
+  @media (hover:hover) and (pointer:fine){.convite__f .btn:hover{background:transparent;color:var(--black)}}
+  .final .convite .signature--svg{color:var(--black);max-width:none;margin:26px 0 0}
+  @media (max-width:520px){.convite__in{padding:40px 20px 30px}.convite__f label{grid-template-columns:62px 1fr}}
+  /* Dúvidas: só a seleção de perguntas */
+  .faq__head{border-bottom:0!important;padding-bottom:0!important;margin-bottom:6px!important}
+  .faq .ask{margin-top:0!important;border-top:0!important;padding-top:0!important}
+
+  /* Dúvidas: toca na pergunta, a resposta aparece embaixo */
+  .ask__ans{max-width:560px;margin:0 auto 26px;padding:24px 26px;background:#fff;border-left:2px solid var(--black);text-align:left;min-height:7.5em}
+  .ask__q{font-family:var(--serif);font-size:1.35rem;line-height:1.2;color:var(--black);margin:0 0 10px}
+  .ask__a{color:var(--text-soft);font-size:15px;line-height:1.65;margin:0}
+  .ask__ans.is-swap .ask__q,.ask__ans.is-swap .ask__a{opacity:0;transform:translateY(4px)}
+  .ask__q,.ask__a{transition:opacity .22s var(--ease),transform .22s var(--ease)}
+  @media (prefers-reduced-motion:reduce){.ask__q,.ask__a{transition:none}}
+  /* Hero em vídeo, telas largas: rosto livre no alto, marca embaixo */
+  @media (min-aspect-ratio:4/5){
+    .split__half--noiva video.hero__video{object-position:50% 30%;transform:none}
+    .hero--video{align-items:center}
+    .hero--video .hero__mono{width:68px;height:90px;margin-bottom:16px}
+    .hero--video::after{background:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,0) 55%)}
+  }
+  /* Hero: o nome em caixa-alta espaçada, sem monograma nem frase */
+  .hero__name2{font-family:var(--serif);font-weight:300;font-size:clamp(1.9rem,6.2vw,4.8rem);letter-spacing:.14em;text-transform:uppercase;line-height:1.05;margin:0;color:#fff;text-wrap:balance}
+  .hero__role{margin:18px 0 0;font:400 11px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+  @media (min-width:900px){.hero__role{font-size:12px}}
+  /* Vídeo em close do rosto: em tela vertical, a marca fica embaixo */
+  @media (max-aspect-ratio:4/5){
+    .split__half--noiva video.hero__video{object-position:50% 30%;transform:none}
+    .hero--video{align-items:flex-end}
+    .hero--video .hero__brand{padding-bottom:11vh}
+  }
+  /* Abertura mais compacta: menos ar entre o texto, as fotos e a galeria que vem depois */
+  @media (min-width:1024px){
+    .opening{padding:110px 0 48px}
+    .opening__grid{gap:44px 24px}
+    .opening__left{margin-top:0}
+    .opening__left .ph{aspect-ratio:3/4.5}
+    .opening__right{margin-top:64px}
+    .opening__r2{margin-top:56px}
+  }
+  @media (max-width:1023px){.opening{padding:84px 0 56px}}
+  /* Galeria fixada: as fotos crescem com a altura da tela, para a seção encher o quadro em vez de abrir vazio */
+  html .noivas.is-pinned .noivas__f{width:clamp(230px,min(27vw,45vh),560px)}
+  html .noivas.is-pinned .noivas__head{margin-bottom:max(24px,4vh)}
+  /* Hero: a foto antiga não aparece por baixo do vídeo; só entra se o vídeo não vier */
+  .split__half--noiva img{transition:opacity .5s var(--ease)}
+  .js .hero:not(.hero--photo) .split__half--noiva img{opacity:0}
+  /* Abertura em linha: texto à esquerda e as três fotos ao lado, sem deixar a metade direita vazia */
+  @media (min-width:1024px){
+    html .opening{padding:120px 0 110px}
+    html .opening__grid{grid-template-columns:1.35fr 1fr 1fr 1fr;grid-template-areas:none;gap:24px;align-items:start}
+    html .opening__text{grid-area:auto;grid-column:1;grid-row:1;align-self:center;padding-right:24px}
+    html .opening .title{font-size:clamp(2.6rem,3.8vw,4rem);max-width:none;line-height:1.02}
+    html .opening__left{grid-area:auto;grid-column:2;grid-row:1;margin:0;width:auto;max-width:none}
+    html .opening__right{display:contents}
+    html .opening__right .ph{width:auto;margin:0;aspect-ratio:3/4.4}
+    html .opening__right .opening__r1{grid-column:3;grid-row:1;margin-top:64px}
+    html .opening__right .opening__r2{grid-column:4;grid-row:1;margin-top:22px}
+    html .opening__left .ph{aspect-ratio:3/4.4}
+  }
+  /* Ritmo vertical mais enxuto no desktop: menos ar entre uma seção e outra */
+  @media (min-width:1024px){
+    html section{padding-top:96px;padding-bottom:96px}
+    html .opening{padding:96px 0 72px}
+    html .bast{padding:110px 0 100px}
+    html .final.final--convite{padding:80px 16px 90px}
+    html .noivas.is-pinned .noivas__pin{justify-content:flex-start;padding-top:max(48px,6vh)}
+    html .noivas.is-pinned .noivas__f{width:clamp(230px,min(28vw,46vh),600px)}
+  }
+  /* Galeria Noivas DM sem travar a tela: fileira de fotos que se arrasta para o lado */
+  @media (min-width:1024px){
+    html .noivas__pin{padding:96px 0 96px}
+    html .noivas__f{width:clamp(260px,23vw,400px)}
+    html .noivas__head{margin-bottom:44px}
+  }
+  .testi + .testi{margin-top:88px}
+  .testi + .testi blockquote{font-size:clamp(1.6rem,3.6vw,2.7rem)}
+  /* Depoimentos: a foto de detalhe se dissolve no branco da página, sem moldura e sem caixa */
+  html .depo{position:relative;overflow:hidden;background:var(--white);padding:100px 0;min-height:clamp(560px,56vw,760px);display:flex;align-items:center}
+  .depo__ph{position:absolute;top:0;right:0;bottom:0;width:56%;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 54%);mask-image:linear-gradient(to right,transparent 0,#000 54%)}
+  .depo__ph img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+  .depo__in{position:relative;width:100%}
+  .depo__in>*{max-width:min(540px,48%)}
+  .depo__h{font:300 italic clamp(1.3rem,2vw,1.6rem)/1.2 var(--serif);color:var(--gray);margin:0 0 34px}
+  .depo__q{margin:0}
+  .depo__q+.depo__q{margin-top:56px}
+  .depo__q blockquote{font:300 clamp(1.65rem,2.9vw,2.4rem)/1.16 var(--serif);letter-spacing:-.015em;margin:0 0 20px;text-wrap:balance;color:var(--black)}
+  .depo__q figcaption{font:400 11.5px/1.5 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+  .depo__q figcaption::before{content:'';display:block;width:36px;height:1px;background:var(--black);margin-bottom:14px}
+  @media (max-width:760px){
+    html .depo{display:flex;flex-direction:column;min-height:0;padding:84px 0 0}
+    .depo__in{display:flex;flex-direction:column}
+    .depo__in>*{max-width:none}
+    .depo__ph{position:relative;order:2;width:100%;height:340px;margin-top:40px;top:auto;right:auto;bottom:auto;-webkit-mask-image:linear-gradient(to bottom,transparent 0,#000 38%);mask-image:linear-gradient(to bottom,transparent 0,#000 38%)}
+  }
+  /* Hero: foto do véu em preto e branco, nome no centro com escurecimento suave */
+  html .hero--veu .split__half--noiva img{opacity:1;object-position:50% 40%;animation:none}
+  .hero--veu::after{background:radial-gradient(ellipse 62% 40% at 50% 50%,rgba(10,14,12,.6),rgba(10,14,12,.26) 62%,rgba(10,14,12,.08))}
+  .hero--veu .hero__brand{text-shadow:0 2px 30px rgba(0,0,0,.35)}
+  @media (max-width:760px){html .hero--veu .split__half--noiva img{object-position:34% 40%}}
+  /* Bastidores claro e leve: fundo da página, fotos protagonistas, linhas finas em vez de caixas */
+  html .bast{background:var(--off);color:var(--black);padding:104px 0 96px}
+  html .bast .title{color:var(--black)}
+  html .bast .title em{color:var(--black)}
+  html .bast__head p{color:#555}
+  html .bast__cap{color:#6f6f6c}
+  html .bast .docs__stage{background:#ebe8e3;box-shadow:0 34px 60px -40px rgba(30,24,20,.35)}
+  html .bast .doc{background:#ebe8e3}
+  html .bast .doc__k{color:#1a1a1a;text-shadow:0 0 22px rgba(255,255,255,.75)}
+  html .bast .doc__lines{background:linear-gradient(to top,rgba(250,247,243,.96) 18%,rgba(250,247,243,0));color:#232323}
+  html .bast .doc__lines li{border-top-color:rgba(0,0,0,.14)}
+  html .bast .doc[data-i="1"]{background:linear-gradient(165deg,#f6ece7,#ecd7cf)}
+  html .bast .doc__tones{color:#4a4a48}
+  html .bast .doc[data-i="2"] .doc__lines{background:linear-gradient(to top,rgba(250,247,243,.97) 22%,rgba(250,247,243,0))}
+  html .bast .docs__tabs{border-top-color:rgba(0,0,0,.16)}
+  html .bast .docs__tabs button{color:#8a8a87}
+  html .bast .docs__tabs button[aria-selected="true"]{color:var(--black);border-top-color:var(--black)}
+  html .bast .docs__tabs button:focus-visible{outline-color:var(--black)}
+  @media (hover:hover) and (pointer:fine){html .bast .docs__tabs button:hover{color:var(--black)}}
+  html .bast .chat{background:#fff;border:0;box-shadow:0 30px 60px -42px rgba(30,24,20,.3)}
+  html .bast .chat__top{color:var(--black);border-bottom:1px solid #ecebe8}
+  html .bast .chat__top small{color:#8a8a87}
+  html .bast .chat__av{background:var(--black);color:#fff}
+  html .bast .msg--her{background:#f1efec;color:var(--black)}
+  html .bast .msg--dm{background:#fff;border:1px solid #dcdad6;color:var(--black)}
+  html .bast .deco--pincel{opacity:1}
+  /* Tom e subtom: cartela de cores em amostras altas */
+  html .bast .doc__tones{top:78px;left:28px;right:28px;display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:0}
+  html .bast .doc__tones li{gap:10px;align-content:start}
+  html .bast .doc__tones i{width:100%;height:auto;aspect-ratio:1/2.5;border-radius:0}
+  html .bast .doc__tones li{font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+  /* Moodboard: o título assenta numa etiqueta clara para não sumir sobre as fotos escuras */
+  html .bast .doc[data-i="2"] .doc__k{top:0;left:0;padding:12px 20px 12px 28px;background:rgba(250,247,243,.94);text-shadow:none}
+  html .bast .doc__k{top:0;left:0;padding:12px 22px 12px 28px;background:rgba(250,247,243,.94);text-shadow:none;font-size:1.3rem}
+  /* Hero: o que ela faz, dito na primeira tela, e um convite discreto para consultar a data */
+  .hero__where{margin:20px auto 0;max-width:30em;font:300 clamp(.95rem,1.4vw,1.1rem)/1.5 var(--serif);font-style:italic;letter-spacing:.01em;color:rgba(255,255,255,.95);text-wrap:balance}
+  .hero__cta{margin-top:30px;background:var(--white);color:var(--black);border-color:var(--white);text-shadow:none}
+  @media (hover:hover) and (pointer:fine){.hero__cta:hover{background:transparent;color:var(--white)}}
+  @media (max-width:760px){.hero__cta{margin-top:24px}}
+  /* ===== Celular primeiro: alvos de toque, textos legíveis, menos rolagem ===== */
+  @media (max-width:760px){
+    html section{padding-top:72px;padding-bottom:72px}
+    html .bast{padding:72px 0 64px}
+    /* área de toque de 44px sem mexer no visual dos links */
+    html .link,html .svc-card__link,html .noivas__sub a,html footer a,html .about__cta{position:relative}
+    html .link::before,html .svc-card__link::before,html .noivas__sub a::before,html footer a::before{content:'';position:absolute;inset:-14px -8px}
+    /* textos funcionais, no mínimo 12px */
+    html .btn,html .link,html .svc-card__link,html .hero__role,html .brands__label,html .depo__q figcaption,html .footer__beauty,html footer small,html .docs__tabs button,html .ask__go{font-size:12px}
+    html .hero__where{font-size:.98rem;max-width:21em}
+    /* atendimentos: um cartão por linha, com texto que cabe */
+    html .svc-cards--6{grid-template-columns:1fr;gap:10px}
+    html .svc-cards--6 .svc-card,html .svc-cards--6 .svc-card:nth-child(1){grid-column:auto;grid-row:auto;aspect-ratio:5/4}
+    html .svc-cards--6 .svc-card__t{padding:70px 18px 18px}
+    html .svc-card__link{white-space:nowrap}
+    /* etapas do método: mais compactas */
+    html .steps--5{gap:20px}
+    html .how .steps--5 .step{padding-top:18px!important}
+    html .how .steps--5 .step__num{font-size:clamp(2.8rem,11vw,3.4rem);margin-bottom:10px}
+    html .how .steps--5 .step h3{font-size:1.5rem}
+    html .how .steps--5 .step p{max-width:none;font-size:15px}
+  }
+  /* Do planejamento ao altar: uma etapa grande (a análise) e quatro menores */
+  .etp__head{margin-bottom:clamp(34px,6vw,72px);text-align:left}
+  .etp__head .muted{margin:14px 0 0;max-width:34em;text-align:left}
+  .etp__big{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,6vw,90px);align-items:center;padding-bottom:clamp(40px,6vw,80px);border-bottom:1px solid var(--black)}
+  .etp__ph{aspect-ratio:4/4.6;overflow:hidden;background:#ebe8e3}
+  .etp__ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block}
+  .etp__no{display:block;font:400 12px/1 var(--sans);letter-spacing:.2em;color:#6f6f6c;font-variant-numeric:tabular-nums}
+  .etp__nm{font:400 clamp(1.5rem,2.3vw,1.9rem)/1.1 var(--serif);margin:12px 0 8px;color:var(--black)}
+  .etp__nm--big{font-size:clamp(2.4rem,5vw,4rem);margin:16px 0 14px}
+  .etp__txt p{color:var(--text-soft);font-size:17px;line-height:1.6;max-width:28em;margin:0;text-wrap:pretty}
+  .etp__four{list-style:none;margin:0;padding:clamp(28px,4vw,48px) 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,3vw,40px)}
+  .etp__four p{color:var(--text-soft);font-size:14.5px;line-height:1.6;margin:0;text-wrap:pretty}
+  .etp .how__cta{text-align:left;margin-top:clamp(36px,5vw,56px)}
+  @media (max-width:800px){
+    .etp__big{grid-template-columns:1fr;gap:22px;padding-bottom:34px}
+    .etp__ph{aspect-ratio:4/4.2}
+    .etp__txt p{font-size:16px}
+    .etp__four{grid-template-columns:1fr 1fr;gap:30px 18px;padding-top:30px}
+    .etp__four p{font-size:14px}
+  }
+  /* ===== Dossiê da noiva: folha com anotações sobre a foto + conversa, em duas camadas ===== */
+  html .dos{position:relative;overflow:hidden;background:var(--off);padding:104px 0 112px}
+  .dos__head{display:grid;gap:18px;margin-bottom:clamp(40px,6vw,76px);max-width:760px}
+  .dos__head .title{margin:0}
+  .dos__head .muted{margin:0;max-width:34em}
+  .dos .deco--pincel{position:absolute;right:-24px;top:34px;width:150px;transform:rotate(28deg);pointer-events:none}
+  .dos__stage{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);align-items:start}
+  .sheet{position:relative;z-index:1;background:var(--white);padding:26px clamp(64px,7vw,84px) 20px clamp(20px,3vw,40px);box-shadow:0 2px 0 rgba(0,0,0,.025),0 44px 80px -48px rgba(40,30,22,.4)}
+  .sheet__tabs{position:relative;display:flex;gap:clamp(18px,3vw,34px);border-bottom:1px solid #e6e4e0;margin-bottom:clamp(20px,3vw,34px)}
+  .sheet__tabs button{all:unset;box-sizing:border-box;cursor:pointer;padding:6px 0 14px;font:300 italic clamp(1.15rem,1.8vw,1.4rem)/1 var(--serif);color:#8a8a87;transition:color .25s var(--ease);touch-action:manipulation}
+  .sheet__tabs button[aria-selected="true"]{color:var(--black)}
+  .sheet__tabs button:focus-visible{outline:2px solid var(--black);outline-offset:2px}
+  @media (hover:hover) and (pointer:fine){.sheet__tabs button:hover{color:var(--black)}}
+  .sheet__ink{position:absolute;left:0;bottom:-1px;height:1px;width:100%;background:var(--black);transform-origin:0 50%;transform:translateX(var(--x,0)) scaleX(var(--w,.2));transition:transform .45s var(--ease)}
+  .pg{display:none}
+  .pg.on{display:block;animation:pgin .5s var(--ease) both}
+  @keyframes pgin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .pg__t{font:300 clamp(1.8rem,3vw,2.5rem)/1.05 var(--serif);letter-spacing:-.015em;margin:0 0 clamp(18px,2.6vw,28px);color:var(--black)}
+  .pg__t em{font-style:italic}
+  .pg0{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);gap:clamp(22px,4vw,48px);align-items:center}
+  .pg0__ph{position:relative;aspect-ratio:3/4;max-height:520px;overflow:hidden;background:#ebe8e3}
+  .pg0__ph img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+  .mk{position:absolute;width:28px;height:28px;margin:-14px 0 0 -14px;border-radius:50%;background:var(--white);color:var(--black);display:grid;place-items:center;font:500 12px/1 var(--sans);box-shadow:0 0 0 5px rgba(255,255,255,.35),0 6px 16px rgba(0,0,0,.2);transition:transform .3s var(--ease),background .3s var(--ease),color .3s var(--ease)}
+  .mk.hot{background:var(--black);color:var(--white);transform:scale(1.18)}
+  .notes{list-style:none;margin:0;padding:0}
+  .notes li{display:flex;gap:16px;align-items:center;padding:18px 0;border-top:1px solid #e6e4e0;cursor:default}
+  .notes li:last-child{border-bottom:1px solid #e6e4e0}
+  .notes .nn{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--black);display:grid;place-items:center;font:500 12px/1 var(--sans);transition:background .3s var(--ease),color .3s var(--ease)}
+  .notes li.hot .nn{background:var(--black);color:var(--white)}
+  .notes p{margin:0;font:300 clamp(1.05rem,1.5vw,1.2rem)/1.3 var(--serif);color:#222}
+  .chips{list-style:none;margin:0 0 clamp(18px,3vw,30px);padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .chips i{display:block;aspect-ratio:1/2.3;margin-bottom:10px}
+  .chips span{font:400 12px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#6a6a67}
+  .lines{list-style:none;margin:0;padding:0}
+  .lines li{padding:14px 0;border-top:1px solid #e6e4e0;font:300 clamp(1.05rem,1.5vw,1.2rem)/1.3 var(--serif);color:#222}
+  .lines li:last-child{border-bottom:1px solid #e6e4e0}
+  .mood{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:6px;aspect-ratio:16/10;margin-bottom:clamp(18px,3vw,30px)}
+  .mood img{width:100%;height:100%;object-fit:cover;display:block}
+  .mood .m1{grid-row:1/3;object-position:50% 25%}
+  .sheet__cap{margin:18px 0 0;font-size:12.5px;line-height:1.45;color:#6a6a67}
+  .dos .chat{position:relative;z-index:2;margin-left:-40px;margin-top:clamp(40px,7vw,96px);background:var(--white);border:0;max-width:none;justify-self:stretch;box-shadow:0 2px 0 rgba(0,0,0,.025),0 40px 70px -44px rgba(40,30,22,.45)}
+  .dos .chat__top{display:flex;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid #eeece8}
+  .dos .chat__av{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;background:#ddd;font-size:0}
+  .dos .chat__who{font:400 15px/1.25 var(--sans);color:var(--black)}
+  .dos .chat__who small{display:block;font:300 12.5px/1.3 var(--sans);color:#7a7a77;margin-top:2px}
+  .dos .chat__list{list-style:none;margin:0;padding:22px 18px 8px;display:flex;flex-direction:column;gap:10px;min-height:0;background:#f3f1ed}
+  .dos .msg{position:relative;max-width:84%;padding:9px 12px 7px;font-size:14.5px;line-height:1.45;background:var(--white);color:#1b1b1b;box-shadow:0 1px 0 rgba(0,0,0,.05)}
+  .dos .msg p{margin:0 0 3px}
+  .dos .msg--her{align-self:flex-end;background:#e6e1d8;border:0}
+  .dos .msg--dm{align-self:flex-start;border:0}
+  .dos .tm{display:flex;justify-content:flex-end;align-items:center;gap:5px;font:400 11px/1 var(--sans);color:#7a7a77;font-variant-numeric:tabular-nums}
+  .dos .tk{width:15px;height:9px;fill:none;stroke:#6b6b68;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+  .dos .chat__cap{margin:0;padding:14px 20px 16px;font-size:12.5px;line-height:1.45;color:#6a6a67;background:var(--white)}
+  @media (max-width:900px){
+    html .dos{padding:72px 0 76px}
+    .dos .deco--pincel{width:100px;right:-18px;top:16px}
+    .dos__stage{grid-template-columns:1fr}
+    .dos .chat{margin:-18px 14px 0 24px}
+    .pg0{grid-template-columns:1fr}
+    .pg0__ph{max-height:420px;aspect-ratio:4/4.4}
+    .mood{aspect-ratio:4/3.2}
+    html .sheet{padding:20px 18px 16px}
+    .chips span{letter-spacing:.06em;white-space:nowrap;font-size:11.5px}
+  }
+  @media (prefers-reduced-motion:reduce){.pg.on{animation:none}.sheet__ink,.mk,.notes .nn{transition:none}}
+  .chips__cap{margin:-8px 0 clamp(18px,3vw,28px);font:300 italic 1.05rem/1.4 var(--serif);color:#6a6a67}
+  /* ===== Bastidores de verdade: vídeo do penteado e fotos do trabalho, sem peças recriadas ===== */
+  html .bts{position:relative;overflow:hidden;background:var(--off);padding:104px 0 108px}
+  .bts__head{display:grid;gap:18px;margin-bottom:clamp(40px,6vw,76px);max-width:760px}
+  .bts__head .title{margin:0}
+  .bts__head .muted{margin:0;max-width:34em}
+  .bts .deco--pincel{position:absolute;right:-24px;top:34px;width:150px;transform:rotate(28deg);pointer-events:none}
+  .bts__grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(24px,5vw,72px);align-items:start}
+  .bts__video{position:relative;margin:0;background:#1a1a1a;overflow:hidden;aspect-ratio:9/16;justify-self:start;width:100%;box-shadow:0 44px 80px -48px rgba(40,30,22,.45)}
+  .bts__video video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+  .bts__video figcaption{position:absolute;left:0;right:0;bottom:0;padding:70px 22px 20px;background:linear-gradient(to top,rgba(10,10,10,.55),rgba(10,10,10,0));color:#fff;font:italic 300 1.15rem/1.2 var(--serif)}
+  .bts__play{all:unset;box-sizing:border-box;position:absolute;right:14px;bottom:14px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.92);color:var(--black);display:grid;place-items:center;cursor:pointer;touch-action:manipulation;transition:transform .16s var(--ease),background .2s var(--ease)}
+  .bts__play svg{width:20px;height:20px;fill:currentColor}
+  .bts__play .ic-pause{display:block}.bts__play .ic-play{display:none}
+  .bts__play[aria-pressed="true"] .ic-pause{display:none}.bts__play[aria-pressed="true"] .ic-play{display:block}
+  .bts__play:active{transform:scale(.94)}
+  .bts__play:focus-visible{outline:2px solid var(--white);outline-offset:3px}
+  .bts__pics{display:grid;grid-template-columns:1fr 1fr;grid-template-areas:'a b' 'a c';gap:clamp(14px,2.4vw,28px) clamp(14px,2.4vw,28px)}
+  .bts__pic{margin:0}
+  .bts__pic .ph{overflow:hidden;background:#ebe8e3}
+  .bts__pic img{width:100%;height:100%;object-fit:cover;display:block}
+  .bts__pic figcaption{margin-top:12px;font:italic 300 1.1rem/1.2 var(--serif);color:#444}
+  .bts__pic--a{grid-area:a}.bts__pic--a .ph{aspect-ratio:3/4.5}
+  .bts__pic--b{grid-area:b;margin-top:clamp(30px,6vw,80px)}.bts__pic--b .ph{aspect-ratio:4/4.6}
+  .bts__pic--c{grid-area:c}.bts__pic--c .ph{aspect-ratio:4/4.2}
+  .bts__cta{margin-top:clamp(36px,5vw,60px)}
+  @media (max-width:900px){
+    html .bts{padding:72px 0 76px}
+    .bts .deco--pincel{width:100px;right:-18px;top:16px}
+    .bts__grid{grid-template-columns:1fr}
+    .bts__video{aspect-ratio:4/4.6;max-height:none}
+    .bts__pics{gap:14px}
+  }
+  @media (prefers-reduced-motion:reduce){.bts__play{transition:none}}
+  /* Depoimentos: pequeno, calmo, um de cada vez */
+  html .dp{background:var(--white);padding:clamp(72px,10vw,112px) var(--gutter,22px)}
+  .dp__box{max-width:520px;margin:0 auto}
+  .dp__h{font:300 italic 1.05rem/1.2 var(--serif);color:#76766f;margin:0 0 28px}
+  .dp__stack{position:relative}
+  .dp__sl{position:absolute;inset:0 0 auto 0;margin:0;opacity:0;transition:opacity 1.2s var(--ease);pointer-events:none}
+  .dp__sl.on{opacity:1;pointer-events:auto}
+  .dp__sl blockquote{margin:0;font:300 clamp(1.25rem,1.9vw,1.5rem)/1.5 var(--serif);color:#1d1d1d;text-wrap:pretty}
+  .dp__sl figcaption{margin-top:16px;font:400 12px/1.4 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#76766f}
+  .dp__ticks{display:flex;gap:8px;margin-top:26px}
+  .dp__ticks button{all:unset;box-sizing:border-box;width:34px;height:28px;display:grid;align-items:center;cursor:pointer}
+  .dp__ticks button::after{content:'';height:1px;background:#dcdcd8;transition:background .4s var(--ease)}
+  .dp__ticks button[aria-current="true"]::after{background:var(--black)}
+  .dp__ticks button:focus-visible{outline:2px solid var(--black);outline-offset:1px}
+  @media (prefers-reduced-motion:reduce){.dp__sl{transition:none}}
+  /* Sobre: título menor, colunas equilibradas e especialidades em faixa */
+  html .about__hello{font-size:clamp(2.2rem,3.4vw,3rem);line-height:1.04;margin-bottom:22px}
+  html .about__grid>.facts{grid-column:1/-1;margin:clamp(34px,5vw,56px) 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:22px 18px;border-top:1px solid var(--line);padding-top:26px}
+  @media (min-width:1024px){
+    html .about__grid{grid-template-columns:.9fr 1.1fr;gap:clamp(48px,6vw,96px);align-items:center}
+    html .about__photo{max-width:none}
+    html .about__text p{font-size:15px;line-height:1.65}
+    html .about__grid>.facts{grid-template-columns:repeat(4,1fr)}
+  }
+  /* Cartão principal: foto clara embaixo, então o escurecimento é maior para o texto branco */
+  html .svc-card:first-child .svc-card__t{background:linear-gradient(to top,rgba(8,8,8,.82) 0,rgba(8,8,8,.55) 55%,rgba(8,8,8,0) 100%);padding-top:160px}
+  /* Noivas DM: rolagem horizontal fixada (sem animação: fita comum com barra de rolagem) */
+  .noivas{background:var(--off);padding:0}
+  .noivas__pin{padding:96px 0 90px}
+  .noivas__head{max-width:760px;margin:0 auto 46px;text-align:center}
+  .noivas__title{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,4.6vw,3.3rem);line-height:1.06;color:var(--black);margin:0;text-wrap:balance}
+  .noivas__sub{color:var(--text-soft);margin:14px 0 0}
+  .noivas__tr{display:flex;gap:16px;padding:0 var(--gutter) 16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:var(--gutter)}
+  .noivas__f{flex:none;width:min(70vw,300px);margin:0;scroll-snap-align:start}
+  .noivas__f img{width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 25%}
+  .noivas__tr:focus-visible{outline:2px solid var(--black);outline-offset:-2px}
+  .noivas.is-pinned .noivas__pin{height:100vh;min-height:560px;display:flex;flex-direction:column;justify-content:center;padding:0}
+  .noivas.is-pinned .noivas__head{margin-bottom:34px}
+  .noivas.is-pinned .noivas__tr{overflow:visible;width:max-content;scroll-snap-type:none}
+  .noivas.is-pinned .noivas__f{width:min(30vw,340px)}
+  /* Perguntas: modelo 1, uma aberta por vez */
+  .fq{max-width:760px;margin:0 auto;border-top:1px solid var(--black)}
+  .fq__it{border-bottom:1px solid var(--line)}
+  .fq__h{margin:0;font:inherit}
+  .fq__btn{all:unset;box-sizing:border-box;display:flex;justify-content:space-between;align-items:center;gap:24px;width:100%;padding:22px 0;cursor:pointer;font-family:var(--serif);font-size:1.3rem;line-height:1.25;color:var(--black);touch-action:manipulation}
+  .fq__btn::after{content:"";flex:none;width:14px;height:14px;background:linear-gradient(var(--black),var(--black)) center/100% 1px no-repeat,linear-gradient(var(--black),var(--black)) center/1px 100% no-repeat;transition:transform .4s var(--ease)}
+  .fq__btn[aria-expanded="true"]::after{transform:rotate(45deg)}
+  .fq__btn:focus-visible{outline:2px solid var(--black);outline-offset:4px}
+  .fq__ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+  .fq__ans>div{overflow:hidden}
+  .fq__ans p{margin:0;padding:0 40px 24px 0;color:var(--text-soft);max-width:36em}
+  .fq__it.is-open .fq__ans{grid-template-rows:1fr}
+  /* Monte a sua mensagem */
+  .ask{max-width:760px;margin:64px auto 0;padding:40px 0 0;border-top:1px solid var(--line);text-align:center}
+  .ask__title{font-family:var(--serif);font-weight:300;font-size:clamp(1.7rem,3.6vw,2.3rem);line-height:1.1;color:var(--black);margin:0 0 8px}
+  .ask__lead{color:var(--text-soft);margin:0 0 22px}
+  .ask__chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:22px}
+  .ask__chip{all:unset;box-sizing:border-box;cursor:pointer;display:inline-flex;align-items:center;min-height:42px;padding:0 16px;border:1px solid var(--line);border-radius:999px;background:var(--white);font-size:14px;color:var(--black);transition:background-color .3s,color .3s,border-color .3s;touch-action:manipulation}
+  .ask__chip:hover{border-color:var(--black)}
+  .ask__chip[aria-pressed="true"]{background:var(--black);border-color:var(--black);color:var(--white)}
+  .ask__chip:focus-visible{outline:2px solid var(--black);outline-offset:3px}
+  .ask__msg{max-width:520px;margin:0 auto 22px;padding:16px 18px;background:var(--white);border-left:2px solid var(--black);text-align:left;white-space:pre-line;font-size:14px;color:var(--text);min-height:3.4em}
+  @media (prefers-reduced-motion:reduce){.fq__ans,.fq__btn::after{transition:none}}
+</style>`);
+
+// ---------------- MONOGRAMA ----------------
+h = h.replace(/<!-- Monograma NC[^]*?<\/svg>/, `<!-- Monograma "DM." recriado em código. TROCAR pelo vetor da assinatura da Débora. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="mono" viewBox="0 0 60 80">
+    <ellipse cx="30" cy="40" rx="28" ry="38" fill="none" stroke="currentColor" stroke-width="1"/>
+    <ellipse cx="30" cy="40" rx="25" ry="35" fill="none" stroke="currentColor" stroke-width=".6"/>
+    <text x="22" y="42" font-family="Cormorant Garamond, Georgia, serif" font-size="25" fill="currentColor" text-anchor="middle">D</text>
+    <text x="37" y="55" font-family="Cormorant Garamond, Georgia, serif" font-size="25" fill="currentColor" text-anchor="middle">M</text>
+  </symbol>
+</svg>`);
+h = h.replace(/<!--\s*ANTES DE MOSTRAR[^]*?-->/, `<!--
+  ANTES DE MOSTRAR
+  1. Procure por "CONFIRMAR": os trechos em amarelo dependem da Débora.
+  2. WhatsApp: número em WHATSAPP_NUMERO, no fim do arquivo (hoje: +55 11 96917-4209).
+  3. Fotos da Débora: publicar só com autorização dela, das noivas e dos fotógrafos.
+-->`);
+// sem seletor de idioma (não há versão em inglês da Débora)
+h = h.replace(/<div class="lang"[^]*?<\/div>\s*/, '');
+/* menu em pílula removido: a página segue direto do hero */
+
+// ---------------- CORPO ----------------
+cut('<!-- ================= TOPO', '<!-- ================= RODAPÉ', `<!-- ================= TOPO ================= -->
+<section class="hero hero--veu">
+  <div class="split">
+    <figure class="split__half split__half--noiva">
+      <img src="${F}veu-renda-pb.webp" alt="Noiva com véu de renda cobrindo metade do rosto" width="854" height="854" fetchpriority="high">
+    </figure>
+  </div>
+  <div class="hero__brand">
+    <h1 class="hero__name2">Débora Machado</h1>
+    <p class="hero__role">Beauty Artist</p>
+    <p class="hero__where">Maquiagem e penteado de noiva · São Paulo e todo o Brasil</p>
+    <a class="btn hero__cta" href="${WA}" target="_blank" rel="noopener" data-wa>Consultar minha data</a>
+  </div>
+</section>
+
+<!-- ================= FAIXA ================= -->
+<!-- CONFIRMAR com a Débora: casamentos citados no briefing (Palácio Tangará, Palácio dos Cedros, Fazenda Fagundes) -->
+<div class="brands">
+  <p class="brands__label">Casamentos assinados em</p>
+  <div class="brands__track"><ul class="brands__list"><li>Palácio Tangará</li><li>Palácio dos Cedros</li><li>Fazenda Fagundes</li><li>Château La Villette</li><li>Guia Constance Zahn</li><li>Destination wedding</li></ul><ul class="brands__list" aria-hidden="true"><li>Palácio Tangará</li><li>Palácio dos Cedros</li><li>Fazenda Fagundes</li><li>Château La Villette</li><li>Guia Constance Zahn</li><li>Destination wedding</li></ul></div>
+</div>
+
+<!-- ================= ABERTURA ================= -->
+<section class="opening">
+  <div class="wrap opening__grid">
+    <div class="opening__left reveal">
+      <div class="ph">${img('veil-detalhe', 'Rosto de uma noiva em close, com véu de renda e gloss nos lábios', '50% 40%')}</div>
+    </div>
+    <div class="opening__text">
+    <h2 class="title reveal d1">Antes de pegar o pincel, eu estudo <em>o seu rosto.</em></h2>
+    <p class="muted reveal d2">Você responde um questionário, me manda algumas fotos e eu faço a leitura do seu rosto, do seu tom e subtom de pele e do vestido que escolheu.</p>
+    <p class="muted reveal d2">Só depois a gente decide a maquiagem e o penteado. Por isso nenhuma noiva minha sai igual à outra.</p>
+    <div class="opening__actions reveal d2">
+      <a class="btn" href="${WA}" target="_blank" rel="noopener" data-wa>Consultar minha data</a>
+      <a class="link" href="#como-funciona">Ver como funciona</a>
+    </div>
+    </div>
+    <div class="opening__right">
+      <div class="ph opening__r1 reveal d1">${img('ombro', 'Noiva de lado, olhando por cima do ombro, com pele luminosa', '50% 25%')}</div>
+      <div class="ph opening__r2 reveal d2">${img('brinco', 'Perfil de noiva com coque baixo e brinco de cristais', '50% 35%')}</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NOIVAS DM (rolagem horizontal fixada) ================= -->
+<!-- CONFIRMAR: autorização das noivas e créditos dos fotógrafos. Trocar as legendas pelos nomes, datas e locais quando ela autorizar. -->
+<section class="noivas" id="portfolio">
+  <div class="noivas__pin">
+    <div class="wrap">
+      <div class="noivas__head">
+        <h2 class="noivas__title">Nenhuma noiva minha sai igual à outra</h2>
+        <p class="noivas__sub">Cada uma com o seu rosto. <a class="link" href="https://www.instagram.com/deboramachadomake/" target="_blank" rel="noopener">Mais no Instagram @deboramachadomake</a></p>
+      </div>
+    </div>
+    <div class="noivas__tr" tabindex="0" role="region" aria-label="Fotos de noivas, role para o lado para ver todas">
+      <figure class="noivas__f"><img src="${F}noiva-05.webp" width="1600" height="2133" alt="Cabelo preto solto, costas abertas" ></figure>
+      <figure class="noivas__f"><img src="${F}noiva-04.webp" width="1440" height="1920" alt="Ondas e buquê" ></figure>
+      <figure class="noivas__f"><img src="${F}noiva-06.webp" width="1600" height="2130" alt="Manga longa e peônias" loading="lazy"></figure>
+      <figure class="noivas__f"><img src="${F}noiva-01.webp" width="1600" height="2127" alt="Véu e buquê" loading="lazy"></figure>
+      <figure class="noivas__f"><img src="${F}hero-noiva.webp" width="1440" height="1800" alt="Flor no cabelo" loading="lazy"></figure>
+      <figure class="noivas__f"><img src="${F}noiva-03.webp" width="1440" height="1800" alt="Noiva loira com vestido de renda e brilho nos olhos" loading="lazy"></figure>
+      <figure class="noivas__f"><img src="${F}noiva-10.webp" width="1440" height="1920" alt="Noiva de robe branco e bobes, segurando o espelhinho de um blush" loading="lazy"></figure>
+      <figure class="noivas__f"><img src="${F}noiva-09.webp" width="1440" height="1800" alt="Noiva de olhos azuis, cabelo ondulado e buquê de rosas brancas" loading="lazy"></figure>
+      <figure class="noivas__f"><img src="${F}noiva-07.webp" width="1152" height="1536" alt="Noiva de cabelo ondulado solto, maquiagem luminosa e brinco de pérola" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ATENDIMENTOS ================= -->
+<section class="services" id="servicos">
+  <div class="wrap">
+    <div class="svc__intro">
+      <h2 class="title reveal d1">Do civil ao <em>destination wedding</em></h2>
+      <p class="muted reveal d2">Cada atendimento parte da mesma leitura: o seu rosto, a sua pele e o seu casamento.</p>
+    </div>
+    <div class="svc-cards svc-cards--6">
+      <article class="svc-card reveal">
+        ${img('noiva-12', 'Noiva de renda com gola alta, penteado liso e sorriso', '50% 26%')}
+        <div class="svc-card__t"><h3>Beleza da noiva</h3><p>Maquiagem e penteado, da análise ao grande dia.</p><a class="svc-card__link" href="${WA}" target="_blank" rel="noopener" data-wa>Consultar minha data</a></div>
+      </article>
+      <article class="svc-card reveal d1">
+        ${img('flor-olhos', 'Noiva de olhos fechados, flor branca no cabelo e roupão de pelúcia', '50% 28%')}
+        <div class="svc-card__t"><h3>Casamento civil</h3><p>A mesma análise, numa produção mais leve pro dia do cartório.</p><a class="svc-card__link" href="${WA}" target="_blank" rel="noopener" data-wa>Consultar minha data</a></div>
+      </article>
+      <article class="svc-card reveal d2">
+        ${img('noiva-05', 'Noiva em varanda com árvores ao fundo', '50% 30%')}
+        <div class="svc-card__t"><h3>Destination wedding</h3><p>Atendo em São Paulo e viajo pra casamentos em todo o país.</p><a class="svc-card__link" href="${WA}" target="_blank" rel="noopener" data-wa>Consultar minha data</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= COMO FUNCIONA ================= -->
+<section class="how etp" id="como-funciona">
+  <div class="wrap">
+    <div class="etp__head">
+      <h2 class="title reveal d1">Do planejamento <em>ao altar</em></h2>
+      <p class="muted reveal d2">São cinco etapas. As três primeiras acontecem online, no seu tempo.</p>
+    </div>
+    <div class="etp__big reveal">
+      <div class="etp__ph"><img src="${F}bastidor-espelho.webp" alt="Noiva de vestido e véu diante do espelho, enquanto a maquiagem é finalizada" loading="lazy"></div>
+      <div class="etp__txt"><span class="etp__no">01</span><h3 class="etp__nm etp__nm--big">Análise</h3><p>Você responde um questionário e me manda algumas fotos. Eu leio o seu rosto, o tom e o subtom da pele, o seu estilo e o vestido.</p></div>
+    </div>
+    <ol class="etp__four reveal">
+      <li><span class="etp__no">02</span><h3 class="etp__nm">Planejamento</h3><p>A gente define os caminhos pelo WhatsApp. Cada dúvida vem com o porquê da resposta.</p></li>
+      <li><span class="etp__no">03</span><h3 class="etp__nm">Moodboard</h3><p>Um painel com as técnicas de maquiagem e penteado, as cores e a indicação de brinco, véu e grinalda.</p></li>
+      <li><span class="etp__no">04</span><h3 class="etp__nm">Teste presencial</h3><p>A gente valida tudo no seu rosto. Ajusto o que precisar.</p></li>
+      <li><span class="etp__no">05</span><h3 class="etp__nm">O grande dia</h3><p>Você só precisa sentar e aproveitar.</p></li>
+    </ol>
+    <div class="how__cta reveal">
+      <a class="btn" href="${WA}" target="_blank" rel="noopener" data-wa>Quero começar pela análise</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BASTIDORES: material e conversa ================= -->
+<!-- O material e a conversa são recriações. Trocar pelos prints reais (com dados borrados) quando a Débora autorizar. -->
+<section class="bts" id="bastidores">
+  <img class="deco deco--pincel" src="${F}pincel-base.webp" alt="" aria-hidden="true" loading="lazy">
+  <div class="wrap">
+    <div class="bts__head">
+      <h2 class="title reveal">Como isso fica <em>na prática</em></h2>
+      <p class="muted reveal d1">Um pouco do que acontece nos bastidores.</p>
+    </div>
+    <div class="bts__grid">
+      <figure class="bts__video reveal">
+        <video id="btsv" muted loop playsinline preload="auto" aria-label="Bastidores: penteado sendo feito, em vídeo"><source src="video/making-of-cabelo.mp4#t=0.1" type="video/mp4"></video>
+        <button type="button" class="bts__play" id="btsp" aria-label="Pausar o vídeo" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-play" d="M8 5.5v13l11-6.5z"/><path class="ic-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/></svg></button>
+        <figcaption>Um penteado sendo feito</figcaption>
+      </figure>
+      <div class="bts__pics">
+        <figure class="bts__pic bts__pic--a reveal d1"><div class="ph"><img src="${F}noiva-11.webp" alt="Close do rosto de uma noiva com véu, tiara e maquiagem luminosa" loading="lazy" width="1440" height="1800"></div><figcaption>O resultado, de pertinho</figcaption></figure>
+        <figure class="bts__pic bts__pic--b reveal d2"><div class="ph"><img src="${F}bastidor-gloss.webp" alt="Maquiadora aplicando gloss nos lábios de uma noiva" loading="lazy" width="1440" height="1800"></div><figcaption>Finalizando os lábios</figcaption></figure>
+        <figure class="bts__pic bts__pic--c reveal d2"><div class="ph"><img src="${F}bastidor-janela.webp" alt="Noiva sentada diante da janela, com três mulheres de roupão preto ao lado, em frente à bancada de maquiagem" loading="lazy" width="1440" height="1800"></div><figcaption>Quem está com você também se arruma</figcaption></figure>
+      </div>
+    </div>
+    <div class="bts__cta reveal"><a class="btn" href="${WA}" target="_blank" rel="noopener" data-wa>Quero conversar sobre o meu casamento</a></div>
+  </div>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<!-- CONFIRMAR: autorização da Mayra e da Priscilla (texto e nome), e mais depoimentos. -->
+<!-- ================= DEPOIMENTOS ================= -->
+<!-- CONFIRMAR: autorização da Mayra e da Priscilla (texto e nome), e mais depoimentos. -->
+<section class="dp" id="depoimentos">
+  <div class="dp__box">
+    <h2 class="dp__h reveal">Quem já passou por aqui</h2>
+    <div class="dp__stack reveal d1" id="dpStack" aria-live="polite">
+      <figure class="dp__sl on"><blockquote>“O seu moodboard é surpreendente e muito certeiro, deu o toque final que faltava na minha produção. Com certeza você foi minha melhor escolha.”</blockquote><figcaption>Mayra Fagundes · noiva</figcaption></figure>
+      <figure class="dp__sl"><blockquote>“As meninas são excelentes, de verdade! Eu amei o meu penteado e a maquiagem. Durou até o dia seguinte! Um sonho mesmo.”</blockquote><figcaption>Priscilla · noiva da Equipe DM</figcaption></figure>
+    </div>
+    <div class="dp__ticks" role="group" aria-label="Escolher depoimento">
+      <button type="button" aria-label="Depoimento de Mayra Fagundes" aria-current="true"></button>
+      <button type="button" aria-label="Depoimento de Priscilla" aria-current="false"></button>
+    </div>
+    <p class="testi__more"><span class="todo">[CONFIRMAR: autorização da Mayra e da Priscilla, e mais um ou dois depoimentos]</span></p>
+  </div>
+</section>
+
+<!-- ================= SOBRE ================= -->
+<section class="about" id="sobre">
+  <div class="wrap about__grid">
+    <div class="about__photo reveal">
+      <div class="ph about__main">${img('debora-retrato', 'Retrato de Débora Machado sorrindo, de blazer preto', '50% 30%')}</div>
+      <div class="about__small"><div class="ph">${img('debora-2', 'Débora Machado olhando para a câmera', '50% 35%')}</div></div>
+    </div>
+    <div>
+      <h2 class="title about__hello reveal d1">Prazer, eu sou a <span class="pencil-g">D</span>ébora</h2>
+      <div class="about__text reveal d2">
+        <p>Comecei na publicidade e na fotografia. Foi ali que aprendi a olhar pra composição, luz e enquadramento, e esse olhar veio comigo quando a beleza virou o meu trabalho.</p>
+        <p>Hoje sou especializada em visagismo e colorimetria, e cuido de noivas em São Paulo e em casamentos pelo Brasil. Teve muito tempo em que precisei acreditar no meu trabalho antes de ele ser reconhecido. Ele foi, e hoje faço parte do Guia Constance Zahn.</p>
+        <p>A Equipe DM é uma curadoria minha. Eu participo do planejamento, assino a beleza e dirijo o teste presencial. São mais de 10 profissionais, com backup para qualquer imprevisto e um cronograma detalhado para você planejar o dia. No dia, a equipe cuida de você com o meu olhar em cada detalhe. <a class="link" href="https://www.instagram.com/equipedmmake/" target="_blank" rel="noopener">Conhecer a Equipe DM</a></p>
+        <p>O que não mudou: atendo uma noiva por dia, com atenção inteira pra ela. <span class="todo">[CONFIRMAR: continua uma noiva por dia, com a Equipe DM?]</span></p>
+      </div>
+      <a class="btn btn--line about__cta reveal" href="${WA}" target="_blank" rel="noopener" data-wa>Falar com a Débora</a>
+    </div>
+    <ul class="facts reveal">
+        <li><b>Visagismo</b><small>e colorimetria</small></li>
+        <li><b>Uma noiva</b><small>por dia</small></li>
+        <li><b>Fotografia</b><small>e publicidade, antes</small></li>
+        <li><b>Constance Zahn</b><small>Bridal Guide</small></li>
+      </ul>
+  </div>
+</section>
+
+<!-- ================= DÚVIDAS ================= -->
+<section class="faq" id="duvidas">
+  <div class="wrap">
+    <div class="faq__head">
+      <h2 class="title reveal d1">Ficou alguma <em>dúvida?</em></h2>
+    </div>
+    <!-- Monte a sua mensagem: as dúvidas marcadas viram a mensagem do WhatsApp -->
+    <div class="ask reveal" id="ask">
+      <p class="ask__lead">Toque na pergunta para ver a resposta.</p>
+      <div class="ask__chips">
+        <button type="button" class="ask__chip" aria-pressed="false" data-q="Com quanto tempo de antecedência devo reservar?" data-a="Como atendo uma noiva por dia, o ideal é me chamar assim que a data estiver definida.">Com quanto tempo de antecedência devo reservar?</button>
+        <button type="button" class="ask__chip" aria-pressed="false" data-q="Você atende fora de São Paulo?" data-a="Sim. Faço casamentos em todo o Brasil e destination weddings. Os custos de viagem são combinados à parte.">Você atende fora de São Paulo?</button>
+        <button type="button" class="ask__chip" aria-pressed="false" data-q="Ainda não escolhi o vestido. Posso começar?" data-a="Pode. A análise começa pelo seu rosto e pelo seu estilo, e o vestido entra no planejamento quando estiver definido.">Ainda não escolhi o vestido. Posso começar?</button>
+        <button type="button" class="ask__chip" aria-pressed="false" data-q="O que acontece online e o que é presencial?" data-a="Análise, planejamento e moodboard são online. O teste e o dia do casamento são presenciais.">O que acontece online e o que é presencial?</button>
+        <button type="button" class="ask__chip" aria-pressed="false" data-q="Você atende a mãe e as madrinhas?" data-a="Sim. A Equipe DM cuida da mãe da noiva, das madrinhas e das convidadas, e você recebe o cronograma antes para o dia correr tranquilo.">Você atende a mãe e as madrinhas?</button>
+        <button type="button" class="ask__chip" aria-pressed="false" data-q="Qual é o valor?" data-a="Depende do formato, do local e de quantas pessoas vão se arrumar. Me manda a data e o local do casamento no WhatsApp que eu te envio as opções.">Qual é o valor?</button>
+      </div>
+      <div class="ask__ans" aria-live="polite"><p class="ask__q"></p><p class="ask__a"></p></div>
+      <a class="btn ask__go" href="https://wa.me/5511969174209?text=Oi%2C%20D%C3%A9bora!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener">Falar com a Débora</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CHAMADO FINAL ================= -->
+<section class="final final--convite" id="data">
+  <div class="convite reveal">
+    <div class="convite__in">
+      <svg class="mono" aria-hidden="true"><use href="#mono"/></svg>
+      <h2>Sua data ainda está <em>livre?</em></h2>
+      <p class="convite__t">Me conta quando e onde vai ser. Eu te respondo com a disponibilidade e te explico como funciona cada etapa.</p>
+      <form class="convite__f" id="convite" novalidate>
+        <label for="cv-data"><span>Data</span><input id="cv-data" name="data" type="text" inputmode="text" autocomplete="off" placeholder="dia / mês / ano"></label>
+        <label for="cv-local"><span>Local</span><input id="cv-local" name="local" type="text" autocomplete="off" placeholder="cidade ou espaço"></label>
+        <button class="btn" type="submit">Enviar para a Débora</button>
+      </form>
+      <p class="signature signature--svg"><span class="sr-only">com carinho, Débora</span><svg viewBox="30 70 320 175" width="150" height="82" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"><path d="M48 190C45 150 100 110 150 92C195 80 225 105 220 140C214 185 170 222 128 222C100 222 75 215 70 200C66 185 85 170 110 163"/><path d="M64 228C90 218 130 185 160 168C178 160 190 175 200 185C210 192 222 172 232 168C240 175 238 196 248 200C258 196 262 172 272 170C280 176 278 196 292 196"/><circle cx="328" cy="213" r="2.5" fill="currentColor"/></svg></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+`);
+
+// ---------------- RODAPÉ ----------------
+cut('<!-- ================= RODAPÉ', '<a class="wa-float"', `<!-- ================= RODAPÉ ================= -->
+<footer>
+  <div class="wrap">
+    <svg class="mono" aria-hidden="true"><use href="#mono"/></svg>
+    <span class="brand__name">Débora Machado</span>
+    <p class="footer__beauty">Beauty Artist</p>
+    <p>Maquiagem e penteado de noiva · São Paulo e todo o Brasil, com destination wedding</p>
+    <p>
+      <a href="https://www.instagram.com/deboramachadomake/" target="_blank" rel="noopener">@deboramachadomake</a>
+      ·
+      <a href="https://www.instagram.com/equipedmmake/" target="_blank" rel="noopener">@equipedmmake</a>
+    </p>
+    <small>© 2026 Débora Machado | Beauty Artist</small>
+  </div>
+</footer>
+
+`);
+h = h.replace(/(<a class="wa-float" href=")[^"]*"/, '$1' + WA + '"');
+
+// ---------------- SCRIPT ----------------
+h = h.replace(/const WHATSAPP_NUMERO = '[^']*';[^\n]*/, "const WHATSAPP_NUMERO = '5511969174209'; // WhatsApp da Débora (DDI+DDD+número, só dígitos)");
+h = h.replace(/const WHATSAPP_MENSAGEM = '[^']*';/, "const WHATSAPP_MENSAGEM = '" + MSG + "';");
+// remove o dicionário em inglês e a troca de idioma (texto da Nina)
+const a = h.indexOf('  /* ================= IDIOMA (PT / EN)'), b = h.indexOf('</script>', a);
+if (a < 0) throw new Error('idioma');
+h = h.slice(0, a) + h.slice(b);
+// o loop de vídeo do topo não se aplica (topo com foto); o código já ignora quando não há vídeo
+h = h.replace('Trechos que dependem da Nina', 'Trechos que dependem da Débora').replace('/* Nina Costa: 5 passos e 6 serviços */', '/* 5 passos e 6 serviços */');
+h = h.replace('</body>', "\n<script>\n  /* Perguntas: abre uma por vez */\n  document.querySelectorAll('.fq__btn').forEach(b => b.addEventListener('click', () => {\n    const it = b.closest('.fq__it'), abrir = !it.classList.contains('is-open');\n    document.querySelectorAll('.fq__it').forEach(x => { x.classList.remove('is-open'); x.querySelector('.fq__btn').setAttribute('aria-expanded', 'false'); });\n    if (abrir) { it.classList.add('is-open'); b.setAttribute('aria-expanded', 'true'); }\n  }));\n  /* Monte a sua mensagem */\n  (function () {\n    const box = document.getElementById('ask'); if (!box) return;\n    const msg = box.querySelector('.ask__msg'), go = box.querySelector('.ask__go');\n    const update = () => {\n      const sel = [...box.querySelectorAll('.ask__chip[aria-pressed=\"true\"]')].map(c => '• ' + c.dataset.q);\n      const txt = 'Oi, Débora! Vim pelo seu site.' + (sel.length ? '\\nQueria tirar estas dúvidas:\\n' + sel.join('\\n') : '');\n      msg.textContent = txt;\n      const num = (typeof WHATSAPP_NUMERO !== 'undefined' && WHATSAPP_NUMERO) ? WHATSAPP_NUMERO : '';\n      go.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent(txt);\n    };\n    box.querySelectorAll('.ask__chip').forEach(c => c.addEventListener('click', () => { c.setAttribute('aria-pressed', c.getAttribute('aria-pressed') !== 'true'); update(); }));\n    update();\n  })();\n</script>\n" + '</body>');
+h = h.replace('</body>', "\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js\"></script>\n<script src=\"https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js\"></script>\n<script>\n  /* Noivas DM: em telas largas e sem \"reduzir movimento\", a seção fica parada e as fotos andam com a rolagem. Nos outros casos, fita comum. */\n  (function () {\n    const sec = document.querySelector('.noivas'); if (!sec || !window.gsap || !window.ScrollTrigger) return;\n    gsap.registerPlugin(ScrollTrigger);\n    const tr = sec.querySelector('.noivas__tr');\n    gsap.matchMedia().add('(max-width: 0px)', () => {\n      sec.classList.add('is-pinned');\n      const dist = () => Math.max(0, tr.scrollWidth - innerWidth + 40);\n      const tween = gsap.to(tr, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: sec, start: 'top top', end: () => '+=' + dist(), scrub: .8, pin: true, invalidateOnRefresh: true } });\n      ScrollTrigger.refresh();\n      return () => { sec.classList.remove('is-pinned'); gsap.set(tr, { clearProps: 'transform' }); };\n    });\n    window.addEventListener('load', () => ScrollTrigger.refresh());\n  })();\n</script>\n" + '</body>');
+h = h.replace('</body>', "\n<script>\n  /* Teste de subtom: resultado e botão de WhatsApp com a resposta */\n  (function () {\n    const R = {\n      quente: { n: 'Subtom quente', t: 'Cores com fundo dourado costumam iluminar a sua pele.', c: [['#e8b48a', 'pêssego'], ['#d98a6c', 'coral'], ['#b4623f', 'terracota'], ['#c9a46a', 'dourado']] },\n      frio: { n: 'Subtom frio', t: 'Cores com fundo rosado costumam iluminar a sua pele.', c: [['#e2b3c1', 'rosé'], ['#b5546d', 'framboesa'], ['#8c4a6b', 'malva'], ['#bfc3c9', 'prata']] },\n      neutro: { n: 'Subtom neutro', t: 'Os dois lados podem funcionar. É exatamente aí que a análise faz diferença.', c: [['#dcae95', 'nude'], ['#c07b78', 'rosa antigo'], ['#9b5f55', 'canela'], ['#d8c3a5', 'champanhe']] }\n    };\n    const box = document.getElementById('quiz'); if (!box) return;\n    const out = box.querySelector('.quiz__out'), empty = box.querySelector('.quiz__empty'), cta = box.querySelector('.quiz__cta');\n    box.querySelectorAll('.quiz__opt').forEach(b => b.addEventListener('click', () => {\n      const r = R[b.dataset.r];\n      box.querySelectorAll('.quiz__opt').forEach(x => x.setAttribute('aria-pressed', x === b));\n      box.querySelector('.quiz__name').textContent = r.n;\n      box.querySelector('.quiz__txt').textContent = r.t;\n      box.querySelector('.quiz__sw').innerHTML = r.c.map(([h, n]) => '<li><i style=\"background:' + h + '\"></i>' + n + '</li>').join('');\n      const num = (typeof WHATSAPP_NUMERO !== 'undefined' && WHATSAPP_NUMERO) ? WHATSAPP_NUMERO : '';\n      cta.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Oi, Débora! Fiz o teste no seu site e deu ' + r.n.toLowerCase() + '. Queria fazer a análise completa para o meu casamento.');\n      empty.hidden = true; out.hidden = false;\n    }));\n  })();\n\n  /* Material: troca a folha da frente por toque, clique ou teclado */\n  (function () {\n    const stage = document.getElementById('docs'); if (!stage) return;\n    const docs = [...stage.querySelectorAll('.doc')], tabs = [...document.querySelectorAll('.docs__tabs button')];\n    const show = i => {\n      docs.forEach(d => { const k = (+d.dataset.i - i + docs.length) % docs.length; d.dataset.pos = k; d.setAttribute('aria-hidden', k !== 0); });\n      tabs.forEach(t => t.setAttribute('aria-selected', +t.dataset.i === i));\n    };\n    tabs.forEach(t => t.addEventListener('click', () => show(+t.dataset.i)));\n    tabs.forEach((t, k) => t.addEventListener('keydown', e => {\n      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;\n      const n = (k + (e.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length; tabs[n].focus(); show(n);\n    }));\n    docs.forEach(d => d.addEventListener('click', () => show(+d.dataset.i)));\n    show(0);\n  })();\n\n  /* Conversa: aparece uma vez, mensagem a mensagem, quando entra na tela */\n  (function () {\n    const chat = document.getElementById('chat'); if (!chat) return;\n    const msgs = [...chat.querySelectorAll('.msg')];\n    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;\n    const play = () => { chat.classList.add('is-on'); if (calm) return; msgs.forEach((m, i) => { m.style.transitionDelay = (i * 1.1) + 's'; }); };\n    if (calm || !('IntersectionObserver' in window)) { play(); return; }\n    new IntersectionObserver((es, o) => es.forEach(e => { if (e.isIntersecting) { play(); o.disconnect(); } }), { threshold: .4 }).observe(chat);\n  })();\n</script>\n" + '</body>');
+h = h.replace('</head>', "\n<script>if (/[?&]revisao/.test(location.search)) document.documentElement.classList.add('revisao');</script>\n" + '</head>');
+h = h.replace('</body>', "\n<script>\n(function(){\n  var v=document.querySelector('.hero__video'); if(!v) return;\n  var fig=v.parentNode, calm=matchMedia('(prefers-reduced-motion: reduce)').matches;\n  var c=navigator.connection||{}; if(calm||c.saveData||/(^|-)2g$/.test(c.effectiveType||'')){v.remove();return;}\n  v.loop=true; v.preload='auto';\n  v.addEventListener('playing',function(){ fig.classList.add('is-video'); var hr=fig.closest('.hero'); if(hr) hr.classList.add('hero--video'); });\n  var go=function(){ v.play().catch(function(){ v.remove(); }); };\n  if(v.readyState>=2) go(); else v.addEventListener('loadeddata',go,{once:true});\n  document.addEventListener('visibilitychange',function(){ if(document.hidden) v.pause(); else if(fig.classList.contains('is-video')) v.play().catch(function(){}); });\n})();\n</script>\n" + '</body>');
+h = h.replace('</body>', "\n<script>\n  /* Convite: monta a mensagem com data e local e abre o WhatsApp */\n  (function () {\n    var f = document.getElementById('convite'); if (!f) return;\n    f.addEventListener('submit', function (e) {\n      e.preventDefault();\n      var d = f.data.value.trim() || '___', l = f.local.value.trim() || '___';\n      var msg = 'Oi, Débora! Vim pelo seu site. Meu casamento é dia ' + d + ', em ' + l + '. Queria saber se você tem essa data.';\n      var num = (typeof WHATSAPP_NUMERO !== 'undefined' && WHATSAPP_NUMERO) ? WHATSAPP_NUMERO : '';\n      window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');\n    });\n  })();\n</script>\n" + '</body>');
+
+{ const i = h.lastIndexOf('/* Monte a sua mensagem */'), END = 'update();'+String.fromCharCode(10)+'  })();', j = h.indexOf(END, i);
+  if (i > -1 && j > -1) h = h.slice(0, i) + "/* Dúvidas: uma pergunta aberta por vez, com a resposta embaixo */\n  (function () {\n    const box = document.getElementById('ask'); if (!box) return;\n    const chips = [...box.querySelectorAll('.ask__chip')], ans = box.querySelector('.ask__ans');\n    const q = ans.querySelector('.ask__q'), a = ans.querySelector('.ask__a'), go = box.querySelector('.ask__go');\n    const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;\n    const show = c => {\n      chips.forEach(x => x.setAttribute('aria-pressed', x === c));\n      const put = () => {\n        q.textContent = c.dataset.q; a.textContent = c.dataset.a;\n        const num = (typeof WHATSAPP_NUMERO !== 'undefined' && WHATSAPP_NUMERO) ? WHATSAPP_NUMERO : '';\n        go.href = 'https://wa.me/' + num + '?text=' + encodeURIComponent('Oi, Débora! Vim pelo seu site. Queria saber mais sobre: ' + c.dataset.q);\n        ans.classList.remove('is-swap');\n      };\n      if (calm) put(); else { ans.classList.add('is-swap'); setTimeout(put, 200); }\n    };\n    chips.forEach(c => c.addEventListener('click', () => show(c)));\n    show(chips[0]);\n  })();" + h.slice(j + END.length); else throw new Error('js duvidas'); }
+
+h = h.replace('</body>', "\n<script>\n  /* Hero: sem vídeo (movimento reduzido, economia de dados ou falha), mostra a foto */\n  (function () {\n    var hero = document.querySelector(\".hero\"); if (!hero) return;\n    var show = function () { hero.classList.add(\"hero--photo\"); };\n    var v = document.querySelector(\".hero__video\");\n    if (!v) { show(); return; }\n    v.addEventListener(\"error\", show);\n    setTimeout(function () { if (!hero.classList.contains(\"hero--video\") || !document.querySelector(\".hero__video\")) show(); }, 3500);\n  })();\n  /* Galeria fixada: recalcula o ponto de início quando as fotos e as fontes terminam de carregar */\n  (function () {\n    if (!window.ScrollTrigger) return;\n    var t, rf = function () { clearTimeout(t); t = setTimeout(function () { ScrollTrigger.refresh(); }, 150); };\n    document.querySelectorAll(\"img\").forEach(function (im) { if (!im.complete) im.addEventListener(\"load\", rf, { once: true }); });\n    if (document.fonts && document.fonts.ready) document.fonts.ready.then(rf);\n    window.addEventListener(\"load\", rf);\n  })();\n</script>\n" + '</body>');
+
+{ const dir = require("path").join(require("path").dirname(OUT), "fotos");
+  const have = new Set(fs.readdirSync(dir));
+  h = h.replace(/<img([^>]*?)src="fotos[/]([a-z0-9-]+)[.]webp"([^>]*)>/g, (m, a, n, b) => {
+    if (m.includes("srcset=")) return m;
+    if (!have.has(n + "-640.webp")) return m;
+    const set = ["fotos/" + n + "-640.webp 640w"];
+    if (have.has(n + "-1100.webp")) set.push("fotos/" + n + "-1100.webp 1100w");
+    const nat = (m.match(/width="([0-9]+)"/) || [])[1];
+    set.push("fotos/" + n + ".webp " + (nat || 1440) + "w");
+    const sizes = m.includes("fetchpriority") ? "100vw" : "(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px";
+    return '<img' + a + 'src="fotos/' + n + '.webp" srcset="' + set.join(', ') + '" sizes="' + sizes + '"' + b + '>';
+  });
+}
+
+h = h.replace('</body>', "\n<script>\n  /* Dossiê: abas com linha deslizante, anotações ligadas à foto */\n  (function () {\n    var sh = document.getElementById(\"sheet\"); if (!sh) return;\n    var tabs = [].slice.call(sh.querySelectorAll(\"[role=tab]\")), pgs = [].slice.call(sh.querySelectorAll(\".pg\")), tabsBox = sh.querySelector(\".sheet__tabs\");\n    var ink = function () {\n      var cur = tabs.filter(function (t) { return t.getAttribute(\"aria-selected\") === \"true\"; })[0]; if (!cur) return;\n      var w = tabsBox.getBoundingClientRect().width || 1;\n      tabsBox.style.setProperty(\"--x\", cur.offsetLeft + \"px\"); tabsBox.style.setProperty(\"--w\", (cur.offsetWidth / w).toFixed(4));\n    };\n    var show = function (i, focus) {\n      tabs.forEach(function (t, k) { t.setAttribute(\"aria-selected\", k === i); t.tabIndex = k === i ? 0 : -1; });\n      pgs.forEach(function (p, k) { p.hidden = k !== i; p.classList.toggle(\"on\", k === i); });\n      if (focus) tabs[i].focus(); ink();\n    };\n    tabs.forEach(function (t, k) {\n      t.addEventListener(\"click\", function () { show(k); });\n      t.addEventListener(\"keydown\", function (e) {\n        if (e.key !== \"ArrowRight\" && e.key !== \"ArrowLeft\") return;\n        e.preventDefault(); show((k + (e.key === \"ArrowRight\" ? 1 : -1) + tabs.length) % tabs.length, true);\n      });\n    });\n    var mks = [].slice.call(sh.querySelectorAll(\".mk\")), nts = [].slice.call(sh.querySelectorAll(\".notes li\"));\n    var hot = function (k, on) { mks.concat(nts).forEach(function (el) { if (el.dataset.k === k) el.classList.toggle(\"hot\", on); }); };\n    mks.concat(nts).forEach(function (el) {\n      el.addEventListener(\"mouseenter\", function () { hot(el.dataset.k, true); });\n      el.addEventListener(\"mouseleave\", function () { hot(el.dataset.k, false); });\n    });\n    addEventListener(\"resize\", ink); if (document.fonts && document.fonts.ready) document.fonts.ready.then(ink); ink();\n  })();\n</script>\n" + '</body>');
+
+h = h.replace('</body>', "\n<script>\n  /* Bastidores: o vídeo toca quando está na tela, pausa quando sai, e pode ser pausado */\n  (function () {\n    var v = document.getElementById(\"btsv\"), p = document.getElementById(\"btsp\"); if (!v || !p) return;\n    var calm = matchMedia(\"(prefers-reduced-motion: reduce)\").matches, manual = false;\n    var sync = function () { var paused = v.paused; p.setAttribute(\"aria-pressed\", paused); p.setAttribute(\"aria-label\", paused ? \"Reproduzir o vídeo\" : \"Pausar o vídeo\"); };\n    v.addEventListener(\"play\", sync); v.addEventListener(\"pause\", sync);\n    p.addEventListener(\"click\", function () { manual = true; if (v.paused) v.play().catch(function () {}); else v.pause(); });\n    if (calm) { v.pause(); sync(); return; }\n    if (!(\"IntersectionObserver\" in window)) return;\n    new IntersectionObserver(function (es) {\n      es.forEach(function (x) { if (x.isIntersecting) { if (!manual) v.play().catch(function () {}); } else v.pause(); });\n    }, { threshold: 0.45 }).observe(v);\n  })();\n</script>\n" + '</body>');
+
+h = h.replace('</body>', "\n<script>\n  /* Depoimentos: um por vez, troca lenta, traços para escolher */\n  (function () {\n    var st = document.getElementById(\"dpStack\"); if (!st) return;\n    var sl = [].slice.call(st.querySelectorAll(\".dp__sl\")), tk = [].slice.call(document.querySelectorAll(\".dp__ticks button\"));\n    var i = 0, t, calm = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    var fit = function () { var h = 0; sl.forEach(function (x) { h = Math.max(h, x.offsetHeight); }); st.style.height = h + \"px\"; };\n    var go = function (n) { i = n; sl.forEach(function (x, k) { x.classList.toggle(\"on\", k === i); }); tk.forEach(function (d, k) { d.setAttribute(\"aria-current\", k === i); }); };\n    var run = function () { clearInterval(t); if (!calm) t = setInterval(function () { go((i + 1) % sl.length); }, 8000); };\n    tk.forEach(function (d, k) { d.addEventListener(\"click\", function () { go(k); run(); }); });\n    st.addEventListener(\"mouseenter\", function () { clearInterval(t); }); st.addEventListener(\"mouseleave\", run);\n    addEventListener(\"resize\", fit); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); fit(); run();\n  })();\n</script>\n" + '</body>');
+fs.writeFileSync(OUT, h);
+const left = (h.match(/Nina|nina|NC\b/g) || []);
+console.log('ok', h.length, 'menções restantes a Nina:', left.length);

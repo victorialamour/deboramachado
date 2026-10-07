@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mais 7 heros com a foto do véu | Débora Machado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root{--serif:'Cormorant Garamond',serif;--sans:'Jost',sans-serif;--off:#f5f5f3;--black:#0b0b0b;--gray:#7d7d7a;--ease:cubic-bezier(.23,1,.32,1);--gut:clamp(22px,6vw,96px)}
+  *{box-sizing:border-box}
+  ::selection{background:var(--black);color:#fff}
+  body{margin:0;background:#e9e9e6;font-family:var(--sans);font-weight:300;color:var(--black);-webkit-font-smoothing:antialiased}
+  p,h1,h2,figure{margin:0}
+  .intro{padding:48px var(--gut) 8px}.intro h1{font:300 clamp(2rem,4vw,3rem)/1.05 var(--serif);margin-bottom:10px}.intro p{color:#4f4f4d;line-height:1.6;max-width:58em}
+  .note{padding:32px var(--gut) 16px;font-size:14px;line-height:1.5;color:#4f4f4d;display:flex;gap:16px;align-items:baseline;flex-wrap:wrap}
+  .note b{font:300 1.7rem/1 var(--serif);color:var(--black)}
+  .note button{margin-left:auto;font:400 11.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;background:none;border:1px solid var(--black);padding:10px 16px;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease),transform .16s var(--ease)}
+  .note button:active{transform:scale(.97)}
+  @media (hover:hover) and (pointer:fine){.note button:hover{background:var(--black);color:#fff}}
+  :focus-visible{outline:2px solid var(--black);outline-offset:3px}
+  .tog{position:sticky;top:0;z-index:50;display:flex;gap:0;justify-content:center;padding:12px;background:rgba(233,233,230,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  .tog button{font:400 11.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:11px 20px;border:1px solid var(--black);background:transparent;cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease)}
+  .tog button+button{border-left:0}
+  .tog button[aria-pressed="true"]{background:var(--black);color:#fff}
+  .hero img{transition:filter .5s var(--ease)}
+  body.bw .hero img{filter:grayscale(1) contrast(1.06)}
+
+  .hero{position:relative;height:min(100svh,820px);min-height:540px;overflow:hidden;background:var(--off)}
+  .hero img{display:block;width:100%;height:100%;object-fit:cover}
+  .nm{font-family:var(--serif);font-weight:300;line-height:1.02;margin:0}
+  .caps{font:400 11.5px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase}
+  .sig{fill:none;stroke:currentColor;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+
+  /* C · Arco */
+  .c{display:grid;grid-template-columns:1.1fr .9fr;align-items:end;padding:0 var(--gut)}
+  .c .tx{align-self:center;position:relative;z-index:2;margin-right:-9vw}
+  .c .nm{font-size:clamp(2.6rem,6.4vw,6rem);letter-spacing:-.02em}
+  .c .nm em{font-style:italic}
+  .c .caps{margin-top:22px;color:var(--gray)}
+  .c .arch{height:calc(100% - 7vh);justify-self:end;width:min(100%,460px);border-radius:999px 999px 0 0;overflow:hidden;margin-top:7vh}
+  .c .arch img{object-position:72% 40%}
+  /* D · Moldura fina */
+  .d img{position:absolute;inset:0;object-position:78% 40%}
+  .d::before{content:"";position:absolute;inset:clamp(14px,2.4vw,30px);border:1px solid rgba(255,255,255,.85);z-index:2;pointer-events:none}
+  .d .tx{position:absolute;z-index:3;left:50%;bottom:clamp(14px,2.4vw,30px);transform:translate(-50%,50%);background:transparent;padding:0 clamp(16px,2.4vw,34px);text-align:center;color:#fff;white-space:nowrap;text-shadow:0 1px 18px rgba(0,0,0,.25)}
+  .d .tx::before{content:"";position:absolute;left:0;right:0;top:50%;height:calc(100% + 14px);transform:translateY(-50%);background:#555a52;opacity:0;z-index:-1}
+  .d .nm{font-size:clamp(1.8rem,4.6vw,3.8rem);letter-spacing:.14em;text-transform:uppercase}
+  .d .badge{position:absolute;left:50%;bottom:0;transform:translate(-50%,50%);z-index:3}
+  /* E · Faixa panorâmica */
+  .e{display:grid;grid-template-rows:auto 1fr;padding:clamp(34px,6vh,70px) var(--gut) var(--gut);gap:clamp(24px,4vh,48px);text-align:center}
+  .e .nm{font-size:clamp(2.4rem,8.6vw,7rem);letter-spacing:.02em;text-transform:uppercase;line-height:.96}
+  .e .caps{margin-top:16px;color:var(--gray)}
+  .e .band{min-height:0;overflow:hidden}
+  .e .band img{object-position:60% 38%}
+  /* F · Assimétrica, bleed embaixo */
+  .f{display:grid;grid-template-columns:1fr 1fr;padding-left:var(--gut)}
+  .f .tx{align-self:center;padding-right:30px}
+  .f .nm{font-size:clamp(2.6rem,6vw,5.4rem);letter-spacing:-.025em}
+  .f .nm span{display:block;font-style:italic;padding-left:.9em}
+  .f .ln{width:min(220px,40%);height:1px;background:var(--black);margin:30px 0 20px}
+  .f .ph{margin-top:11vh;overflow:hidden}
+  .f .ph img{object-position:62% 40%}
+  /* G · Nome vertical */
+  .g img{position:absolute;inset:0;object-position:80% 40%}
+  .g::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(15,25,20,.38),rgba(15,25,20,0) 50%)}
+  .g .v{position:absolute;z-index:2;left:var(--gut);top:50%;transform:translateY(-50%) rotate(180deg);writing-mode:vertical-rl;color:#fff;font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,8vw,6rem);letter-spacing:.06em;text-transform:uppercase;line-height:1;white-space:nowrap}
+  .g .caps{position:absolute;z-index:2;right:var(--gut);bottom:clamp(28px,6vh,60px);color:#fff}
+  /* H · Véu que abre (movimento: uma vez) */
+  .h img{position:absolute;inset:0;object-position:78% 40%;clip-path:inset(0 0 0 0)}
+  .h .cover{position:absolute;inset:0;background:var(--off);z-index:2;transform-origin:100% 50%;animation:lift 1.6s var(--ease) .25s both}
+  .h .tx{position:absolute;z-index:3;left:var(--gut);bottom:clamp(40px,12vh,110px);color:#fff;animation:rise 1.1s var(--ease) 1.3s both}
+  .h .nm{font-size:clamp(2.2rem,6vw,5rem);letter-spacing:.12em;text-transform:uppercase}
+  .h .caps{margin-top:16px}
+  .h::after{content:"";position:absolute;inset:0;background:linear-gradient(to right,rgba(15,25,20,.4),rgba(15,25,20,0) 60%);z-index:1}
+  .h.replay .cover,.h.replay .tx{animation:none}
+  @keyframes lift{from{transform:scaleX(1)}to{transform:scaleX(0)}}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  /* J · Texto centralizado */
+  .j img{position:absolute;inset:0;object-position:50% 40%}
+  .j::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 60% 42% at 50% 50%,rgba(10,14,12,.62),rgba(10,14,12,.28) 60%,rgba(10,14,12,.1))}
+  .j .tx{position:absolute;z-index:2;inset:0;display:grid;place-content:center;text-align:center;color:#fff;padding:0 22px}
+  .j .nm{font-size:clamp(2.2rem,6.4vw,5.4rem);letter-spacing:.14em;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+  .j .caps{margin-top:18px}
+  .j.k::after{background:linear-gradient(to bottom,rgba(10,14,12,.18),rgba(10,14,12,.5))}
+  /* I · Assinatura */
+  .i img{position:absolute;inset:0;object-position:78% 40%}
+  .i::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(15,25,20,.5),rgba(15,25,20,0) 55%)}
+  .i .tx{position:absolute;z-index:2;left:var(--gut);bottom:clamp(36px,9vh,90px);color:#fff}
+  .i svg{width:clamp(150px,22vw,260px);height:auto;display:block}
+  .i .caps{margin-top:14px}
+
+  @media (max-width:760px){
+    .hero{height:min(92svh,760px)}
+    .c{grid-template-columns:1fr;grid-template-rows:auto 1fr;padding-top:44px}.c .tx{margin:0 0 26px}.c .arch{justify-self:center;margin-top:0;width:min(78%,360px);height:100%}
+    .e .nm{font-size:clamp(2rem,11vw,3.4rem)}
+    .f{grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:44px var(--gut) 0}.f .ph{margin-top:0}.f .tx{padding:0 0 26px}
+    .g .v{font-size:clamp(2rem,13vw,3.6rem)}
+    .d .nm{font-size:1.4rem;letter-spacing:.1em}
+    .d img,.h img,.i img{object-position:34% 40%}
+    .j img{object-position:34% 40%}
+    .g img{object-position:42% 40%}
+    .c .arch img{object-position:40% 40%}
+    .f .ph img{object-position:38% 40%}
+    .e .band img{object-position:34% 40%}
+  }
+  @media (prefers-reduced-motion:reduce){.h .cover{animation:none;transform:scaleX(0)}.h .tx{animation:none}}
+</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sig" viewBox="30 70 320 175"><path d="M48 190C45 150 100 110 150 92C195 80 225 105 220 140C214 185 170 222 128 222C100 222 75 215 70 200C66 185 85 170 110 163"/><path d="M64 228C90 218 130 185 160 168C178 160 190 175 200 185C210 192 222 172 232 168C240 175 238 196 248 200C258 196 262 172 272 170C280 176 278 196 292 196"/><circle cx="328" cy="213" r="2.5" fill="currentColor"/></symbol></svg>
+
+<div class="tog" role="group" aria-label="Cor da foto"><button type="button" id="bc" aria-pressed="true">Cor</button><button type="button" id="bb" aria-pressed="false">Preto e branco</button></div>
+<div class="intro"><h1>Mais 7 heros com a foto do véu</h1><p>Sete ideias bem diferentes entre si, todas com a mesma foto e o nome da Débora. Em todas o nome fica no lado desfocado da imagem, nunca em cima da renda. A H tem um movimento, uma vez só, e um botão para repetir.</p></div>
+
+<div class="note"><b>C</b>Arco. A foto numa janela em arco, como um nicho de altar, e o nome grande em preto que invade a janela. Fundo claro, muita pausa.</div>
+<section class="hero c"><div class="tx"><h1 class="nm">Débora<br><em>Machado</em></h1><p class="caps">Beauty Artist</p></div><div class="arch"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"></div></section>
+
+<div class="note"><b>D</b>Moldura fina. Foto em tela cheia com um filete branco recuado, e o nome assenta sobre a borda inferior da moldura.</div>
+<section class="hero d"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"><div class="tx"><h1 class="nm">Débora Machado</h1></div></section>
+
+<div class="note"><b>E</b>Faixa panorâmica. O nome gigante em caixa-alta no alto, em preto, e a foto recortada numa faixa larga embaixo. Parece capa de revista de moda.</div>
+<section class="hero e"><div><h1 class="nm">Débora Machado</h1><p class="caps">Beauty Artist</p></div><div class="band"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"></div></section>
+
+<div class="note"><b>F</b>Assimétrica. O nome em duas linhas, a segunda em itálico e recuada, e a foto sangrando pelo pé da tela, começando mais abaixo no lado direito.</div>
+<section class="hero f"><div class="tx"><h1 class="nm">Débora<span>Machado</span></h1><div class="ln"></div><p class="caps">Beauty Artist</p></div><div class="ph"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"></div></section>
+
+<div class="note"><b>G</b>Nome vertical. O nome em pé, ao longo da borda esquerda, como a lombada de um livro. A foto fica livre e o "Beauty Artist" assina no canto.</div>
+<section class="hero g"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"><h1 class="v">Débora Machado</h1><p class="caps">Beauty Artist</p></section>
+
+<div class="note"><b>H</b>Véu que abre. Ao carregar, uma cortina clara se abre da direita para a esquerda e revela a foto, e só depois o nome sobe. Um único movimento, curto.<button type="button" id="rp">Repetir</button></div>
+<section class="hero h" id="h"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"><div class="cover"></div><div class="tx"><h1 class="nm">Débora Machado</h1><p class="caps">Beauty Artist</p></div></section>
+
+<div class="note"><b>I</b>Assinatura. No lugar do nome impresso, a assinatura manuscrita dela, em branco, no canto da foto. A mais pessoal e a mais discreta.</div>
+<section class="hero i"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"><div class="tx"><svg class="sig" viewBox="30 70 320 175" role="img" aria-label="Débora Machado"><use href="#sig"/></svg><p class="caps">Beauty Artist</p></div></section>
+<div class="note"><b>J</b>Texto centralizado. O nome no meio da tela, com um escurecimento suave em volta para a renda não atrapalhar a leitura. Mostra como fica o centro nesta foto.</div>
+<section class="hero j"><img src="layout-nina/fotos/veu-renda-hero.jpg" alt="Noiva com véu de renda cobrindo metade do rosto"><div class="tx"><h1 class="nm">Débora Machado</h1><p class="caps">Beauty Artist</p></div></section>
+<div style="height:60px"></div>
+<script>
+  const bc=document.getElementById('bc'),bb=document.getElementById('bb'),setBw=on=>{document.body.classList.toggle('bw',on);bc.setAttribute('aria-pressed',!on);bb.setAttribute('aria-pressed',on)};bc.onclick=()=>setBw(false);bb.onclick=()=>setBw(true);if(/[?&]bw/.test(location.search))setBw(true);
+  const h=document.getElementById('h');
+  document.getElementById('rp').onclick=()=>{h.classList.add('replay');void h.offsetWidth;h.classList.remove('replay')};
+</script>
+</body></html>

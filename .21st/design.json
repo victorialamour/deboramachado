@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "project": {
+    "name": "debora-machado",
+    "productType": "landing page de beauty artist de noivas",
+    "stack": [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ]
+  },
+  "sources": {
+    "tokens": [],
+    "components": [],
+    "assets": [],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "background": "#FFFFFF",
+      "paper": "#F6F6F5",
+      "line": "#DDDDDB",
+      "muted": "#6F6F6F",
+      "text": "#2B2B2B",
+      "ink": "#111111"
+    },
+    "typography": {
+      "display": "Cormorant Garamond, 300 e 400",
+      "body": "Jost, 300 e 400",
+      "script": "Pinyon Script, só para a assinatura DM."
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {
+      "rule": "um único movimento por seção; respeitar prefers-reduced-motion"
+    },
+    "density": "spacious"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [
+      "fundo branco e preto, fotos coloridas",
+      "figurinhas de maquiagem (blush, gloss, pincel) como único detalhe de cor",
+      "texto na voz da Débora, primeira pessoa, sem superlativos",
+      "alt em toda foto; foco visível; imagens com width e height; WebP até 1600 px"
+    ],
+    "avoid": [
+      "selo giratório",
+      "título com uma palavra só em itálico",
+      "rótulo em caixa alta acima do título",
+      "numeração onde o conteúdo não é uma sequência",
+      "cards idênticos e sombras genéricas"
+    ]
+  },
+  "decisions": [],
+  "evidence": [],
+  "generatedAt": "2026-10-03T13:24:53.301Z"
+}

@@ -1,0 +1,16 @@
+# originais pesados das fotos (as versões em WebP é que vão para o site)
+**/_orig/
+fotos/originais/
+
+# cópias de segurança do gerador
+*.bak*.js
+build.backup-*.js
+
+# sistema e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+node_modules/
+
+# configuração local do editor
+.claude/
