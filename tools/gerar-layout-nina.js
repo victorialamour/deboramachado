@@ -959,3 +959,12 @@ h = h.replace('</body>', "\n<script>\n  /* Depoimentos: um por vez, troca lenta,
 fs.writeFileSync(OUT, h);
 const left = (h.match(/Nina|nina|NC\b/g) || []);
 console.log('ok', h.length, 'menções restantes a Nina:', left.length);
+
+/* GERA_COPIA_NA_RAIZ: o GitHub Pages serve a raiz do repositório, então a página também vai para index.html na raiz */
+{
+  const path = require('path');
+  const raiz = path.join(path.dirname(path.dirname(OUT)), 'index.html');
+  const copia = h.replace(/(["' ,])(fotos|video)[/]/g, '$1layout-nina/$2/');
+  fs.writeFileSync(raiz, copia);
+  console.log('copia na raiz:', raiz);
+}
