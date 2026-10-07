@@ -964,7 +964,7 @@ console.log('ok', h.length, 'menções restantes a Nina:', left.length);
 {
   const path = require('path');
   const raiz = path.join(path.dirname(path.dirname(OUT)), 'index.html');
-  const copia = h.replace(/(["' ,])(fotos|video)[/]/g, '$1layout-nina/$2/');
+  const copia = h.replace(/(["' ,])(fotos|video)[/](?!mp4)/g, '$1layout-nina/$2/');
   fs.writeFileSync(raiz, copia);
   console.log('copia na raiz:', raiz);
 }
