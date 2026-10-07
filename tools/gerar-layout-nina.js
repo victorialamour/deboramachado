@@ -627,6 +627,8 @@ h = h.replace('</style>', `
     html .opening__text .title{text-wrap:balance}
     html .opening__actions{justify-content:center;align-items:center;flex-direction:column;gap:18px}
   }
+  /* Nome escrito a lápis: grafite com traço irregular */
+  html .about__hello .lapis{font-family:'La Belle Aurore','Cormorant Garamond',cursive;font-style:normal;font-weight:400;font-size:1.3em;line-height:1;color:#3d3d3b;letter-spacing:0;padding:0 .08em;display:inline-block;text-shadow:.4px .4px 0 rgba(0,0,0,.22);filter:url(#grafite)}
   /* Noivas DM: rolagem horizontal fixada (sem animação: fita comum com barra de rolagem) */
   .noivas{background:var(--off);padding:0}
   .noivas__pin{padding:96px 0 90px}
@@ -852,7 +854,7 @@ cut('<!-- ================= TOPO', '<!-- ================= RODAPÉ', `<!-- =====
       <div class="about__small"><div class="ph">${img('debora-2', 'Débora Machado olhando para a câmera', '50% 35%')}</div></div>
     </div>
     <div>
-      <h2 class="title about__hello reveal d1">Prazer, eu sou a <span class="pencil-g">D</span>ébora</h2>
+      <h2 class="title about__hello reveal d1">Prazer, eu sou a <span class="lapis">Débora</span></h2>
       <div class="about__text reveal d2">
         <p>Comecei na publicidade e na fotografia. Foi ali que aprendi a olhar pra composição, luz e enquadramento, e esse olhar veio comigo quando a beleza virou o meu trabalho.</p>
         <p>Hoje sou especializada em visagismo e colorimetria, e cuido de noivas em São Paulo e em casamentos pelo Brasil. Teve muito tempo em que precisei acreditar no meu trabalho antes de ele ser reconhecido. Ele foi, e hoje faço parte do Guia Constance Zahn.</p>
@@ -974,6 +976,9 @@ h = h.replace('</body>', "\n<script>\n  /* Dossiê: abas com linha deslizante, a
 h = h.replace('</body>', "\n<script>\n  /* Bastidores: o vídeo toca quando está na tela, pausa quando sai, e pode ser pausado */\n  (function () {\n    var v = document.getElementById(\"btsv\"), p = document.getElementById(\"btsp\"); if (!v || !p) return;\n    var calm = matchMedia(\"(prefers-reduced-motion: reduce)\").matches, manual = false;\n    var sync = function () { var paused = v.paused; p.setAttribute(\"aria-pressed\", paused); p.setAttribute(\"aria-label\", paused ? \"Reproduzir o vídeo\" : \"Pausar o vídeo\"); };\n    v.addEventListener(\"play\", sync); v.addEventListener(\"pause\", sync);\n    p.addEventListener(\"click\", function () { manual = true; if (v.paused) v.play().catch(function () {}); else v.pause(); });\n    if (calm) { v.pause(); sync(); return; }\n    if (!(\"IntersectionObserver\" in window)) return;\n    new IntersectionObserver(function (es) {\n      es.forEach(function (x) { if (x.isIntersecting) { if (!manual) v.play().catch(function () {}); } else v.pause(); });\n    }, { threshold: 0.45 }).observe(v);\n  })();\n</script>\n" + '</body>');
 
 h = h.replace('</body>', "\n<script>\n  /* Depoimentos: um por vez, troca lenta, traços para escolher */\n  (function () {\n    var st = document.getElementById(\"dpStack\"); if (!st) return;\n    var sl = [].slice.call(st.querySelectorAll(\".dp__sl\")), tk = [].slice.call(document.querySelectorAll(\".dp__ticks button\"));\n    var i = 0, t, calm = matchMedia(\"(prefers-reduced-motion: reduce)\").matches;\n    var fit = function () { var h = 0; sl.forEach(function (x) { h = Math.max(h, x.offsetHeight); }); st.style.height = h + \"px\"; };\n    var go = function (n) { i = n; sl.forEach(function (x, k) { x.classList.toggle(\"on\", k === i); }); tk.forEach(function (d, k) { d.setAttribute(\"aria-current\", k === i); }); };\n    var run = function () { clearInterval(t); if (!calm) t = setInterval(function () { go((i + 1) % sl.length); }, 8000); };\n    tk.forEach(function (d, k) { d.addEventListener(\"click\", function () { go(k); run(); }); });\n    st.addEventListener(\"mouseenter\", function () { clearInterval(t); }); st.addEventListener(\"mouseleave\", run);\n    addEventListener(\"resize\", fit); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); fit(); run();\n  })();\n</script>\n" + '</body>');
+
+h = h.replace('family=Ms+Madi','family=La+Belle+Aurore&family=Ms+Madi');
+h = h.replace('</body>', "<svg width=\"0\" height=\"0\" style=\"position:absolute\" aria-hidden=\"true\"><filter id=\"grafite\"><feTurbulence type=\"fractalNoise\" baseFrequency=\".9\" numOctaves=\"2\" result=\"n\"/><feDisplacementMap in=\"SourceGraphic\" in2=\"n\" scale=\"1.4\"/></filter></svg>" + '</body>');
 fs.writeFileSync(OUT, h);
 const left = (h.match(/Nina|nina|NC\b/g) || []);
 console.log('ok', h.length, 'menções restantes a Nina:', left.length);

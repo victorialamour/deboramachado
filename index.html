@@ -33,7 +33,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Ms+Madi&family=Pinyon+Script&family=Homemade+Apple&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=La+Belle+Aurore&family=Ms+Madi&family=Pinyon+Script&family=Homemade+Apple&family=Nothing+You+Could+Do&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -1053,6 +1053,8 @@
     html .opening__text .title{text-wrap:balance}
     html .opening__actions{justify-content:center;align-items:center;flex-direction:column;gap:18px}
   }
+  /* Nome escrito a lápis: grafite com traço irregular */
+  html .about__hello .lapis{font-family:'La Belle Aurore','Cormorant Garamond',cursive;font-style:normal;font-weight:400;font-size:1.3em;line-height:1;color:#3d3d3b;letter-spacing:0;padding:0 .08em;display:inline-block;text-shadow:.4px .4px 0 rgba(0,0,0,.22);filter:url(#grafite)}
   /* Noivas DM: rolagem horizontal fixada (sem animação: fita comum com barra de rolagem) */
   .noivas{background:var(--off);padding:0}
   .noivas__pin{padding:96px 0 90px}
@@ -1280,7 +1282,7 @@
       <div class="about__small"><div class="ph"><img src="layout-nina/fotos/debora-2.webp" srcset="layout-nina/fotos/debora-2-640.webp 640w, layout-nina/fotos/debora-2-1100.webp 1100w, layout-nina/fotos/debora-2.webp 1440w" sizes="(max-width:760px) 92vw, (max-width:1200px) 45vw, 600px" alt="Débora Machado olhando para a câmera" loading="lazy" style="object-position:50% 35%"></div></div>
     </div>
     <div>
-      <h2 class="title about__hello reveal d1">Prazer, eu sou a <span class="pencil-g">D</span>ébora</h2>
+      <h2 class="title about__hello reveal d1">Prazer, eu sou a <span class="lapis">Débora</span></h2>
       <div class="about__text reveal d2">
         <p>Comecei na publicidade e na fotografia. Foi ali que aprendi a olhar pra composição, luz e enquadramento, e esse olhar veio comigo quando a beleza virou o meu trabalho.</p>
         <p>Hoje sou especializada em visagismo e colorimetria, e cuido de noivas em São Paulo e em casamentos pelo Brasil. Teve muito tempo em que precisei acreditar no meu trabalho antes de ele ser reconhecido. Ele foi, e hoje faço parte do Guia Constance Zahn.</p>
@@ -1668,5 +1670,5 @@
     addEventListener("resize", fit); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit); fit(); run();
   })();
 </script>
-</body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="grafite"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.4"/></filter></svg></body>
 </html>
